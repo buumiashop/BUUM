@@ -39,3 +39,11 @@ marketing/contenido/
 marketing/revision_imagenes/
 marketing/gatitos/
 marketing/por-autorizar/
+
+# Agente
+.venv/
+*.db
+*.sqlite
+*.db-wal
+*.db-shm
+__pycache__/
