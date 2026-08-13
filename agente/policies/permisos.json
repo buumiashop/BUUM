@@ -1,0 +1,28 @@
+{
+  "permissions": {
+    "defaultMode": "dontAsk",
+    "allow": [
+      "Read(//opt/buum/**)",
+      "Grep",
+      "Glob"
+    ],
+    "deny": [
+      "Read(//etc/**)",
+      "Read(//root/**)",
+      "Read(//home/**)",
+      "Read(//proc/**)",
+      "Read(//sys/**)",
+      "Read(//dev/**)",
+      "Read(//var/**)",
+      "Read(//tmp/**)",
+      "Read(//opt/buum/.git/**)",
+      "Bash",
+      "Write",
+      "Edit",
+      "NotebookEdit",
+      "WebFetch",
+      "WebSearch",
+      "Task"
+    ]
+  }
+}
