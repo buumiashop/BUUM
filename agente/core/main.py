@@ -65,12 +65,17 @@ class Agente:
         with open(os.path.join(AGENTE_DIR, "policies", "SYSTEM.md"), encoding="utf-8") as f:
             self.system = f.read()
         self.db = DB()
-        self.cid = self.db.nueva_conversacion()
-        self.sesion_claude = None  # session_id de claude para hilar la conversacion
-        self.log.info("conversacion iniciada id=%s modelo=%s", self.cid, self.modelo)
 
-    def preguntar(self, msj: str) -> str:
-        self.db.guardar_mensaje(self.cid, "user", msj, self.modelo)
+    def nueva_conversacion(self) -> str:
+        cid = self.db.nueva_conversacion()
+        self.log.info("conversacion iniciada id=%s modelo=%s", cid, self.modelo)
+        return cid
+
+    def preguntar(self, cid: str, msj: str) -> str:
+        """Un turno: la sesion de claude se hila desde la DB (multi-conversacion segura)."""
+        self.db.guardar_mensaje(cid, "user", msj, self.modelo)
+        self.db.poner_titulo_si_vacio(cid, msj)
+        sesion = self.db.sesion_claude(cid)
         cmd = [
             CLAUDE_BIN, "-p", msj,
             "--model", self.modelo,
@@ -78,8 +83,8 @@ class Agente:
             "--settings", os.path.join(AGENTE_DIR, "policies", "permisos.json"),
             "--append-system-prompt", self.system,
         ]
-        if self.sesion_claude:
-            cmd += ["--resume", self.sesion_claude]
+        if sesion:
+            cmd += ["--resume", sesion]
         t0 = time.time()
         try:
             proc = subprocess.run(
@@ -97,10 +102,11 @@ class Agente:
             self.log.error("salida no-JSON rc=%s stderr=%s", proc.returncode, proc.stderr[:400])
             return f"Error del agente (rc={proc.returncode}). Revisa /var/log/buum/agente.log"
 
-        self.sesion_claude = data.get("session_id") or self.sesion_claude
+        if data.get("session_id"):
+            self.db.guardar_sesion_claude(cid, data["session_id"])
         u = data.get("usage", {})
         self.db.registrar_uso(
-            self.cid, self.modelo,
+            cid, self.modelo,
             int(u.get("input_tokens", 0) or 0) + int(u.get("cache_read_input_tokens", 0) or 0),
             int(u.get("output_tokens", 0) or 0),
             0.0,  # suscripcion: sin costo variable; el equivalente API queda en el log
@@ -112,16 +118,17 @@ class Agente:
             data.get("is_error"),
         )
         salida = (data.get("result") or "").strip() or "(sin respuesta)"
-        self.db.guardar_mensaje(self.cid, "assistant", salida, self.modelo)
+        self.db.guardar_mensaje(cid, "assistant", salida, self.modelo)
         return salida
 
 
 def main():
     sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
     agente = Agente()
+    cid = agente.nueva_conversacion()
 
     if len(sys.argv) > 1:
-        print("\nBUUM> " + agente.preguntar(" ".join(sys.argv[1:])) + "\n")
+        print("\nBUUM> " + agente.preguntar(cid, " ".join(sys.argv[1:])) + "\n")
         return
 
     print("Agente BUUM v1 (solo lectura, plan de suscripcion). Escribe 'salir' para terminar.")
@@ -134,7 +141,7 @@ def main():
             continue
         if msj.lower() in ("salir", "exit", "quit"):
             break
-        print("\nBUUM> " + agente.preguntar(msj) + "\n")
+        print("\nBUUM> " + agente.preguntar(cid, msj) + "\n")
 
 
 if __name__ == "__main__":
