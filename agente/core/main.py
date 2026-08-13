@@ -5,7 +5,7 @@ Sin costo variable: usa el plan de Claude del Fundador (CLAUDE_CODE_OAUTH_TOKEN)
 Permisos de herramientas: agente/policies/permisos.json (solo Read/Grep/Glob en /opt/buum).
 
 Uso (por SSH, como usuario buum):
-    python3 /opt/buum/agente/core/main.py "tu pregunta"
+    python3 /opt/buum/agente/core/main.py "tu pregunta"   (como usuario buum-agent)
     python3 /opt/buum/agente/core/main.py            # interactivo
 """
 import io
@@ -22,7 +22,7 @@ sys.path.insert(0, AGENTE_DIR)
 
 from core.db import DB  # noqa: E402
 
-ENV_FILE = "/etc/buum/buum.env"
+ENV_FILE = "/etc/buum/agent.env"  # minimo privilegio: SOLO token de suscripcion + modelo
 LOG_FILE = "/var/log/buum/agente.log"
 CLAUDE_BIN = os.path.expanduser("~/.local/bin/claude")
 TIMEOUT_S = 300
