@@ -1,0 +1,18 @@
+{
+  "corrida": "2026-07-11",
+  "modelo": "gemini-2.5-flash (3 críticos IA)",
+  "nota": "Veredictos reales de los 3 críticos. Gemini topó su cuota diaria a media tanda; las piezas en 'pendientes_por_cuota' se re-evaluarán cuando se libere.",
+  "resultados": {
+    "par9_actitud":   {"aprobado": true,  "promedio": 9.7, "criticos_ok": 3},
+    "par3_negocio":   {"aprobado": true,  "promedio": 9.3, "criticos_ok": 3},
+    "par8_casa":      {"aprobado": true,  "promedio": 9.3, "criticos_ok": 3},
+    "par6_manos":     {"aprobado": true,  "promedio": 9.3, "criticos_ok": 3},
+    "par19_may1":     {"aprobado": true,  "promedio": 9.0, "criticos_ok": 3},
+    "par3_hogar":     {"aprobado": true,  "promedio": 8.7, "criticos_ok": 3},
+    "par10_lujo":     {"aprobado": false, "promedio": 8.0, "motivo": "un crítico lo reprobó"},
+    "par17_12_azul":  {"aprobado": false, "promedio": 7.3, "motivo": "muy cargado de texto/precio"},
+    "par18_nike2":    {"aprobado": false, "promedio": 7.0, "motivo": "flojo vs. nivel mundial"},
+    "par8_apple":     {"aprobado": false, "promedio": 5.7, "motivo": "demasiado básica/minimal"}
+  },
+  "pendientes_por_cuota": ["par21_cosmos","par13_hogar","par16_paper","par10_vintage","par20_emprende","par4_agua","par6_flor","par9_bold","par18_nike1","par19_may2"]
+}

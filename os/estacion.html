@@ -1,0 +1,101 @@
+<!doctype html><html lang="es"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Cache-Control" content="no-store">
+<title>BUUM · Estación de Contenido</title>
+<style>
+ :root{--o:#EA5003;--n:#001866;--n2:#0a1f6e;--bg:#0c1017;--card:#141a24;--line:#232c3a;--tx:#eaf0fb;--mut:#8b95a8}
+ *{box-sizing:border-box;margin:0;padding:0}
+ body{background:var(--bg);color:var(--tx);font-family:Arial,Helvetica,sans-serif;padding:18px 16px 60px}
+ header{display:flex;align-items:center;gap:10px;margin-bottom:4px}
+ header .lg{font-weight:900;color:var(--o);font-size:22px;letter-spacing:.5px}
+ header .lg span{color:var(--tx)}
+ .sub{color:var(--mut);font-size:12.5px;margin-bottom:16px}
+ .week{display:flex;gap:7px;overflow-x:auto;padding-bottom:8px;margin-bottom:16px}
+ .day{flex:0 0 auto;min-width:92px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:9px 11px;cursor:pointer;text-align:center}
+ .day.act{border-color:var(--o);background:#1c2431}
+ .day.hoy .dn{color:var(--o)}
+ .day .dn{font-size:12px;font-weight:bold}
+ .day .dd{font-size:11px;color:var(--mut);margin-top:2px}
+ .day .cnt{font-size:10px;color:var(--mut);margin-top:5px}
+ h2{font-size:15px;margin:6px 0 12px}
+ .piece{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;margin-bottom:14px}
+ .ph{display:flex;align-items:center;gap:9px;margin-bottom:9px;flex-wrap:wrap}
+ .tag{font-size:10.5px;font-weight:bold;padding:3px 9px;border-radius:20px;text-transform:uppercase;letter-spacing:.4px}
+ .t-hist{background:#7a3bd0;color:#fff}.t-carr{background:#0d63d8;color:#fff}.t-vid{background:#d0333b;color:#fff}
+ .hora{font-size:11px;color:var(--mut)}
+ .titp{font-weight:bold;font-size:14px}
+ .obj{font-size:11.5px;color:var(--mut);margin-bottom:10px}
+ .pr{background:#0e131b;border:1px solid var(--line);border-radius:10px;padding:10px 11px;margin:7px 0;font-size:11.5px;color:#cdd6e6;line-height:1.5;white-space:pre-wrap}
+ .pr .n{color:var(--o);font-weight:bold;font-size:10.5px;display:block;margin-bottom:4px}
+ .btns{display:flex;gap:7px;flex-wrap:wrap;margin-top:6px}
+ button{border:0;border-radius:9px;padding:8px 13px;font-size:12px;font-weight:bold;cursor:pointer;font-family:inherit}
+ .b-copy{background:var(--o);color:#fff}.b-copyall{background:#1e2836;color:var(--tx);border:1px solid var(--line)}
+ .b-dl{background:#0d63d8;color:#fff}.b-ok{background:#1a7f37;color:#fff}.b-ed{background:#1e2836;color:var(--tx);border:1px solid var(--line)}
+ .state{font-size:11px;font-weight:bold;padding:3px 10px;border-radius:20px;margin-left:auto}
+ .s-pend{background:#2a2f3a;color:var(--mut)}.s-desc{background:#0d63d8;color:#fff}.s-prog{background:#1a7f37;color:#fff}
+ .flow{font-size:11px;color:var(--mut);background:#0e131b;border:1px dashed var(--line);border-radius:9px;padding:9px 11px;margin-top:9px}
+ .flow b{color:#7fd0ff}
+ .toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:var(--o);color:#fff;padding:10px 18px;border-radius:24px;font-size:13px;font-weight:bold;opacity:0;transition:.2s;pointer-events:none}
+ .toast.on{opacity:1}
+ .empty{color:var(--mut);font-size:13px;padding:20px;text-align:center}
+</style></head><body>
+<header><div class="lg">BUUM<span> · Estación de Contenido</span></div></header>
+<div class="sub">Híbrido: tú generas la imagen en ChatGPT (copiar prompt), la descargas, me dices "ya" y yo armo el anuncio + preview + programo. Nada se publica sin tu OK.</div>
+<div class="week" id="week"></div>
+<h2 id="dtitle"></h2>
+<div id="pieces"></div>
+<div class="toast" id="toast"></div>
+<script src="estacion-data.js"></script>
+<script>
+ const ST=JSON.parse(localStorage.getItem('buum_estacion')||'{}');
+ const save=()=>localStorage.setItem('buum_estacion',JSON.stringify(ST));
+ const HOY="2026-07-14";
+ let sel=HOY;
+ function toast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('on');setTimeout(()=>t.classList.remove('on'),1400);}
+ function copy(txt,msg){navigator.clipboard.writeText(txt).then(()=>toast(msg||'Prompt copiado ✓'));}
+ function renderWeek(){
+   const w=document.getElementById('week');w.innerHTML='';
+   Object.keys(SEMANA).forEach(f=>{
+     const d=SEMANA[f];const el=document.createElement('div');
+     el.className='day'+(f===sel?' act':'')+(f===HOY?' hoy':'');
+     el.innerHTML=`<div class="dn">${d.dia}</div><div class="dd">${f.slice(8)}/${f.slice(5,7)}</div><div class="cnt">${d.piezas.length} piezas</div>`;
+     el.onclick=()=>{sel=f;renderWeek();renderDay();};w.appendChild(el);
+   });
+ }
+ function pieceState(id){return (ST[id]&&ST[id].estado)||'pend';}
+ function setState(id,e){ST[id]=ST[id]||{};ST[id].estado=e;save();renderDay();}
+ function renderDay(){
+   const d=SEMANA[sel];document.getElementById('dtitle').textContent=`${d.dia} ${sel.slice(8)}/${sel.slice(5,7)}`;
+   const c=document.getElementById('pieces');c.innerHTML='';
+   d.piezas.forEach(p=>{
+     const st=pieceState(p.id);
+     const cls=p.tipo==='historia'?'t-hist':p.tipo==='carrusel'?'t-carr':'t-vid';
+     const sc=st==='prog'?'s-prog':st==='desc'?'s-desc':'s-pend';
+     const sl=st==='prog'?'PROGRAMADA ✓':st==='desc'?'DESCARGADA':'PENDIENTE';
+     const div=document.createElement('div');div.className='piece';
+     let prompts='';
+     p.prompts.forEach((pr,i)=>{
+       const lbl=p.prompts.length>1?`Imagen ${i+1} de ${p.prompts.length}`:'Prompt para ChatGPT';
+       prompts+=`<div class="pr"><span class="n">${lbl}</span>${pr}</div>`;
+     });
+     const allTxt=p.prompts.map((x,i)=>(p.prompts.length>1?`--- Imagen ${i+1} ---\n`:'')+x).join('\n\n');
+     div.innerHTML=`
+       <div class="ph"><span class="tag ${cls}">${p.tipo}</span><span class="hora">🕒 ${p.hora}</span><span class="state ${sc}">${sl}</span></div>
+       <div class="titp">${p.titulo}</div><div class="obj">${p.obj||''}</div>
+       ${prompts}
+       <div class="btns">
+         ${p.prompts.length>1?`<button class="b-copyall" onclick='copyAll(${JSON.stringify(allTxt)})'>Copiar los ${p.prompts.length}</button>`:''}
+         ${p.prompts.map((pr,i)=>`<button class="b-copy" onclick='copy(${JSON.stringify(pr)},"Copiado ✓")'>Copiar${p.prompts.length>1?" #"+(i+1):" prompt"}</button>`).join('')}
+       </div>
+       <div class="flow">1) Copia → pégalo en <b>ChatGPT</b> → descarga la imagen. 2) Guárdala en <b>marketing/entrantes/</b> y dime <b>"ya, ${p.id}"</b>. 3) Yo armo el anuncio + texto y te muestro <b>preview</b>. 4) Tú: Autorizar → se <b>programa</b> a las ${p.hora}.</div>
+       <div class="btns" style="margin-top:9px">
+         <button class="b-dl" onclick="setState('${p.id}','desc')">Ya la descargué</button>
+         <button class="b-ok" onclick="setState('${p.id}','prog')">Autorizar / Programar</button>
+         <button class="b-ed" onclick="toast('Dime qué editar y lo ajusto')">Editar</button>
+       </div>`;
+     c.appendChild(div);
+   });
+ }
+ function copyAll(t){copy(t,'Los prompts copiados ✓');}
+ renderWeek();renderDay();
+</script></body></html>

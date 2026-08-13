@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BUUM · Plan Maestro de la Empresa</title>
+<style>
+  @font-face{font-family:'BUUM';src:url('../buumia-catalogo/marca/fonts/Baloo2-ExtraBold.ttf');font-display:swap}
+  :root{--naranja:#EA5003;--azul:#102AC4;--azul-osc:#001866;--fondo:#04060f;--panel:#0b0f1e;
+        --linea:rgba(255,255,255,.09);--texto:#f4f6ff;--verde:#7dffa8;--ambar:#ffd9a8}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--fondo);color:var(--texto);font-family:'Segoe UI',system-ui,sans-serif;padding-bottom:80px}
+  h1,h2,h3,.num{font-family:'BUUM','Segoe UI',sans-serif}
+  a{color:#8fa3ff}
+  header{text-align:center;padding:56px 5vw 30px;
+        background:radial-gradient(ellipse 60% 80% at 50% 0%,rgba(234,80,3,.16),transparent 70%)}
+  header img{height:78px}
+  header h1{font-size:clamp(1.9rem,5vw,3.2rem);margin-top:14px}
+  header h1 span{color:var(--naranja)}
+  header p{color:#9fabd8;margin-top:8px;font-size:1.1rem}
+  section{max-width:1150px;margin:0 auto;padding:38px 5vw 0}
+  .sec-t{font-size:1.6rem;margin-bottom:18px;border-left:5px solid var(--naranja);padding-left:14px}
+
+  .nums{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+  .kpi{background:var(--panel);border:1px solid var(--linea);border-radius:20px;padding:22px;text-align:center}
+  .kpi .num{font-size:2.1rem;color:var(--ambar)}
+  .kpi.verde .num{color:var(--verde)}
+  .kpi small{color:#9fabd8;display:block;margin-top:4px;line-height:1.4}
+
+  .fases{display:grid;gap:14px}
+  .fase{display:grid;grid-template-columns:110px 1fr;background:var(--panel);border:1px solid var(--linea);
+        border-radius:18px;overflow:hidden}
+  .fase .tag{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;
+        background:linear-gradient(160deg,var(--azul),var(--azul-osc));font-family:'BUUM',sans-serif;padding:14px}
+  .fase .tag b{font-size:1.7rem}
+  .fase .tag span{font-size:.72rem;opacity:.8;text-align:center}
+  .fase.activa .tag{background:linear-gradient(160deg,var(--naranja),#962D08)}
+  .fase .cont{padding:16px 20px}
+  .fase h3{margin-bottom:4px}
+  .fase p{color:#aab4dc;font-size:.95rem;line-height:1.5}
+  .fase .paso{margin-top:8px;font-size:.88rem;color:var(--verde)}
+  .fase .paso::before{content:'✔ Pasa cuando: ';color:#7c88b8}
+
+  .dos{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  @media(max-width:760px){.dos{grid-template-columns:1fr}.fase{grid-template-columns:84px 1fr}}
+  .caja{background:var(--panel);border:1px solid var(--linea);border-radius:20px;padding:24px}
+  .caja h3{color:var(--ambar);margin-bottom:12px}
+  .caja ul{list-style:none}
+  .caja li{padding:7px 0;border-bottom:1px dashed var(--linea);color:#c9d2f2;font-size:.96rem}
+  .caja li:last-child{border:none}
+  .caja li b{color:#fff}
+  .pill{display:inline-block;background:rgba(234,80,3,.16);border:1px solid rgba(234,80,3,.4);
+        color:#ffb98a;border-radius:999px;padding:2px 12px;font-size:.8rem;margin-right:6px}
+
+  .regla{display:flex;gap:12px;margin-top:14px}
+  .regla div{flex:1;text-align:center;border-radius:14px;padding:16px 8px;font-family:'BUUM',sans-serif}
+  .r70{background:rgba(234,80,3,.2);border:1px solid rgba(234,80,3,.5);flex:7}
+  .r20{background:rgba(16,42,196,.25);border:1px solid rgba(93,123,255,.5);flex:2.5}
+  .r10{background:rgba(125,255,168,.12);border:1px solid rgba(125,255,168,.4);flex:1.6}
+  .regla b{display:block;font-size:1.4rem}
+  .regla small{font-family:'Segoe UI';color:#c9d2f2}
+
+  .docs{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+  .docs a{background:var(--panel);border:1px solid var(--linea);border-radius:14px;padding:16px;
+        display:block;color:#c9d2f2;transition:.2s;text-decoration:none}
+  .docs a:hover{border-color:var(--naranja);transform:translateY(-3px)}
+  .docs b{color:#fff;display:block;margin-bottom:4px}
+  .cta{display:inline-block;margin-top:16px;padding:14px 30px;border-radius:999px;font-family:'BUUM',sans-serif;
+       background:linear-gradient(135deg,var(--naranja),#ff7a2f);color:#fff;font-size:1.05rem;text-decoration:none;
+       box-shadow:0 6px 24px rgba(234,80,3,.4)}
+</style>
+</head>
+<body>
+
+<header>
+  <img src="../buumia-catalogo/marca/logo-buum-horizontal.png" alt="BUUM">
+  <h1>Plan Maestro: <span>de la cochera a la superempresa</span></h1>
+  <p>Empresa de novedades importadas de China · La IA como cerebro · Diseñada 10-jul-2026</p>
+</header>
+
+<section>
+  <h2 class="sec-t">La primera piedra: 3,000 focos</h2>
+  <div class="nums">
+    <div class="kpi"><div class="num">$120,000</div><small>inversión del lote<br>(ya apartada)</small></div>
+    <div class="kpi"><div class="num">$225,000</div><small>venta total a $75/pza<br>(cajas de 12 y 30)</small></div>
+    <div class="kpi verde"><div class="num">≈$100,000</div><small>utilidad en ~4 meses<br>(78% de retorno)</small></div>
+    <div class="kpi"><div class="num">70/mes</div><small>focos para cubrir gastos fijos<br>— lo demás es ganancia</small></div>
+    <div class="kpi"><div class="num">1 caja/día</div><small>ritmo objetivo (30 pzas)<br>reorden al vender 1,500</small></div>
+  </div>
+  <div class="regla">
+    <div class="r70"><b>70%</b><small>reinvertir en mercancía</small></div>
+    <div class="r20"><b>20%</b><small>publicidad</small></div>
+    <div class="r10"><b>10%</b><small>tú + reserva</small></div>
+  </div>
+</section>
+
+<section>
+  <h2 class="sec-t">Las 7 fases del rascacielos</h2>
+  <div class="fases">
+    <div class="fase activa"><div class="tag"><b>F0</b><span>AHORA<br>→ mes 3</span></div><div class="cont">
+      <h3>Pedir y preparar</h3>
+      <p>Colocar el pedido en Alibaba (DDP + Trade Assurance) · publicar la web · 30 piezas de contenido · cartera de 50 contactos · equipar cochera ($4,700).</p>
+      <div class="paso">el lote está en la cochera</div></div></div>
+    <div class="fase"><div class="tag"><b>F1</b><span>mes 3–7</span></div><div class="cont">
+      <h3>Vender los 3,000 (cochera, 0 empleados)</h3>
+      <p>WhatsApp + web + orgánico diario. Planes A/B/C listos según ritmo. Al vender 1,500 → pedir lote 2 (6,000 pzas con caja marca BUUM).</p>
+      <div class="paso">3,000 vendidos + lote 2 pedido + $60k en caja</div></div></div>
+    <div class="fase"><div class="tag"><b>F2</b><span>mes 7–12</span></div><div class="cont">
+      <h3>Catálogo y novedades</h3>
+      <p>Primeras 2 novedades del radar (lotes de 500–1,000) · Mercado Libre · ads $3–6k/mes del margen · 1 ayudante medio tiempo. Meta: <b>$150k/mes</b>.</p>
+      <div class="paso">3 meses seguidos ≥$120k/mes</div></div></div>
+    <div class="fase"><div class="tag"><b>F3</b><span>año 2</span></div><div class="cont">
+      <h3>Bodega chica + empresa formal</h3>
+      <p>Bodega 60–100 m² en renta + racks (≈$50k) · S.A.S. gratis · contador · 1 almacenista · TikTok Shop · fondo de terreno 15%. Meta: <b>$400k/mes</b>.</p>
+      <div class="paso">$400k/mes × 3 meses + $300k ahorrados</div></div></div>
+    <div class="fase"><div class="tag"><b>F4</b><span>año 3</span></div><div class="cont">
+      <h3>Terreno propio</h3>
+      <p>500–1,000 m² industriales en la periferia ($500k–1.5M) · fondo + crédito PyME · notario y uso de suelo verificado. Meta: <b>$800k–1M/mes</b>.</p>
+      <div class="paso">terreno escriturado</div></div></div>
+    <div class="fase"><div class="tag"><b>F5</b><span>año 3–4</span></div><div class="cont">
+      <h3>Bodega propia austera</h3>
+      <p>Nave 300–400 m² ($1.5–2.5M, 3 cotizaciones) · montacargas · WMS propio con código de barras · tarifas de paquetería por contrato. Meta: <b>$1.5–2M/mes</b>.</p>
+      <div class="paso">bodega operando + utilidad $350k/mes × 6 meses</div></div></div>
+    <div class="fase"><div class="tag"><b>F6</b><span>año 5+</span></div><div class="cont">
+      <h3>Bodega inteligente + distribución nacional 🏆</h3>
+      <p>Bandas, drones de inventario, robots (cada capa se compra solo si se paga sola en ≤18 meses) · mayoristas regionales · Amazon FBA / ML Full. Meta: <b>$5M+/mes</b>.</p>
+      <div class="paso">la superempresa</div></div></div>
+  </div>
+</section>
+
+<section>
+  <h2 class="sec-t">Cómo se reparte el trabajo (99% IA / 1% tú)</h2>
+  <div class="dos">
+    <div class="caja"><h3>🤖 La IA (el 99%)</h3><ul>
+      <li><b>Radar de tendencias</b> — cada lunes, 10 productos investigados con score</li>
+      <li><b>Marketing completo</b> — crea, publica y mide (pipeline ya funcionando)</li>
+      <li><b>Ventas</b> — chat de la web, borradores de WhatsApp, cotizaciones, links de pago</li>
+      <li><b>Números</b> — caja diaria, inventario, semáforos, regla 70/20/10</li>
+      <li><b>Propuestas A/B/C</b> — todo masticado, listo para autorizar</li>
+    </ul></div>
+    <div class="caja"><h3>👑 Tú (el 1%)</h3><ul>
+      <li><b>Autorizar pagos</b> — pedidos a China, gastos grandes (una palabra: "va")</li>
+      <li><b>Elegir productos</b> — 3 de 10 candidatos, con tu ojo de 20 años</li>
+      <li><b>Cerrar clientes grandes</b> — tu cartera es el arma secreta</li>
+      <li><b>Empacar/entregar</b> — solo al inicio, 30–60 min/día</li>
+    </ul></div>
+  </div>
+</section>
+
+<section>
+  <h2 class="sec-t">Integraciones (una a la vez, en este orden)</h2>
+  <div class="caja">
+    <span class="pill">F0–1</span> Mercado Pago → Skydropx (guías) → WhatsApp Business ·
+    <span class="pill">F2</span> Mercado Libre → Meta Ads ·
+    <span class="pill">F3</span> TikTok Shop → Google Ads ·
+    <span class="pill">F4+</span> Amazon MX → WMS propio → Banca/SAT
+    <p style="color:#9fabd8;margin-top:10px;font-size:.92rem">Ya conectados hoy: Gemini · Replicate · Meta (FB+IG) · Shopify · Claude. Regla: no se conecta la siguiente hasta que la anterior opere sola 2 semanas.</p>
+  </div>
+</section>
+
+<section>
+  <h2 class="sec-t">Los documentos de la empresa</h2>
+  <div class="docs">
+    <a href="01-ESTRATEGIA.md"><b>01 · Estrategia</b>Modelo de negocio, marca paraguas, radar de tendencias</a>
+    <a href="02-FINANZAS.md"><b>02 · Finanzas</b>Números, flujo de caja, planes A/B/C, 70/20/10</a>
+    <a href="03-OPERACIONES.md"><b>03 · Operaciones</b>Alibaba, importación DDP, cochera, paqueterías, pagos</a>
+    <a href="04-ROADMAP-FASES.md"><b>04 · Roadmap</b>Las 7 fases con costos, personal y a quién pagar</a>
+    <a href="05-ESTRUCTURA-IA.md"><b>05 · Estructura + IA</b>Organigrama, autonomía 99/1, integraciones</a>
+    <a href="06-MARKETING.md"><b>06 · Marketing</b>Embudo, contenido, ads por fase, playbook de lanzamiento</a>
+    <a href="MANUAL-DUENO.md"><b>📖 Manual del dueño</b>Tu manual en cristiano, sin tecnicismos</a>
+    <a href="MANUAL-IA.md"><b>🤖 Manual de la IA</b>Cómo está montado todo (técnico)</a>
+  </div>
+  <center><a class="cta" href="web/index.html">🌐 Ver la nueva web de BUUM →</a></center>
+</section>
+
+<section>
+  <h2 class="sec-t">Próximos pasos (esta semana)</h2>
+  <div class="caja"><ul>
+    <li>1️⃣ <b>Dime tu ciudad</b> → afino envíos y costos de bodega/terreno de tu zona</li>
+    <li>2️⃣ <b>Colocar el pedido de los 3,000 focos</b> — te redacto la orden completa para Alibaba, tú pagas</li>
+    <li>3️⃣ <b>Dominio + subir la web</b> (~$400/año) y poner tu número de WhatsApp en los botones</li>
+    <li>4️⃣ <b>Alta en Mercado Pago</b> (15 min, gratis) para cobrar tarjeta y OXXO</li>
+    <li>5️⃣ <b>Arrancar las 30 piezas de contenido</b> de Fase 0 con el pipeline de marketing</li>
+  </ul></div>
+</section>
+
+</body>
+</html>

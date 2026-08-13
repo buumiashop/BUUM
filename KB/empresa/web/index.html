@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BUUM — Súper calidad y súper precio · Foco LED 60W por mayoreo</title>
+<style>
+  @font-face{font-family:'BUUM';src:url('../../buumia-catalogo/marca/fonts/Baloo2-ExtraBold.ttf');font-display:swap}
+  :root{
+    --naranja:#EA5003; --naranja-osc:#962D08; --azul:#102AC4; --azul-osc:#001866;
+    --fondo:#04060f; --panel:#0b0f1e; --linea:rgba(255,255,255,.08); --texto:#f4f6ff;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--fondo);color:var(--texto);font-family:'Segoe UI',system-ui,sans-serif;overflow-x:hidden}
+  img{max-width:100%}
+  h1,h2,h3,.num{font-family:'BUUM','Segoe UI',sans-serif;letter-spacing:.5px}
+  a{text-decoration:none;color:inherit}
+
+  /* NAV */
+  nav{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;
+      padding:10px 5vw;background:rgba(4,6,15,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--linea)}
+  nav img{height:44px}
+  .btn{display:inline-block;padding:13px 26px;border-radius:999px;font-weight:800;font-family:'BUUM',sans-serif;
+       font-size:1rem;transition:.2s;cursor:pointer;border:none}
+  .btn-naranja{background:linear-gradient(135deg,var(--naranja),#ff7a2f);color:#fff;
+       box-shadow:0 6px 24px rgba(234,80,3,.45)}
+  .btn-naranja:hover{transform:translateY(-2px);box-shadow:0 10px 32px rgba(234,80,3,.65)}
+  .btn-linea{border:2px solid var(--azul);color:#aebaff}
+  .btn-linea:hover{background:rgba(16,42,196,.2)}
+
+  /* HERO */
+  .hero{position:relative;min-height:92vh;display:flex;flex-direction:column;align-items:center;
+        justify-content:center;text-align:center;padding:40px 5vw 70px}
+  .hero::before{content:'';position:absolute;inset:0;
+        background:radial-gradient(ellipse 60% 45% at 50% 38%,rgba(255,214,150,.28),rgba(234,80,3,.10) 45%,transparent 70%),
+                   radial-gradient(ellipse 80% 60% at 50% 100%,rgba(16,42,196,.18),transparent 60%);
+        animation:encender 1.6s ease-out}
+  @keyframes encender{0%{opacity:0}55%{opacity:.25}70%{opacity:.9}80%{opacity:.5}100%{opacity:1}}
+  .foco{position:relative;width:min(300px,60vw);
+        filter:drop-shadow(0 0 45px rgba(255,220,160,.85)) drop-shadow(0 0 130px rgba(255,180,90,.4));
+        animation:flotar 5s ease-in-out infinite}
+  @keyframes flotar{50%{transform:translateY(-12px)}}
+  .hero h1{font-size:clamp(2.1rem,6vw,4.2rem);line-height:1.05;margin-top:26px}
+  .hero h1 .n{color:var(--naranja)} .hero h1 .a{color:#5d7bff}
+  .hero p{margin:14px 0 6px;font-size:clamp(1.05rem,2.4vw,1.35rem);color:#c9d2f2}
+  .precio-chip{display:inline-block;margin:16px 0 26px;padding:10px 26px;border-radius:999px;
+        background:rgba(255,255,255,.06);border:1px solid var(--linea);font-size:1.15rem}
+  .precio-chip b{color:#ffd9a8;font-size:1.5rem;font-family:'BUUM',sans-serif}
+  .hero .acciones{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+
+  /* SPECS */
+  .specs{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;padding:22px 5vw;
+         border-top:1px solid var(--linea);border-bottom:1px solid var(--linea);background:var(--panel)}
+  .specs span{padding:8px 18px;border-radius:999px;border:1px solid var(--linea);
+         color:#ffe9c9;font-weight:700;font-size:.95rem;white-space:nowrap}
+
+  section{padding:72px 5vw;max-width:1150px;margin:0 auto}
+  .sec-t{text-align:center;font-size:clamp(1.7rem,4vw,2.6rem);margin-bottom:8px}
+  .sec-s{text-align:center;color:#9fabd8;margin-bottom:44px;font-size:1.05rem}
+
+  /* PACKS */
+  .packs{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:26px}
+  .pack{position:relative;background:var(--panel);border:1px solid var(--linea);border-radius:26px;
+        padding:26px;text-align:center;transition:.25s}
+  .pack:hover{transform:translateY(-6px);border-color:rgba(234,80,3,.5);box-shadow:0 18px 50px rgba(234,80,3,.18)}
+  .pack .fav{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--naranja),#ff8c3f);
+        color:#fff;font-weight:800;padding:6px 20px;border-radius:999px;font-size:.85rem;font-family:'BUUM',sans-serif}
+  .pack .img{background:#fff;border-radius:18px;overflow:hidden;margin-bottom:18px}
+  .pack h3{font-size:1.5rem}
+  .pack .num{font-size:2.4rem;color:#ffd9a8;margin:6px 0}
+  .pack small{color:#9fabd8;display:block;margin-bottom:16px}
+
+  /* CALCULADORA */
+  .calc{background:linear-gradient(160deg,rgba(16,42,196,.25),rgba(0,24,102,.35));border:1px solid rgba(93,123,255,.35);
+        border-radius:26px;padding:36px;display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center}
+  .calc label{font-weight:700;color:#c9d2f2;display:block;margin-bottom:10px}
+  .calc input{width:100%;padding:16px;font-size:1.6rem;font-family:'BUUM',sans-serif;text-align:center;border-radius:14px;
+        border:2px solid rgba(93,123,255,.5);background:#0a0e1d;color:#fff;outline:none}
+  .calc input:focus{border-color:var(--naranja)}
+  .gan .num{font-size:clamp(2.2rem,5vw,3.4rem);color:#7dffa8}
+  .gan p{color:#9fabd8}
+  @media(max-width:720px){.calc{grid-template-columns:1fr;text-align:center}}
+
+  /* WHY */
+  .why{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:22px}
+  .why div{background:var(--panel);border:1px solid var(--linea);border-radius:22px;padding:30px;text-align:center}
+  .why .ico{font-size:2.6rem;display:block;margin-bottom:12px}
+  .why h3{margin-bottom:8px;color:#ffe9c9}
+  .why p{color:#9fabd8;font-size:.98rem;line-height:1.5}
+
+  /* CTA FINAL */
+  .final{text-align:center;position:relative}
+  .final::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 50% 60% at 50% 50%,rgba(234,80,3,.14),transparent 70%)}
+  .final img{height:110px;position:relative}
+  .final h2{font-size:clamp(1.8rem,4.5vw,2.8rem);margin:16px 0 10px;position:relative}
+  .final p{color:#9fabd8;margin-bottom:26px;position:relative}
+
+  footer{border-top:1px solid var(--linea);padding:28px 5vw;display:flex;flex-wrap:wrap;gap:14px;
+         align-items:center;justify-content:space-between;color:#7c88b8;font-size:.92rem}
+</style>
+</head>
+<body>
+
+<nav>
+  <img src="../../buumia-catalogo/marca/logo-buum-horizontal.png" alt="BUUM">
+  <a class="btn btn-naranja" href="#" data-wa="Hola BUUM 👋 quiero precios de mayoreo del foco 60W">Mayoreo por WhatsApp</a>
+</nav>
+
+<header class="hero">
+  <img class="foco" src="../../buumia-catalogo/foco-led-60w/fotos/60w-1-clean.png" alt="Foco LED 60W BUUM">
+  <h1><span class="n">SÚPER CALIDAD</span><br>Y <span class="a">SÚPER PRECIO</span></h1>
+  <p>Foco LED 60W directo de fábrica · Ilumina como 4 focos normales</p>
+  <div class="precio-chip">Desde <b>$75</b> por pieza en caja</div>
+  <div class="acciones">
+    <a class="btn btn-naranja" href="#packs">Quiero mi caja</a>
+    <a class="btn btn-linea" href="#ganancia">¿Cuánto gano revendiendo?</a>
+  </div>
+</header>
+
+<div class="specs">
+  <span>⚡ 60W reales</span><span>🔌 85–285V (aguanta todo voltaje)</span>
+  <span>💎 Mica cristalina</span><span>💡 Luz blanca potente</span><span>🔩 Rosca E27 estándar</span>
+</div>
+
+<section id="packs">
+  <h2 class="sec-t">Elige tu caja</h2>
+  <p class="sec-s">Cajas selladas de fábrica · el envío se cobra al costo real de la guía</p>
+  <div class="packs">
+    <div class="pack">
+      <div class="img"><img src="../../buumia-tienda/packs/grupo-focos.png" alt="Paquete 12 focos"></div>
+      <h3>Caja de 12</h3>
+      <div class="num">$899.99</div>
+      <small>sale a $75 por foco · ideal para probar</small>
+      <a class="btn btn-linea" href="#" data-wa="Hola BUUM 👋 quiero una CAJA DE 12 focos 60W ($899.99)">Pedir por WhatsApp</a>
+    </div>
+    <div class="pack">
+      <span class="fav">⭐ LA FAVORITA DE LOS NEGOCIOS</span>
+      <div class="img"><img src="../../buumia-tienda/packs/caja-focos.png" alt="Caja 30 focos"></div>
+      <h3>Caja de 30</h3>
+      <div class="num">$2,249.99</div>
+      <small>sale a $75 por foco · caja master sellada</small>
+      <a class="btn btn-naranja" href="#" data-wa="Hola BUUM 👋 quiero una CAJA DE 30 focos 60W ($2,249.99)">Pedir por WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<section id="ganancia">
+  <h2 class="sec-t">Tú pones tu precio. <span style="color:#7dffa8">Tú ganas.</span></h2>
+  <p class="sec-s">Compra la caja de 30 en $2,249.99 y revende al precio que TÚ decidas</p>
+  <div class="calc">
+    <div>
+      <label>¿A cuánto venderás cada foco en tu negocio?</label>
+      <input id="precio" type="number" value="110" min="76" max="300" step="5">
+    </div>
+    <div class="gan">
+      <div class="num" id="ganancia-num">$1,050</div>
+      <p>de ganancia por cada caja de 30<br><span id="ganancia-det">($35.00 por foco)</span></p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2 class="sec-t">¿Por qué BUUM?</h2>
+  <p class="sec-s">Sin rodeos: por esto vale la pena</p>
+  <div class="why">
+    <div><span class="ico">🏭</span><h3>Directo de fábrica</h3><p>Importamos nuestro propio foco. Sin intermediarios: por eso el precio que ves es posible.</p></div>
+    <div><span class="ico">🚚</span><h3>A todo México</h3><p>Enviamos a toda la república. La guía se cobra al costo, sin inflar. Entrega local en mano.</p></div>
+    <div><span class="ico">🤝</span><h3>Trato derecho</h3><p>Solo vendemos lo que hay en stock. Pieza defectuosa = se cambia, sin drama. Con factura si la necesitas.</p></div>
+  </div>
+</section>
+
+<section class="final">
+  <img src="../../buumia-catalogo/marca/logo-buum.png" alt="Gato BUUM">
+  <h2>¿Surtimos tu negocio?</h2>
+  <p>Escríbenos y te contestamos hoy mismo. Pocos clientes, bien surtidos.</p>
+  <a class="btn btn-naranja" href="#" data-wa="Hola BUUM 👋 tengo un negocio y quiero surtir focos 60W">💬 Hablar con BUUM</a>
+</section>
+
+<footer>
+  <span>© 2026 BUUM · Súper calidad y súper precio</span>
+  <span>Instagram <b>@buum.ia</b> · Facebook <b>BUUM</b></span>
+</footer>
+
+<script>
+  // ⚠️ PENDIENTE: poner el número real de WhatsApp del negocio (formato 521XXXXXXXXXX)
+  const WA_NUM = '521XXXXXXXXXX';
+  document.querySelectorAll('[data-wa]').forEach(a => {
+    a.href = 'https://wa.me/' + WA_NUM + '?text=' + encodeURIComponent(a.dataset.wa);
+    a.target = '_blank';
+  });
+
+  const COSTO_CAJA30 = 2249.99;
+  const fmt = n => '$' + n.toLocaleString('es-MX', {maximumFractionDigits: 0});
+  const precio = document.getElementById('precio');
+  function calc(){
+    const p = parseFloat(precio.value) || 0;
+    const gan = p * 30 - COSTO_CAJA30;
+    document.getElementById('ganancia-num').textContent = fmt(Math.max(gan, 0));
+    document.getElementById('ganancia-det').textContent =
+      '($' + Math.max(p - 75, 0).toFixed(2) + ' por foco)';
+  }
+  precio.addEventListener('input', calc); calc();
+</script>
+</body>
+</html>

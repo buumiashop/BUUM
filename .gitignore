@@ -1,0 +1,41 @@
+# === Secretos — NUNCA al repositorio ===
+.env
+*.env
+!config.example.env
+config.local.env
+claves*.txt
+*.token
+tokens.json
+*.pem
+*.key
+cookies*.json
+
+# === Backups de migración (viven solo en disco) ===
+datos/backup-fase-3/
+
+# === Logs y temporales ===
+logs/*
+!logs/.gitkeep
+*.log
+*.tmp
+*.bak
+~$*
+Thumbs.db
+.DS_Store
+
+# === Python ===
+__pycache__/
+*.pyc
+.venv/
+
+# === Node ===
+node_modules/
+
+# === Builds y salidas generadas ===
+build/
+dist/
+_scratch/
+marketing/contenido/
+marketing/revision_imagenes/
+marketing/gatitos/
+marketing/por-autorizar/

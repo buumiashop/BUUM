@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BUUM · Preview redes</title>
+<style>
+:root{--orange:#EA5003;--navy:#001866;--ig:#E1306C;--fb:#1877F2;}
+*{box-sizing:border-box;margin:0;font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+body{background:#11141a;color:#e8ebf2;min-height:100vh;padding:22px 14px 60px;display:flex;flex-direction:column;align-items:center;gap:16px;}
+h1{font-size:19px;font-weight:800;text-align:center;}
+.muted{color:#9aa3bd;font-size:12.5px;text-align:center;max-width:420px;margin-top:-8px;}
+.tabs{display:flex;gap:8px;}
+.tabs button{border:none;cursor:pointer;font-weight:700;font-size:13.5px;padding:9px 18px;border-radius:22px;background:#202632;color:#cdd5ea;}
+.tabs button.on{background:#fff;color:#11141a;}
+.phone{width:380px;max-width:96vw;background:#000;border-radius:30px;padding:10px;box-shadow:0 24px 60px rgba(0,0,0,.55);}
+.screen{background:#fff;color:#111;border-radius:22px;overflow:hidden;}
+.card{display:none;}
+.card.on{display:block;}
+/* header comun */
+.hd{display:flex;align-items:center;gap:9px;padding:10px 12px;}
+.pp{width:38px;height:38px;border-radius:50%;background:#fff;border:1px solid #eee;flex:0 0 auto;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.pp img{width:34px;height:34px;object-fit:contain;}
+.nm{font-weight:700;font-size:13.5px;color:#111;line-height:1.1;}
+.sub{font-size:11.5px;color:#777;}
+.spacer{flex:1;}
+.dots{color:#333;font-weight:800;letter-spacing:1px;}
+/* video */
+.vidwrap{position:relative;background:#000;}
+.vidwrap video{width:100%;display:block;}
+.snd{position:absolute;right:10px;bottom:10px;background:rgba(0,0,0,.55);color:#fff;border:none;width:34px;height:34px;border-radius:50%;font-size:15px;cursor:pointer;}
+/* IG */
+.ig .acts{display:flex;align-items:center;gap:16px;padding:9px 12px 4px;font-size:21px;}
+.ig .acts .save{margin-left:auto;}
+.ig .ico{cursor:pointer;}
+.ig .likes{padding:0 12px;font-weight:700;font-size:13px;}
+.ig .cap{padding:5px 12px 2px;font-size:13px;line-height:1.45;color:#111;}
+.ig .cap b{font-weight:700;}
+.ig .tags{color:#1d3a8a;}
+.ig .more{color:#8a8f98;}
+.ig .time{padding:6px 12px 12px;font-size:10.5px;color:#8a8f98;text-transform:uppercase;letter-spacing:.04em;}
+/* FB */
+.fb .cap{padding:4px 12px 10px;font-size:14px;line-height:1.5;color:#111;}
+.fb .tags{color:#385898;}
+.fb .counts{display:flex;align-items:center;gap:6px;padding:8px 12px;font-size:12.5px;color:#65676b;border-bottom:1px solid #eee;}
+.fb .bar{display:flex;}
+.fb .bar div{flex:1;text-align:center;padding:9px;color:#65676b;font-weight:600;font-size:13.5px;cursor:pointer;}
+/* copy box */
+.copy{width:380px;max-width:96vw;background:#1a1f29;border:1px solid #2a3344;border-radius:14px;padding:14px;}
+.copy h3{font-size:13px;color:#fff;margin-bottom:8px;}
+.copy textarea{width:100%;height:150px;background:#0e1218;color:#d7def2;border:1px solid #2a3344;border-radius:10px;padding:10px;font-size:12.5px;line-height:1.5;resize:vertical;}
+.copy button{margin-top:8px;background:var(--orange);color:#fff;border:none;border-radius:9px;padding:8px 14px;font-weight:700;cursor:pointer;}
+</style></head>
+<body>
+<h1>📲 Preview de la publicación · BUUM</h1>
+<div class="muted">Así se verá tu comercial en Instagram y Facebook. Toca 🔊 para oír la música. (El usuario @buum.mx es de ejemplo — pon el real.)</div>
+
+<div class="tabs">
+  <button id="tig" class="on" onclick="show('ig')">📷 Instagram</button>
+  <button id="tfb" onclick="show('fb')">📘 Facebook</button>
+</div>
+
+<div class="phone"><div class="screen">
+
+  <!-- INSTAGRAM -->
+  <div class="card ig on" id="ig">
+    <div class="hd">
+      <div class="pp"><img src="../../buumia-catalogo/marca/logo-buum.png" alt="BUUM"></div>
+      <div><div class="nm">buum.mx</div><div class="sub">Audio original</div></div>
+      <div class="spacer"></div><div class="dots">⋯</div>
+    </div>
+    <div class="vidwrap">
+      <video id="vig" src="../video/comercial-gato.mp4" autoplay muted loop playsinline></video>
+      <button class="snd" onclick="toggleSnd('vig',this)">🔇</button>
+    </div>
+    <div class="acts"><span class="ico">🤍</span><span class="ico">💬</span><span class="ico">✈️</span><span class="ico save">🔖</span></div>
+    <div class="likes">Les gusta a <b>buum.mx</b> y <b>128 personas</b> más</div>
+    <div class="cap"><b>buum.mx</b> 💡 El foco que ilumina TODO tu hogar… y gasta poquito.
+      <span class="tags">#BUUM #IluminaTuCasa #FocoLED #LuzLED #México</span> <span class="more">… más</span></div>
+    <div class="time">Hace 2 horas</div>
+  </div>
+
+  <!-- FACEBOOK -->
+  <div class="card fb" id="fb">
+    <div class="hd">
+      <div class="pp"><img src="../../buumia-catalogo/marca/logo-buum.png" alt="BUUM"></div>
+      <div><div class="nm">BUUM</div><div class="sub">Patrocinado · 🌐</div></div>
+      <div class="spacer"></div><div class="dots">⋯</div>
+    </div>
+    <div class="cap">💡 El foco que ilumina TODO tu hogar… y gasta poquito. Más luz, menos gasto. ✨🏠
+      🚚 Envíos a todo México · Paga con tarjeta u OXXO.
+      <span class="tags">#BUUM #FocoLED #IluminaTuCasa</span></div>
+    <div class="vidwrap">
+      <video id="vfb" src="../video/comercial-gato.mp4" muted loop playsinline></video>
+      <button class="snd" onclick="toggleSnd('vfb',this)">🔇</button>
+    </div>
+    <div class="counts">👍❤️ 342 · <div class="spacer"></div> 37 comentarios · 12 veces compartido</div>
+    <div class="bar"><div>👍 Me gusta</div><div>💬 Comentar</div><div>↪️ Compartir</div></div>
+  </div>
+
+</div></div>
+
+<div class="copy">
+  <h3>📋 Texto de la publicación (cópialo)</h3>
+  <textarea id="cap" readonly>💡 El foco que ilumina TODO tu hogar… y gasta poquito.
+
+En BUUM traemos iluminación potente, bonita y a buen precio. Más luz, menos gasto. ✨🏠
+
+✅ Mucha luz
+✅ Bajo consumo
+✅ Envíos a todo México 🇲🇽
+✅ Paga con tarjeta u OXXO
+
+🛒 Pídelo hoy — escríbenos por mensaje o visita nuestra tienda. ¡Ilumina tu casa con BUUM! 🐱
+
+#BUUM #IluminaTuCasa #FocoLED #Iluminación #LuzLED #AhorraEnergía #México #Hogar #FocosLED #LuzBlanca #DecoraciónDelHogar #IluminaciónLED #HogarMexicano</textarea>
+  <button onclick="navigator.clipboard.writeText(document.getElementById('cap').value);this.textContent='✓ Copiado'">Copiar texto</button>
+</div>
+
+<script>
+function show(w){
+  document.getElementById('ig').classList.toggle('on',w==='ig');
+  document.getElementById('fb').classList.toggle('on',w==='fb');
+  document.getElementById('tig').classList.toggle('on',w==='ig');
+  document.getElementById('tfb').classList.toggle('on',w==='fb');
+  const v=document.getElementById(w==='ig'?'vig':'vfb'); try{v.play();}catch(e){}
+}
+function toggleSnd(id,btn){
+  const v=document.getElementById(id);
+  v.muted=!v.muted; btn.textContent=v.muted?'🔇':'🔊'; if(!v.muted){try{v.play();}catch(e){}}
+}
+</script>
+</body></html>

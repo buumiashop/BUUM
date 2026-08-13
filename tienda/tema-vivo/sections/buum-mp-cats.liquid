@@ -1,0 +1,54 @@
+<div class="mp-wrap" style="padding-top:0">
+  {%- if section.settings.title != blank -%}<div class="mp-sec"><h2>{{ section.settings.title }}</h2></div>{%- endif -%}
+  <div class="mp-tiles">
+    {%- for block in section.blocks -%}
+      <a href="{{ block.settings.link | default: '#' }}" class="mp-tile{% if block.settings.image != blank or block.settings.image_asset != blank %} mp-tile--img{% endif %}" {{ block.shopify_attributes }}>
+        {%- if block.settings.image != blank -%}
+          <img class="mp-tile-img" src="{{ block.settings.image | image_url: width: 400 }}" alt="{{ block.settings.label | escape }}" width="400" height="400" loading="lazy">
+        {%- elsif block.settings.image_asset != blank -%}
+          <img class="mp-tile-img" src="{{ block.settings.image_asset | asset_url }}" alt="{{ block.settings.label | escape }}" width="400" height="400" loading="lazy">
+        {%- else -%}
+          {%- render 'buumia-icon', name: block.settings.icon -%}
+        {%- endif -%}
+        <div class="mp-tile-label">{{ block.settings.label }}</div>
+      </a>
+    {%- endfor -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "BUUM · Categorías",
+  "settings": [
+    { "type": "text", "id": "title", "label": "Título", "default": "Explora por categoría" }
+  ],
+  "blocks": [
+    {
+      "type": "cat",
+      "name": "Categoría",
+      "settings": [
+        {
+          "type": "select", "id": "icon", "label": "Ícono", "default": "bulb",
+          "options": [
+            { "value": "bulb", "label": "Foco" },
+            { "value": "sun", "label": "Solar" },
+            { "value": "fan", "label": "Ventilador" },
+            { "value": "bolt", "label": "LED / energía" },
+            { "value": "tv", "label": "Electrónicos" },
+            { "value": "home", "label": "Hogar" },
+            { "value": "plug", "label": "Enchufe" },
+            { "value": "store", "label": "Mayoreo" },
+            { "value": "tag", "label": "Ofertas" }
+          ]
+        },
+        { "type": "text", "id": "label", "label": "Nombre", "default": "Categoría" },
+        { "type": "image_picker", "id": "image", "label": "Imagen cubo (sube la tuya)" },
+        { "type": "text", "id": "image_asset", "label": "O imagen del tema (archivo)", "info": "Ej: cat-focos.png" },
+        { "type": "url", "id": "link", "label": "Enlace" }
+      ]
+    }
+  ],
+  "max_blocks": 8,
+  "presets": [ { "name": "BUUM · Categorías" } ]
+}
+{% endschema %}

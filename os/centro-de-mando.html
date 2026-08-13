@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate"><meta http-equiv="Pragma" content="no-cache">
+<title>BUUM · Centro de Mando</title>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--orange:#EA5003;--navy:#001866;--blue:#102AC4;--cyan:#00bcff;--ok:#16a06f;--warn:#e6a100;--off:#9aa3b8;--bg:#0b1020;--panel:#121a30;--panel2:#0f1730;--line:#233052;--ink:#eaf0ff;--dim:#93a0c4;}
+*{box-sizing:border-box;margin:0;}
+body{background:radial-gradient(1200px 600px at 80% -10%,rgba(16,42,196,.25),transparent),var(--bg);color:var(--ink);font-family:Poppins,sans-serif;}
+.app{display:flex;min-height:100vh;}
+/* sidebar */
+.side{width:230px;background:linear-gradient(180deg,#0c1428,#0a1122);border-right:1px solid var(--line);padding:16px 12px;position:sticky;top:0;height:100vh;flex:0 0 auto;overflow-y:auto;}
+.side .logo{display:flex;align-items:center;gap:9px;margin-bottom:2px;}
+.side .logo img{height:40px;background:#fff;border-radius:10px;padding:3px;}
+.side .logo b{font-family:'Baloo 2';font-size:19px;color:#fff;}
+.side .tag{font-size:10.5px;color:var(--dim);margin:2px 0 16px;display:block;}
+.navsec{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:#5c6a94;margin:14px 6px 6px;}
+.navitem{display:flex;align-items:center;gap:10px;padding:9px 11px;border-radius:10px;cursor:pointer;font-weight:600;font-size:13px;color:#c3cdf0;}
+.navitem:hover{background:rgba(255,255,255,.06);}
+.navitem.active{background:linear-gradient(120deg,var(--orange),#ff7a3c);color:#fff;box-shadow:0 6px 16px rgba(234,80,3,.3);}
+.navitem .i{font-size:16px;width:20px;text-align:center;}
+.navitem .b{margin-left:auto;background:#EA5003;color:#fff;font-size:9.5px;font-weight:800;padding:1px 7px;border-radius:20px;}
+.side .foot{font-size:10px;color:#5c6a94;margin-top:16px;padding:10px 6px;border-top:1px solid var(--line);}
+/* main */
+.main{flex:1;padding:22px 26px 70px;max-width:1180px;}
+.view{display:none;} .view.active{display:block;animation:fade .25s;}
+@keyframes fade{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:none;}}
+h2{font-family:'Baloo 2';font-size:23px;color:#fff;margin-bottom:2px;}
+.lead{color:var(--dim);font-size:13px;margin-bottom:18px;}
+.section{font-family:'Baloo 2';font-size:15px;color:#fff;margin:22px 0 10px;display:flex;align-items:center;gap:8px;}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+@media(max-width:900px){.grid,.grid2{grid-template-columns:1fr;}}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px 15px;}
+.card .t{display:flex;align-items:center;gap:8px;}
+.card .ic{font-size:19px;} .card .t b{font-family:'Baloo 2';font-size:14.5px;flex:1;color:#fff;}
+.dot{width:10px;height:10px;border-radius:50%;flex:0 0 auto;} .g{background:var(--ok);}.y{background:var(--warn);}.o{background:var(--off);}
+.card p{font-size:12px;color:var(--dim);margin-top:8px;line-height:1.5;}
+.btns{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;}
+.btn{border:none;border-radius:10px;padding:9px 14px;font-family:Poppins;font-weight:600;font-size:12px;cursor:pointer;text-decoration:none;display:inline-block;}
+.btn.p{background:var(--blue);color:#fff;} .btn.o{background:var(--orange);color:#fff;} .btn.g{background:transparent;color:#c3cdf0;border:1.5px solid var(--line);}
+.btn:hover{filter:brightness(1.12);}
+/* tiles / KPIs */
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
+@media(max-width:800px){.tiles{grid-template-columns:1fr 1fr;}}
+.tile{background:linear-gradient(160deg,var(--panel),var(--panel2));border:1px solid var(--line);border-radius:14px;padding:14px;position:relative;overflow:hidden;}
+.tile b{font-family:'Baloo 2';font-size:25px;display:block;line-height:1.1;color:#fff;} .tile span{font-size:11px;color:var(--dim);}
+.tile .k{position:absolute;top:10px;right:12px;font-size:18px;opacity:.55;}
+/* hero briefing */
+.hero{background:linear-gradient(120deg,#0f1e5c,#102AC4 70%,#2a3fd6);border:1px solid #2b3f8a;color:#fff;border-radius:18px;padding:20px 22px;position:relative;overflow:hidden;}
+.hero::after{content:"";position:absolute;top:-60%;left:-30%;width:34%;height:230%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.14),transparent);transform:rotate(18deg);animation:shine 6s ease-in-out infinite;}
+@keyframes shine{0%,60%{left:-40%}80%,100%{left:130%}}
+.hero .pill{background:var(--orange);color:#fff;font-size:11px;font-weight:700;padding:3px 11px;border-radius:20px;}
+.hero h3{font-family:'Baloo 2';font-size:22px;margin:10px 0 4px;} .hero p{font-size:13px;opacity:.92;line-height:1.5;max-width:70ch;}
+/* attention list */
+.att{background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--orange);border-radius:0 12px 12px 0;padding:12px 15px;margin-bottom:9px;display:flex;gap:11px;align-items:center;}
+.att .em{font-size:20px;} .att b{font-size:13.5px;color:#fff;} .att .s{font-size:11.5px;color:var(--dim);}
+.att .btn{margin-left:auto;}
+/* connections */
+.conn{display:flex;align-items:center;gap:12px;}
+.conn .lg{width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:24px;flex:0 0 auto;color:#fff;}
+.conn .nm{font-family:'Baloo 2';font-size:15px;color:#fff;} .conn .st{font-size:11.5px;margin-top:2px;}
+.st.on{color:var(--ok);} .st.pend{color:var(--warn);} .st.offl{color:var(--off);}
+.conn .stat{margin-left:auto;text-align:right;} .conn .stat b{font-family:'Baloo 2';font-size:16px;color:#fff;} .conn .stat span{font-size:10.5px;color:var(--dim);}
+/* calendar */
+.cal{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;}
+@media(max-width:800px){.cal{grid-template-columns:1fr 1fr;}}
+.day{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:10px;min-height:120px;}
+.day .dh{font-size:11px;font-weight:700;color:var(--dim);text-transform:uppercase;margin-bottom:8px;display:flex;justify-content:space-between;}
+.day.today{border-color:var(--orange);box-shadow:0 0 0 1px var(--orange);}
+.post{font-size:10.5px;font-weight:600;padding:6px 8px;border-radius:8px;margin-bottom:6px;line-height:1.3;}
+.post.ig{background:rgba(214,41,118,.16);color:#ff9ecb;border:1px solid rgba(214,41,118,.35);}
+.post.fb{background:rgba(24,119,242,.16);color:#8fbcff;border:1px solid rgba(24,119,242,.35);}
+.post.tt{background:rgba(255,255,255,.08);color:#dfe6ff;border:1px solid rgba(255,255,255,.2);}
+.post .ch{font-size:9px;opacity:.85;display:block;}
+/* pipeline */
+.pipe{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+@media(max-width:800px){.pipe{grid-template-columns:1fr;}}
+.col{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:12px;}
+.col h4{font-family:'Baloo 2';font-size:13.5px;color:#fff;margin-bottom:10px;display:flex;align-items:center;gap:6px;}
+.item{background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:9px 11px;margin-bottom:8px;font-size:12px;}
+.item .m{font-size:10.5px;color:var(--dim);margin-top:3px;}
+/* table */
+.tbl{width:100%;border-collapse:collapse;font-size:12.5px;}
+.tbl th{text-align:left;color:var(--dim);font-weight:600;font-size:11px;text-transform:uppercase;padding:8px 10px;border-bottom:1px solid var(--line);}
+.tbl td{padding:11px 10px;border-bottom:1px solid var(--line);color:#dbe3ff;}
+.tbl tr:last-child td{border-bottom:none;}
+.chip{font-size:10px;font-weight:800;padding:3px 9px;border-radius:20px;}
+.chip.ok{background:rgba(22,160,111,.18);color:#4fe0a6;} .chip.low{background:rgba(230,161,0,.18);color:#ffcf5e;} .chip.no{background:rgba(154,163,184,.15);color:#b7c0da;}
+/* doctrine */
+.doc{border-left:4px solid var(--orange);background:var(--panel);border-radius:0 12px 12px 0;padding:12px 15px;margin-bottom:10px;}
+.doc b{font-family:'Baloo 2';font-size:14px;color:#fff;} .doc p{font-size:12px;color:var(--dim);margin-top:4px;line-height:1.5;}
+/* tasks */
+.task{background:var(--panel);border:1px solid var(--line);border-radius:11px;padding:11px 13px;margin-bottom:8px;display:flex;align-items:center;gap:11px;cursor:pointer;}
+.task input{width:18px;height:18px;accent-color:var(--orange);}
+.task.done b{text-decoration:line-through;color:#6b7699;}
+.task b{font-size:13px;flex:1;font-weight:600;color:#eaf0ff;}
+.task .who{font-size:10px;font-weight:700;padding:3px 9px;border-radius:9px;background:rgba(234,80,3,.18);color:#ffab7a;}
+.bar{height:11px;background:#1b2542;border-radius:7px;overflow:hidden;} .bar i{display:block;height:100%;background:linear-gradient(90deg,var(--orange),#ffb800);}
+.fr{background:var(--panel);border:1px solid var(--line);border-radius:13px;padding:12px 14px;margin-bottom:9px;}
+.fr .top{display:flex;align-items:center;gap:9px;} .fr .top b{font-family:'Baloo 2';font-size:14px;flex:1;color:#fff;} .fr .pct{font-family:'Baloo 2';font-size:14px;}
+.fr .sub{font-size:11px;color:var(--dim);margin:3px 0 8px;}
+/* galería de trabajos */
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+@media(max-width:900px){.gal{grid-template-columns:1fr 1fr;}}
+@media(max-width:560px){.gal{grid-template-columns:1fr;}}
+.work{background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:hidden;}
+.work .imgw{background:#0a0f1e;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.work .imgw img{width:100%;height:100%;object-fit:contain;}
+.work .meta{padding:11px 13px;}
+.work .meta b{font-family:'Baloo 2';font-size:13.5px;color:#fff;display:block;}
+.work .meta .row{display:flex;align-items:center;gap:8px;margin-top:7px;}
+.work .meta .tp{font-size:10px;color:var(--dim);flex:1;}
+.obsw{background:rgba(230,161,0,.12);border:1px solid rgba(230,161,0,.4);color:#ffcf5e;font-size:11px;line-height:1.45;border-radius:9px;padding:8px 10px;margin-top:9px;}
+.wbtns{display:flex;gap:7px;margin-top:10px;}
+.wbtn{flex:1;border:1.5px solid var(--line);background:transparent;color:#c3cdf0;border-radius:9px;padding:8px 6px;font-family:Poppins;font-weight:600;font-size:11.5px;cursor:pointer;}
+.wbtn:hover{filter:brightness(1.15);}
+.wbtn.aut.on{background:var(--ok);border-color:var(--ok);color:#fff;}
+.wbtn.edit:hover{border-color:var(--orange);color:#ffab7a;}
+.wbtn.del:hover{border-color:#e5484d;color:#ff8a8d;}
+/* tarea: botón de ayuda */
+.task .help{font-size:10.5px;font-weight:700;padding:5px 10px;border-radius:9px;background:var(--blue);color:#fff;border:none;cursor:pointer;margin-left:6px;}
+.task .help:hover{filter:brightness(1.15);}
+/* rutina card */
+.rut{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin-bottom:11px;display:flex;gap:13px;align-items:flex-start;}
+.rut .ri{font-size:22px;}
+.rut b{font-family:'Baloo 2';font-size:15px;color:#fff;}
+.rut p{font-size:12px;color:var(--dim);margin-top:4px;line-height:1.5;}
+.rut .rmeta{display:flex;flex-wrap:wrap;gap:8px;margin-top:9px;}
+.rut .tag2{font-size:10.5px;font-weight:700;padding:3px 10px;border-radius:20px;background:#1b2542;color:#c3cdf0;}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(90px);background:var(--orange);color:#fff;padding:11px 18px;border-radius:12px;font-size:13px;font-weight:600;transition:.35s;z-index:50;}
+.toast.show{transform:translateX(-50%) translateY(0);}
+/* ===== texto un poco más grande (legibilidad), sin exagerar ===== */
+.lead{font-size:15px;line-height:1.55}
+.section{font-size:17px}
+.att b{font-size:15.5px} .att .s{font-size:13.5px;line-height:1.5}
+.doc b{font-size:16px} .doc p{font-size:14px;line-height:1.55}
+.card p{font-size:13.5px;line-height:1.6}
+.card .t b{font-size:15.5px}
+.tbl td,.tbl th{font-size:13.5px}
+.item{font-size:13.5px} .item .m{font-size:12px}
+.task b{font-size:14.5px}
+.rut b{font-size:16px} .rut p{font-size:13.5px;line-height:1.55}
+.rut .tag2{font-size:12px}
+.work .meta b{font-size:15px} .obsw{font-size:12.5px}
+.tile b{font-size:27px} .tile span{font-size:12.5px}
+.hero h3{font-size:24px} .hero p{font-size:14.5px}
+.conn .nm{font-size:16px} .conn .st{font-size:12.5px}
+.btn{font-size:13px} .navitem{font-size:13.5px}
+/* ===== JUEGO ===== */
+.xpwrap{margin:8px 0 18px}
+.xptop{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:7px}
+.xptop b{font-family:'Baloo 2';font-size:19px;color:#fff}.xptop span{color:#ffcf5e;font-weight:800;font-size:14px}
+.lvlmap{display:flex;gap:8px;overflow-x:auto;padding:6px 2px 14px;scrollbar-width:none}
+.lvlmap::-webkit-scrollbar{display:none}
+.node{flex:0 0 auto;width:100px;text-align:center;opacity:.5;transition:.3s;position:relative}
+.node:not(:last-child)::after{content:"";position:absolute;top:28px;right:-8px;width:16px;height:2px;background:#2b3760}
+.node.done,.node.cur{opacity:1}
+.node .cir{width:56px;height:56px;border-radius:50%;margin:0 auto 6px;display:flex;align-items:center;justify-content:center;font-size:26px;background:#161d33;border:2px solid #2b3760}
+.node.done .cir{background:linear-gradient(160deg,#16a06f,#0e7a54);border-color:#1f7a4d}
+.node.cur .cir{background:linear-gradient(160deg,#EA5003,#ff7a3c);border-color:#ffab7a;animation:jpulse 2s infinite}
+.node .nm{font-size:11px;color:#c3cdf0;font-weight:600;line-height:1.2}
+.node .st{font-size:9px;font-weight:800;margin-top:3px}
+.node.done .st{color:#4fe0a6}.node.cur .st{color:#ffab7a}.node.lock .st{color:#5c6a94}
+.ceosays{background:linear-gradient(120deg,#0f1e5c,#102AC4 82%);border:1px solid #2b3f8a;border-radius:14px;padding:14px 16px;margin:2px 0 8px;font-size:14.5px;line-height:1.5}
+.mission{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:13px 15px;margin-bottom:9px;display:flex;align-items:center;gap:12px;cursor:pointer}
+.mission input{width:20px;height:20px;accent-color:#EA5003;flex:0 0 auto;cursor:pointer}
+.mission b{font-size:14.5px;font-weight:600;color:#eaf0ff;flex:1}
+.mission.done b{text-decoration:line-through;color:#6b7699}
+.mission .mbtn{flex:0 0 auto;font-size:11.5px;font-weight:700;border:none;border-radius:9px;padding:8px 13px;background:linear-gradient(120deg,#102AC4,#3a4fd6);color:#fff;cursor:pointer}
+.mission .mbtn:hover{filter:brightness(1.18)}
+.mission .xp{font-size:11px;font-weight:800;color:#ffcf5e;background:rgba(255,207,94,.14);padding:4px 10px;border-radius:9px}
+@media(max-width:600px){.mission{flex-wrap:wrap}.mission .xp{display:none}}
+@keyframes jpulse{0%,100%{box-shadow:0 0 0 4px rgba(234,80,3,.28)}50%{box-shadow:0 0 0 9px rgba(234,80,3,.10)}}
+/* ===== calendario de contenido (mes + día) ===== */
+.calx{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:14px 16px;}
+.calhead{display:flex;align-items:center;gap:10px;margin-bottom:12px;}
+.calmes{font-family:'Baloo 2';font-size:19px;color:#fff;min-width:170px;text-align:center;text-transform:capitalize;}
+.calnavbtn{width:34px;height:34px;border-radius:10px;border:1px solid var(--line);background:var(--panel2);color:#dfe6ff;font-size:18px;cursor:pointer;line-height:1;}
+.calnavbtn:hover{background:rgba(255,255,255,.07);}
+.calhoybtn{margin-left:auto;border:none;border-radius:10px;padding:8px 14px;background:var(--blue);color:#fff;font-weight:700;font-size:12px;cursor:pointer;}
+.calhoybtn:hover{filter:brightness(1.12);}
+.calwd{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;margin-bottom:8px;}
+.calwd span{font-size:10.5px;font-weight:700;color:#5c6a94;text-transform:uppercase;text-align:center;letter-spacing:.05em;}
+.mcal{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;}
+@media(max-width:760px){.mcal,.calwd{gap:5px;}.calwd span{font-size:9px;}}
+.mday{background:var(--panel2);border:1px solid var(--line);border-radius:11px;padding:7px 7px 8px;min-height:92px;transition:.15s;}
+.mday.empty{background:transparent;border:none;}
+.mday.has{cursor:pointer;}
+.mday.has:hover{border-color:var(--orange);transform:translateY(-2px);box-shadow:0 6px 16px rgba(0,0,0,.28);}
+.mday.today{border-color:var(--orange);box-shadow:0 0 0 1px var(--orange);}
+.dnum{font-size:12.5px;font-weight:700;color:#c3cdf0;margin-bottom:5px;display:flex;align-items:center;gap:5px;}
+.dtoday{font-size:8.5px;font-weight:800;background:var(--orange);color:#fff;padding:1px 6px;border-radius:20px;}
+.dbadges{display:flex;flex-direction:column;gap:3px;}
+.dbadge{font-size:9.5px;font-weight:700;padding:2px 6px;border-radius:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.dbadge.ig{background:rgba(214,41,118,.16);color:#ff9ecb;} .dbadge.fb{background:rgba(24,119,242,.16);color:#8fbcff;} .dbadge.tt{background:rgba(255,255,255,.09);color:#dfe6ff;}
+.dmore{font-size:9px;font-weight:800;color:#7c88a8;padding:1px 4px;}
+/* modal del día */
+.calmodal{position:fixed;inset:0;background:rgba(4,7,16,.72);backdrop-filter:blur(3px);z-index:60;display:none;align-items:flex-start;justify-content:center;padding:34px 14px;overflow-y:auto;}
+.calmodal.open{display:flex;}
+.caldlg{background:var(--panel);border:1px solid var(--line);border-radius:18px;width:100%;max-width:560px;padding:18px 18px 22px;box-shadow:0 24px 70px rgba(0,0,0,.6);animation:fade .2s;}
+.cmhead{display:flex;align-items:center;gap:10px;margin-bottom:4px;}
+.cmtitle{font-family:'Baloo 2';font-size:19px;color:#fff;text-transform:capitalize;}
+.cmx{margin-left:auto;width:32px;height:32px;border-radius:9px;border:1px solid var(--line);background:var(--panel2);color:#dfe6ff;font-size:18px;cursor:pointer;line-height:1;}
+.cmsub{font-size:11.5px;color:var(--dim);margin-bottom:14px;}
+.tline{position:relative;}
+.trow{display:flex;gap:12px;padding-bottom:16px;margin-bottom:2px;border-left:2px solid var(--line);margin-left:6px;padding-left:14px;position:relative;}
+.trow:last-child{border-left-color:transparent;}
+.trow::before{content:"";position:absolute;left:-7px;top:2px;width:12px;height:12px;border-radius:50%;background:var(--orange);border:2px solid var(--panel);}
+.thora{flex:0 0 52px;}
+.thora b{font-family:'Baloo 2';font-size:15px;color:#fff;display:block;line-height:1.1;}
+.thora span{font-size:9.5px;color:var(--dim);}
+.tbody{flex:1;min-width:0;}
+.tmeta{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-bottom:6px;}
+.tchip{font-size:9.5px;font-weight:800;padding:2px 8px;border-radius:20px;}
+.tchip.ig{background:rgba(214,41,118,.18);color:#ff9ecb;} .tchip.fb{background:rgba(24,119,242,.18);color:#8fbcff;} .tchip.tt{background:rgba(255,255,255,.1);color:#dfe6ff;}
+.tchip.ok{background:rgba(22,160,111,.18);color:#4fe0a6;} .tchip.low{background:rgba(230,161,0,.18);color:#ffcf5e;} .tchip.no{background:rgba(154,163,184,.15);color:#b7c0da;}
+.ttipo{font-size:11px;color:var(--dim);font-weight:600;}
+.ttit{font-size:13.5px;font-weight:700;color:#fff;margin:2px 0 6px;}
+.tim{width:100%;max-width:230px;border-radius:10px;display:block;border:1px solid var(--line);}
+.tvid{width:100%;max-width:320px;border-radius:10px;display:block;border:1px solid var(--line);background:#000;}
+.tcar{display:flex;gap:7px;overflow-x:auto;padding-bottom:6px;}
+.tcar img{height:130px;border-radius:9px;border:1px solid var(--line);flex:0 0 auto;}
+.ttexto{font-size:12px;color:var(--dim);margin-top:7px;line-height:1.45;}
+.tlink{display:inline-block;margin-top:7px;font-size:11.5px;font-weight:700;color:#fff;background:var(--blue);padding:7px 12px;border-radius:9px;text-decoration:none;}
+.calempty{text-align:center;color:#5c6a94;font-size:13px;padding:24px 0;}
+/* colores por TIPO (claros y distintos) */
+.tp-historia{background:rgba(214,41,118,.18)!important;color:#ff9ecb!important;}
+.tp-carrusel{background:rgba(58,123,255,.20)!important;color:#a9c6ff!important;}
+.tp-video{background:rgba(234,80,3,.22)!important;color:#ffb27a!important;}
+.tp-post{background:rgba(22,160,111,.20)!important;color:#67e3b1!important;}
+/* banner de revisión del equipo */
+.calrev{display:flex;gap:12px;align-items:center;background:linear-gradient(120deg,#0f2a1c,#14351f);border:1px solid #1f6b46;border-radius:14px;padding:12px 15px;margin-bottom:14px;}
+.calrev .ic{font-size:24px;} .calrev b{color:#fff;font-size:13.5px;} .calrev p{color:#a7d8bf;font-size:12px;margin-top:2px;line-height:1.45;}
+.calrev .ok{margin-left:auto;background:#16a06f;color:#fff;font-size:11px;font-weight:800;padding:5px 11px;border-radius:20px;white-space:nowrap;}
+/* pedir contenido */
+.calask{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:13px 15px;}
+.calask textarea{width:100%;background:var(--panel2);border:1px solid var(--line);border-radius:10px;color:#eaf0ff;font-family:Poppins;font-size:13px;padding:10px 12px;resize:vertical;min-height:60px;}
+.calask textarea:focus{outline:none;border-color:var(--orange);box-shadow:0 0 0 2px rgba(234,80,3,.25);}
+.askrow{display:flex;gap:9px;margin-top:9px;flex-wrap:wrap;align-items:center;}
+.askrow select{background:var(--panel2);border:1px solid var(--line);border-radius:9px;color:#dfe6ff;font-family:Poppins;font-size:12px;padding:8px 10px;}
+.askbtn{margin-left:auto;border:none;border-radius:10px;padding:9px 16px;background:linear-gradient(120deg,var(--orange),#ff7a3c);color:#fff;font-weight:700;font-size:12.5px;cursor:pointer;}
+.askbtn:hover{filter:brightness(1.1);}
+.calrut{background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:0 12px 12px 0;padding:11px 15px;margin-top:12px;font-size:12px;color:var(--dim);line-height:1.5;}
+.calrut b{color:#cdd8ff;}
+/* timeline: encabezado de tipo + acciones */
+.ttophead{display:flex;align-items:center;gap:7px;margin-bottom:6px;}
+.ttype{font-size:11px;font-weight:800;padding:3px 10px;border-radius:20px;display:inline-flex;gap:5px;align-items:center;}
+.tred{font-size:9.5px;font-weight:800;padding:2px 8px;border-radius:20px;}
+.testado{font-size:9.5px;font-weight:800;padding:2px 9px;border-radius:20px;margin-left:auto;}
+.est-por_autorizar{background:rgba(230,161,0,.2);color:#ffcf5e;} .est-autorizado{background:rgba(22,160,111,.22);color:#67e3b1;} .est-idea{background:rgba(154,163,184,.15);color:#b7c0da;} .est-planeado{background:rgba(58,123,255,.2);color:#a9c6ff;}
+.tacts{display:flex;gap:8px;margin-top:9px;flex-wrap:wrap;}
+.tbtn{border:none;border-radius:9px;padding:7px 13px;font-family:Poppins;font-weight:700;font-size:11.5px;cursor:pointer;}
+.tbtn.aut{background:#16a06f;color:#fff;} .tbtn.aut.done{background:transparent;color:#67e3b1;border:1.5px solid #1f6b46;cursor:default;}
+.tbtn.edit{background:transparent;color:#c3cdf0;border:1.5px solid var(--line);}
+.tbtn.regen{background:transparent;color:#a9c6ff;border:1.5px solid #2b3f8a;}
+.tbtn.del{background:transparent;color:#ff9e9e;border:1.5px solid #7a2626;}
+.tbtn:hover{filter:brightness(1.12);}
+.editbox{margin-top:9px;display:none;}
+.editbox.open{display:block;}
+.editbox textarea{width:100%;background:var(--panel);border:1px solid var(--line);border-radius:9px;color:#eaf0ff;font-family:Poppins;font-size:12px;padding:8px 10px;min-height:48px;}
+.editbox .go{margin-top:7px;border:none;border-radius:9px;padding:7px 14px;background:var(--blue);color:#fff;font-weight:700;font-size:11.5px;cursor:pointer;}
+.calfoot{display:flex;gap:9px;margin-top:6px;padding-top:12px;border-top:1px solid var(--line);}
+.calfoot .allbtn{border:none;border-radius:10px;padding:9px 15px;background:#16a06f;color:#fff;font-weight:800;font-size:12px;cursor:pointer;}
+.calfoot .allbtn:hover{filter:brightness(1.1);}
+/* 4 filtros de calidad por pieza */
+.tfilters{display:flex;flex-wrap:wrap;gap:6px;margin:9px 0 3px;align-items:center;}
+.ffchip{font-size:9.5px;font-weight:800;padding:3px 8px;border-radius:7px;background:var(--panel2);border:1px solid var(--line);color:#aeb9dc;display:inline-flex;gap:4px;align-items:center;cursor:default;}
+.ffchip.ok{border-color:#1f6b46;color:#67e3b1;background:rgba(22,160,111,.1);}
+.ffchip.bad{border-color:#7a2626;color:#ff9e9e;background:rgba(160,40,40,.1);}
+.ffchip.you{border-color:#2b3f8a;color:#a9c6ff;background:rgba(16,42,196,.1);}
+.ffavg{font-size:11px;font-weight:800;color:#ffcf5e;margin-left:3px;}
+.fflabel{font-size:9.5px;color:#5c6a94;font-weight:700;margin-right:2px;}
+#calModalBody img,#calModalBody video,.gal img,.gal video{cursor:zoom-in;}
+.lightbox{position:fixed;inset:0;background:rgba(0,0,0,.93);z-index:90;display:none;align-items:center;justify-content:center;padding:18px;}
+.lightbox.open{display:flex;}
+.lightbox img,.lightbox video{max-width:96vw;max-height:92vh;border-radius:8px;box-shadow:0 12px 70px rgba(0,0,0,.7);}
+.lbx{position:fixed;top:16px;right:24px;color:#fff;font-size:42px;line-height:1;cursor:pointer;z-index:91;font-family:Arial;}
+</style></head>
+<body>
+<div class="app">
+  <aside class="side">
+    <div class="logo"><img src="../buumia-catalogo/marca/logo-buum.png" alt="BUUM"><b>BUUM OS</b></div>
+    <span class="tag">Centro de Mando · tu cerebro del negocio</span>
+    <div class="navsec">Vista general</div>
+    <nav class="nav" id="nav">
+      <div class="navitem active" data-view="inicio"><span class="i">🧭</span><span>Resumen semanal</span></div>
+      <div class="navitem" data-view="juego"><span class="i">🎮</span><span>Camino al éxito</span><span class="b" id="jLvl">1</span></div>
+      <div class="navitem" data-view="trabajos"><span class="i">🖼️</span><span>Trabajos entregados</span><span class="b" id="nTrab">0</span></div>
+      <div class="navitem" data-view="rutinas"><span class="i">🔁</span><span>Rutinas</span></div>
+      <div class="navitem" data-view="conex"><span class="i">🔌</span><span>Conexiones</span></div>
+      <div class="navitem" data-view="cal"><span class="i">📅</span><span>Calendario</span></div>
+      <div class="navitem" data-view="pub"><span class="i">📣</span><span>Publicaciones</span></div>
+    </nav>
+    <div class="navsec">Operación</div>
+    <nav class="nav">
+      <div class="navitem" data-view="nuevo"><span class="i">🏭</span><span>Nuevo producto</span></div>
+      <div class="navitem" data-view="ops"><span class="i">📦</span><span>Operaciones</span></div>
+      <div class="navitem" data-view="reco"><span class="i">💡</span><span>Recomendaciones</span><span class="b">4</span></div>
+      <div class="navitem" data-view="deptos"><span class="i">🧩</span><span>Departamentos</span></div>
+      <div class="navitem" data-view="tareas"><span class="i">✅</span><span>Tareas</span></div>
+    </nav>
+    <div class="navsec">Empresa · CRM / ERP</div>
+    <nav class="nav">
+      <div class="navitem" data-view="inv"><span class="i">🏬</span><span>Inventario</span></div>
+      <div class="navitem" data-view="cli"><span class="i">🧑‍💼</span><span>Clientes (CRM)</span></div>
+      <div class="navitem" data-view="ped"><span class="i">🧾</span><span>Pedidos</span></div>
+      <div class="navitem" data-view="env"><span class="i">🚚</span><span>Envíos / Guías</span></div>
+      <div class="navitem" data-view="fin"><span class="i">💰</span><span>Finanzas</span></div>
+    </nav>
+    <div class="navsec">Dirección</div>
+    <nav class="nav">
+      <div class="navitem" data-view="ceo"><span class="i">🧠</span><span>Doctrina CEO</span></div>
+    </nav>
+    <div class="foot">Fase 1 · pre-lanzamiento<br>Tú diriges · la IA ejecuta<br><b id="clock"></b></div>
+  </aside>
+
+  <main class="main">
+    <!-- ===== RESUMEN SEMANAL ===== -->
+    <section class="view active" id="inicio">
+      <h2>🧭 Resumen semanal</h2>
+      <div class="lead">Métete cuando quieras (un lunes en la mañana o un domingo en la noche) y mira cómo va toda la empresa de un vistazo.</div>
+      <div class="hero"><span class="pill">PARA EL CEO</span><h3 id="greet">Buenas, jefe 👋 Esto es BUUM hoy</h3><p>Estás en <b>Fase 1 (pre-lanzamiento)</b>: marca, arsenal de contenido y tienda casi listos. Lo que falta para empezar a facturar está abajo en "Necesita tu atención". Tú decides; la IA ejecuta.</p></div>
+      <div class="tiles" style="margin-top:14px">
+        <div class="tile"><span class="k">💰</span><b>$0</b><span>Ventas (aún no lanzas)</span></div>
+        <div class="tile"><span class="k">📦</span><b>0</b><span>Pedidos</span></div>
+        <div class="tile"><span class="k">🖼️</span><b id="kTrab">0</b><span>Trabajos entregados</span></div>
+        <div class="tile"><span class="k">🔌</span><b>4/6</b><span>Conectado (Gemini·Replicate·FB·IG)</span></div>
+      </div>
+      <div class="section">⚠️ Necesita tu atención (decisiones del dueño)</div>
+      <div class="att"><span class="em">🛒</span><div><b>Definir los productos reales a vender</b><div class="s">Idea: reflectores solares recargables (en stock) + combos, con margen 2x. Sin esto no se lanza.</div></div><button class="btn o" data-go="ops">Ver operaciones →</button></div>
+      <div class="att"><span class="em">💳</span><div><b>Conectar pagos (Mercado Pago: tarjeta y OXXO)</b><div class="s">El carrito hoy es visual. Sin checkout real, no se cobra.</div></div><button class="btn g" data-go="conex">Conexiones →</button></div>
+      <div class="att"><span class="em">☁️</span><div><b>Subir la IA (Sofía / gatito) a la nube</b><div class="s">Hoy el cerebro vive en tu compu. Para que responda 24/7 hay que subirlo a serverless.</div></div><button class="btn g" data-go="tareas">Ver tareas →</button></div>
+      <div class="section">🩺 Salud rápida</div>
+      <div class="grid">
+        <div class="card"><div class="t"><span class="ic">🌐</span><b>Tienda</b><span class="dot y"></span></div><p>Diseño terminado (borrador Shopify). En pausa hasta meter productos reales + precios.</p></div>
+        <div class="card"><div class="t"><span class="ic">📣</span><b>Contenido</b><span class="dot g"></span></div><p>42 anuncios + videos listos. Rutina automática de imágenes/video <b>pausada</b> por ahora.</p></div>
+        <div class="card"><div class="t"><span class="ic">💳</span><b>Créditos</b><span class="dot g"></span></div><p>Gemini prepago (imágenes) + Replicate (video). Sin deudas. Se recarga a mano.</p></div>
+      </div>
+    </section>
+
+    <!-- ===== CONEXIONES ===== -->
+    <section class="view" id="conex">
+      <h2>🔌 Conexiones</h2>
+      <div class="lead">Todo el negocio enchufado a un solo cerebro. <b style="color:#4fe0a6">Gemini, Replicate, Facebook 𝗕𝗨𝗨𝗠 e Instagram @buum.ia ya están conectados y funcionando.</b> Falta pagos y publicar la tienda.</div>
+      <div class="grid2" id="connGrid"></div>
+      <div class="card" style="margin-top:12px"><p>💡 En cuanto lances, aquí verás en vivo: ventas de Shopify, gasto/resultados de Meta y Google Ads, mensajes de WhatsApp/Instagram y las publicaciones de Facebook/Instagram — todo desde este panel, sin entrar a cada app.</p></div>
+    </section>
+
+    <!-- ===== CALENDARIO ===== -->
+    <section class="view" id="cal">
+      <h2>📅 Calendario de contenido</h2>
+      <div class="lead">Departamento de marketing. El equipo genera y programa el contenido; <b>toca cualquier día</b> para ver todo lo del día en orden, con su hora, imagen, texto y video.</div>
+      <div class="calrev" id="calRev"></div>
+      <div class="calx">
+        <div class="calhead">
+          <button class="calnavbtn" id="calPrev" aria-label="Mes anterior">‹</button>
+          <div class="calmes" id="calMes">—</div>
+          <button class="calnavbtn" id="calNext" aria-label="Mes siguiente">›</button>
+          <button class="calhoybtn" id="calHoy">Hoy</button>
+        </div>
+        <div class="calwd"><span>Lun</span><span>Mar</span><span>Mié</span><span>Jue</span><span>Vie</span><span>Sáb</span><span>Dom</span></div>
+        <div class="mcal" id="calGrid"></div>
+      </div>
+      <div class="section">Leyenda</div>
+      <div class="card"><p><span class="chip tp-historia">⭕ Historia</span> <span class="chip tp-carrusel">🖼️ Carrusel</span> <span class="chip tp-video">🎬 Video</span> <span class="chip tp-post">📷 Post</span> &nbsp;·&nbsp; <span class="chip" style="background:rgba(214,41,118,.2);color:#ff9ecb">IG</span> <span class="chip" style="background:rgba(24,119,242,.2);color:#8fbcff">FB</span> &nbsp;·&nbsp; <span class="chip low">Por autorizar</span> <span class="chip ok">Autorizado</span></p></div>
+
+      <div class="section">✍️ Pídele contenido al equipo</div>
+      <div class="calask">
+        <textarea id="askTxt" placeholder="Ej: Haz más contenido del foco 60W enfocado en el ahorro de luz, con más color…"></textarea>
+        <div class="askrow">
+          <select id="askProd"><option value="Foco LED 60W">Foco LED 60W</option></select>
+          <button class="askbtn" id="askSend">Pedir al equipo →</button>
+        </div>
+      </div>
+      <div class="calrut" id="calRut"></div>
+    </section>
+
+    <!-- modal del día -->
+    <div class="calmodal" id="calModal">
+      <div class="caldlg">
+        <div class="cmhead"><div class="cmtitle" id="calModalTitle">—</div><button class="cmx" id="calModalX" aria-label="Cerrar">&times;</button></div>
+        <div class="cmsub" id="calModalSub"></div>
+        <div id="calModalBody"></div>
+        <div class="calfoot" id="calFoot" style="display:none"><button class="allbtn" id="calAuthAll">✓ Autorizar todo el día</button></div>
+      </div>
+    </div>
+
+    <!-- lightbox: ver imagen/video en grande -->
+    <div class="lightbox" id="lightbox"><span class="lbx" id="lbClose">&times;</span><img id="lbImg" style="display:none" alt=""><video id="lbVid" controls playsinline style="display:none"></video></div>
+
+    <!-- ===== PUBLICACIONES ===== -->
+    <section class="view" id="pub">
+      <h2>📣 Publicaciones</h2>
+      <div class="lead">El flujo del contenido: lo que ya se hizo, lo que sigue y lo que espera tu OK.</div>
+      <div id="filtroBox"></div>
+      <div class="pipe">
+        <div class="col"><h4>✅ Generadas</h4>
+          <div class="item">42 anuncios de imagen (packs 12/30, mayoreo)<div class="m">en revision_anuncios/</div></div>
+          <div class="item">Comercial gato + foco (16:9)<div class="m">luz blanca, rayos · listo</div></div>
+          <div class="item">Comercial "Naciste para brillar"<div class="m">cine-noir · listo</div></div>
+        </div>
+        <div class="col"><h4>🟡 Por aprobar</h4>
+          <div class="item">Anuncio diario de imagen<div class="m">la rutina lo dejaba en revisión · pausada</div></div>
+          <div class="item">Video semanal nuevo<div class="m">rutina de video · pausada</div></div>
+        </div>
+        <div class="col"><h4>⏭️ Próximas (al lanzar)</h4>
+          <div class="item">Campaña de lanzamiento<div class="m">3 anuncios ganadores → Meta</div></div>
+          <div class="item">Reel del producto real<div class="m">cuando haya fotos reales</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== JUEGO: CAMINO AL ÉXITO ===== -->
+    <section class="view" id="juego">
+      <h2>🎮 Camino al éxito mundial 🌎</h2>
+      <div class="lead">Sigue la estrategia del CEO como un juego: completa <b>misiones</b>, sube de <b>nivel</b> y lleva a BUUM al éxito mundial. Marca cada misión cuando la logres.</div>
+      <div class="xpwrap"><div class="xptop"><b id="lvlName">Nivel 1</b><span id="xpPct">0%</span></div><div class="bar"><i id="xpBar"></i></div></div>
+      <div class="lvlmap" id="lvlMap"></div>
+      <div class="ceosays" id="ceoSays"></div>
+      <div class="section" id="misTitle">Misiones</div>
+      <div id="missions"></div>
+    </section>
+
+    <!-- ===== TRABAJOS ENTREGADOS (GALERÍA) ===== -->
+    <section class="view" id="trabajos">
+      <h2>🖼️ Trabajos entregados</h2>
+      <div class="lead">Todo lo que la IA ha producido, aquí y a la vista. <span id="trabMeta" style="color:#5c6a94"></span></div>
+      <div class="section">🎨 Logotipos y marca <small style="color:#5c6a94;font-weight:400">· assets fijos, no son anuncios</small></div>
+      <div class="gal" id="logoGrid"></div>
+      <div class="section">🖼️ Anuncios y contenido</div>
+      <div class="gal" id="galGrid"></div>
+    </section>
+
+    <!-- ===== RUTINAS ===== -->
+    <section class="view" id="rutinas">
+      <h2>🔁 Rutinas</h2>
+      <div class="lead">Los procesos automáticos del negocio en un solo lugar: qué hace cada uno, cuándo corre y qué entrega. No tienes que entrar a cada rutina — todo sale aquí.</div>
+      <div id="rutGrid"></div>
+    </section>
+
+    <!-- ===== NUEVO PRODUCTO (LÍNEA DE PRODUCCIÓN) ===== -->
+    <section class="view" id="nuevo">
+      <h2>🏭 Nuevo producto — línea de producción</h2>
+      <div class="lead">Como una maquiladora: llega un producto → pasa por los pasos → sale <b>publicado y con marketing</b>. Yo te pido lo que necesito; tú solo aportas fotos/costos y autorizas.</div>
+      <div class="att" style="border-left-color:#16a06f"><span class="em">🚀</span><div><b>¿Llegó un producto? Inicia el proceso</b><div class="s">Le doy clic y la IA te guía paso a paso (datos, fotos, ficha técnica, precio, publicar, marketing).</div></div><button class="btn o" data-cmd="Inicia el proceso de NUEVO PRODUCTO del BUUM OS conmigo (línea de producción): pídeme paso a paso los datos y las fotos, arma la ficha técnica (ADN), sugiéreme el precio con el mercado, y prepáralo para publicar en Shopify + su marketing. Recuerda: BUUM NO da garantía al cliente, y los anuncios van simples (sin código de barras ni toda la data técnica).">🚀 Iniciar proceso</button></div>
+      <div class="section">Los pasos del proceso</div>
+      <div class="grid">
+        <div class="card"><div class="t"><span class="ic">📥</span><b>1. Datos base</b></div><p>Nombre, watts, <b>tu costo</b> y foto de la caja (trae la info técnica). Tú dices qué dejar/quitar.</p></div>
+        <div class="card"><div class="t"><span class="ic">📸</span><b>2. Fotos</b></div><p>Tomas las fotos (te digo cuáles) y me las compartes.</p></div>
+        <div class="card"><div class="t"><span class="ic">🎨</span><b>3. Limpieza HD</b></div><p>La IA deja las fotos en limpio y premium para la tienda.</p></div>
+        <div class="card"><div class="t"><span class="ic">🧬</span><b>4. Ficha técnica (ADN)</b></div><p>Toda la info del producto. El núcleo para +100 anuncios y para responder al cliente.</p></div>
+        <div class="card"><div class="t"><span class="ic">💲</span><b>5. Precio</b></div><p>Te sugiero precio (margen + mercado). Tú confirmas.</p></div>
+        <div class="card"><div class="t"><span class="ic">🛒</span><b>6. Publicar</b></div><p>Título + fotos + descripción + precio → Shopify.</p></div>
+        <div class="card"><div class="t"><span class="ic">📣</span><b>7. Marketing</b></div><p>Anuncios/videos/reels con la ficha → 4 filtros → tu OK → redes/ads.</p></div>
+        <div class="card"><div class="t"><span class="ic">💾</span><b>8. Guardar</b></div><p>El ADN queda en el catálogo para reusar cuando pidas más contenido.</p></div>
+      </div>
+      <div class="att" style="border-left-color:#e6a100;margin-top:14px"><span class="em">⚠️</span><div><b>Reglas del proceso</b><div class="s"><b>Garantía:</b> BUUM NO da garantía al cliente (si aplica, es con el proveedor). · <b>Anuncios simples:</b> sin código de barras ni toda la data técnica. · Solo lo real, stock real, margen ~2x. · Falta <b>acceso a Shopify + Meta/Google</b> para publicar 100% solo.</div></div></div>
+    </section>
+
+    <!-- ===== OPERACIONES ===== -->
+    <section class="view" id="ops">
+      <h2>📦 Operaciones</h2>
+      <div class="lead">Stock, cuánto conviene pedir y a cuánto vender para ganar bien. La regla de oro: comprar donde le ganes <b>2x</b> (100 → 200), reinvertir y crecer catálogo.</div>
+      <div class="section">Inventario</div>
+      <div class="card" style="padding:6px 4px">
+      <table class="tbl">
+        <tr><th>Producto</th><th>Stock</th><th>Costo</th><th>Precio venta</th><th>Margen</th><th>Estado</th></tr>
+        <tr><td><b>Reflector solar recargable</b></td><td>por definir</td><td>—</td><td>—</td><td>2x meta</td><td><span class="chip ok">En stock</span></td></tr>
+        <tr><td>Paquetes / combos recargables</td><td>—</td><td>—</td><td>—</td><td>alto</td><td><span class="chip low">Por armar</span></td></tr>
+        <tr><td>Foco LED 60W (proveedor)</td><td>—</td><td>—</td><td>—</td><td>bajo ⚠️</td><td><span class="chip no">Reconsiderar</span></td></tr>
+      </table>
+      </div>
+      <div class="section">Recomendación de compra</div>
+      <div class="card"><p>⚠️ <b>Ojo con el foco de reventa:</b> si lo compras y vendes casi al mismo precio, no creces y le das fama a la marca del proveedor, no a BUUM. <b>Prioriza productos con margen real</b> (reflectores solares recargables + combos). Define <b>costo</b> y <b>precio de venta</b> de cada uno para que este tablero calcule margen, punto de reorden y ganancia proyectada.</p>
+      <div class="btns"><button class="btn o" data-cmd="Ayúdame a definir precios y márgenes de mis productos reales (reflectores solares recargables + combos) para el BUUM OS">Definir precios con la IA</button></div></div>
+    </section>
+
+    <!-- ===== RECOMENDACIONES ===== -->
+    <section class="view" id="reco">
+      <h2>💡 Recomendaciones de la IA</h2>
+      <div class="lead">Lo que la IA sugiere que hagas para crecer más rápido (tú decides).</div>
+      <div class="att"><span class="em">💰</span><div><b>Vende lo que deje margen 2x</b><div class="s">Reflectores solares recargables y combos, no reventa a precio parejo. Reinviertes y creces catálogo.</div></div></div>
+      <div class="att"><span class="em">🎁</span><div><b>Arma paquetes/combos</b><div class="s">Con lo que ya tienes en stock: sube el ticket promedio y el margen.</div></div></div>
+      <div class="att"><span class="em">📸</span><div><b>Fotos reales de esos productos</b><div class="s">Cuando decidas los productos, les tomamos fotos pro (mismo pipeline del foco) y se cargan a la web.</div></div></div>
+      <div class="att"><span class="em">🚀</span><div><b>Conecta pagos antes de pautar</b><div class="s">No gastes en anuncios hasta poder cobrar (Mercado Pago tarjeta/OXXO listo).</div></div></div>
+    </section>
+
+    <!-- ===== DEPARTAMENTOS ===== -->
+    <section class="view" id="deptos">
+      <h2>🧩 Departamentos</h2>
+      <div class="lead">La empresa dividida en áreas. Cada una la opera la IA con su proceso; tú diriges. (7 activas + RH dormida)</div>
+      <div class="grid">
+        <div class="card"><div class="t"><span class="ic">🧠</span><b>Dirección / CEO</b><span class="dot g"></span></div><p>Rumbo, metas, aprobar dinero, decidir productos. Hoy: Tú + IA asesora.</p></div>
+        <div class="card"><div class="t"><span class="ic">📦</span><b>Producto & Abasto</b><span class="dot y"></span></div><p>Encontrar productos ganadores, proveedores, muestras, stock, precios. En foco ahora.</p></div>
+        <div class="card"><div class="t"><span class="ic">📣</span><b>Marketing & Contenido</b><span class="dot g"></span></div><p>Imágenes, video, copy, pauta. 42 anuncios + comerciales. Rutina en pausa.</p></div>
+        <div class="card"><div class="t"><span class="ic">🛒</span><b>Ventas & Clientes</b><span class="dot y"></span></div><p>Tienda, checkout, mayoreo, Sofía/gatito IA que asesora y vende.</p></div>
+        <div class="card"><div class="t"><span class="ic">🚚</span><b>Operaciones & Logística</b><span class="dot o"></span></div><p>Inventario, resurtido, empaque, envíos. Por armar proceso.</p></div>
+        <div class="card"><div class="t"><span class="ic">💰</span><b>Finanzas</b><span class="dot o"></span></div><p>Utilidad real, caja, control de créditos. Por armar tablero.</p></div>
+        <div class="card"><div class="t"><span class="ic">⚙️</span><b>BUUM OS · IA/Tech</b><span class="dot g"></span></div><p>Este centro de mando, skills, automatizaciones, integraciones.</p></div>
+        <div class="card" style="opacity:.6"><div class="t"><span class="ic">🧑‍🤝‍🧑</span><b>Personas / RH</b><span class="dot o"></span></div><p>Dormida. Se activa cuando contrates.</p></div>
+      </div>
+    </section>
+
+    <!-- ===== TAREAS ===== -->
+    <section class="view" id="tareas">
+      <h2>✅ Tareas (el pendiente vivo)</h2>
+      <div class="lead">Lo que sigue para arrancar a facturar. Marca cada una al completarla (se guarda sola).</div>
+      <div class="bar" style="height:12px"><i id="bar"></i></div>
+      <div id="tasks" style="margin-top:14px"></div>
+    </section>
+
+    <!-- ===== INVENTARIO (multi-almacén) ===== -->
+    <section class="view" id="inv">
+      <h2>🏬 Inventario</h2>
+      <div class="lead">Control de stock por almacén/ubicación — como el sistema de tu proveedor: saber cuánto hay y dónde, punto de reorden y valor. Se llena solo cuando conectemos Shopify + entren productos reales.</div>
+      <div class="tiles" style="margin-bottom:14px">
+        <div class="tile"><span class="k">📦</span><b>0</b><span>SKUs (productos)</span></div>
+        <div class="tile"><span class="k">🏬</span><b>1</b><span>Almacenes (México)</span></div>
+        <div class="tile"><span class="k">⚠️</span><b>0</b><span>Por reordenar</span></div>
+        <div class="tile"><span class="k">💵</span><b>$0</b><span>Valor del inventario</span></div>
+      </div>
+      <div class="card" style="padding:6px 4px"><table class="tbl">
+        <tr><th>Producto (SKU)</th><th>Almacén</th><th>Stock</th><th>Mínimo</th><th>Costo</th><th>Estado</th></tr>
+        <tr><td><b>Reflector solar recargable</b></td><td>Principal</td><td>por definir</td><td>—</td><td>—</td><td><span class="chip low">Por cargar</span></td></tr>
+        <tr><td>Combos (2 / 4 pzas)</td><td>Principal</td><td>—</td><td>—</td><td>—</td><td><span class="chip low">Por armar</span></td></tr>
+      </table></div>
+      <div class="card" style="margin-top:12px"><p>🧠 Cuando crezcas a varios almacenes/tiendas, aquí verás el stock de cada uno en un solo lugar, con alertas automáticas de reorden. <b>La IA aviso cuando algo esté por agotarse.</b></p>
+      <div class="btns"><button class="btn o" data-cmd="Ayúdame a cargar mi inventario real (productos, almacén, stock, costo, mínimo de reorden) en el BUUM OS">Cargar inventario con la IA</button></div></div>
+    </section>
+
+    <!-- ===== CLIENTES (CRM) ===== -->
+    <section class="view" id="cli">
+      <h2>🧑‍💼 Clientes (CRM)</h2>
+      <div class="lead">El registro de TODO cliente: quién es, qué compró, cuándo y qué le gusta — para que regrese y compre más. Se alimenta de Shopify/WhatsApp/Instagram al conectar.</div>
+      <div class="tiles" style="margin-bottom:14px">
+        <div class="tile"><span class="k">🧑‍🤝‍🧑</span><b>0</b><span>Clientes</span></div>
+        <div class="tile"><span class="k">🔁</span><b>0</b><span>Recompras</span></div>
+        <div class="tile"><span class="k">🎫</span><b>$0</b><span>Ticket promedio</span></div>
+        <div class="tile"><span class="k">⭐</span><b>0</b><span>Reseñas</span></div>
+      </div>
+      <div class="card" style="padding:6px 4px"><table class="tbl">
+        <tr><th>Cliente</th><th>Ciudad</th><th>Compras</th><th>Total</th><th>Última</th><th>Estado</th></tr>
+        <tr><td colspan="6" style="text-align:center;color:#5c6a94;padding:18px">Aún sin clientes — aparecerán aquí al empezar a vender.</td></tr>
+      </table></div>
+      <div class="card" style="margin-top:12px"><p>🧠 La IA podrá segmentar (clientes nuevos, frecuentes, mayoristas), avisarte quién no ha vuelto y sugerir mensajes de recompra. <b>Nada se pierde: registro de absolutamente todo.</b></p></div>
+    </section>
+
+    <!-- ===== PEDIDOS (OMS) ===== -->
+    <section class="view" id="ped">
+      <h2>🧾 Pedidos</h2>
+      <div class="lead">Cada pedido de principio a fin: nuevo → pagado → empacado → enviado → entregado. Un solo tablero para no perder ninguno.</div>
+      <div class="pipe">
+        <div class="col"><h4>🆕 Nuevos</h4><div class="item" style="text-align:center;color:#5c6a94">—</div></div>
+        <div class="col"><h4>📦 Por enviar</h4><div class="item" style="text-align:center;color:#5c6a94">—</div></div>
+        <div class="col"><h4>✅ Entregados</h4><div class="item" style="text-align:center;color:#5c6a94">—</div></div>
+      </div>
+      <div class="card" style="margin-top:12px"><p>🧠 Al conectar Shopify, cada venta cae aquí automáticamente y la IA te dice qué empacar hoy y qué está atrasado. También se puede tomar pedidos de mayoreo por WhatsApp.</p></div>
+    </section>
+
+    <!-- ===== ENVÍOS / GUÍAS ===== -->
+    <section class="view" id="env">
+      <h2>🚚 Envíos / Guías</h2>
+      <div class="lead">Generar la guía del cliente, imprimir y darle seguimiento — justo como el sistema de tu proveedor. Con paqueterías de México (Estafeta, DHL, FedEx, 99minutos).</div>
+      <div class="grid">
+        <div class="card"><div class="t"><span class="ic">🏷️</span><b>Generar guía</b><span class="dot o"></span></div><p>Crear la etiqueta de envío del pedido (origen, destino, peso). Se activa al conectar paquetería/Shopify.</p></div>
+        <div class="card"><div class="t"><span class="ic">📍</span><b>Rastreo</b><span class="dot o"></span></div><p>Seguir cada paquete y avisar al cliente automáticamente por WhatsApp.</p></div>
+        <div class="card"><div class="t"><span class="ic">💲</span><b>Costo de envío</b><span class="dot o"></span></div><p>Cotizar y cobrar el envío correcto (o envío gratis en combos).</p></div>
+      </div>
+      <div class="card" style="margin-top:12px"><p>🧠 La meta: en 1 clic generas la guía y el cliente recibe su número de rastreo. La IA arma las guías del día.</p>
+      <div class="btns"><button class="btn o" data-cmd="Ayúdame a conectar paqueterías (Estafeta/DHL/FedEx/99minutos) y generar guías de envío desde el BUUM OS">Conectar envíos con la IA</button></div></div>
+    </section>
+
+    <!-- ===== FINANZAS ===== -->
+    <section class="view" id="fin">
+      <h2>💰 Finanzas</h2>
+      <div class="lead">La verdad del dinero: ventas, costo, <b>utilidad real</b> y caja. Para decidir con números, no a ojo.</div>
+      <div class="tiles" style="margin-bottom:14px">
+        <div class="tile"><span class="k">🟢</span><b>$0</b><span>Ventas</span></div>
+        <div class="tile"><span class="k">🔻</span><b>$0</b><span>Costos</span></div>
+        <div class="tile"><span class="k">💎</span><b>$0</b><span>Utilidad real</span></div>
+        <div class="tile"><span class="k">🏦</span><b>$0</b><span>Caja</span></div>
+      </div>
+      <div class="card"><p>🧠 Con la regla de <b>margen 2x</b>, aquí verás cuánto ganas de verdad por producto y por combo, cuánto reinvertir y cuánto es utilidad. Se alimenta de Pedidos + Inventario al vender.</p></div>
+    </section>
+
+    <!-- ===== CEO ===== -->
+    <section class="view" id="ceo">
+      <h2>🧠 El CEO de BUUM</h2>
+      <div class="lead">No es un empleado que dice sí a todo. Es una <b>entidad viva</b> que <b>cuestiona cada decisión</b> y guía la empresa a <b>crecer y ganar dinero SÍ o SÍ</b> — como el crítico mundial subió la calidad de los anuncios, pero para dirigir el negocio.</div>
+      <div class="att" style="border-left-color:#ffb800"><span class="em">🔥</span><div><b>Cómo trabaja el CEO</b><div class="s">Ante cualquier idea exige: ¿para qué sirve? · ¿cómo genera dinero/crecimiento? · ¿es lo MÁS importante hoy? · ¿qué dejas de hacer por esto? Da veredicto (ADELANTE / MEJÓRALO / ENFÓCATE EN OTRA COSA), dirección y prioridad. Motor: <b>ceo.py</b>.</div></div></div>
+      <div class="att" style="border-left-color:#16a06f"><span class="em">🧭</span><div><b>Directiva actual del CEO</b><div class="s">1) LANZA la tienda ya (funcional &gt; perfecta). 2) Obsesiónate con el primer producto propio con <b>margen 2x</b>. 3) Empieza a VENDER y aprende del cliente real. La página 3D es FUTURO (prioridad 1/5).</div></div><button class="btn o" data-cmd="Ponte en modo CEO de BUUM (cuestiona todo sin miedo, exige dinero y crecimiento, dame veredicto, dirección y prioridad como en ceo.py) y evalúa esta decisión: ">Consultar al CEO →</button></div>
+      <div class="section">Estándares del CEO (cómo piensa)</div>
+      <div class="doc"><b>👤 Bezos — Obsesión por el cliente + largo plazo</b><p>Partir de lo que el cliente necesita (mejor luz, mejor precio, mejor experiencia). Reinvertir para crecer.</p></div>
+      <div class="doc"><b>🚀 Musk — First principles + ambición 10x</b><p>Razonar desde lo fundamental (costos reales, márgenes). Atacar el costo desde la raíz (China directo). Pensar en GRANDE.</p></div>
+      <div class="doc"><b>🍏 Jobs — Diseño, foco y excelencia</b><p>Experiencia "insanely great", decir NO a lo que no importa, calidad de campaña en TODO.</p></div>
+      <div class="card" style="margin-top:12px"><div class="t"><span class="ic">🎯</span><b>La regla que manda hoy</b></div><p>Vender solo lo que deja <b>margen real (2x)</b> para reinvertir y crecer <b>tu marca</b> (BUUM), no la del proveedor. Financia el proyecto → se vuelve autosustentable → crece y se monitorea solo.</p></div>
+    </section>
+  </main>
+</div>
+<div class="toast" id="toast">Copiado ✓</div>
+<script>document.write('<scr'+'ipt src="datos.js?v='+Date.now()+'"></scr'+'ipt>');</script>
+<script src="semana.js"></script>
+<script>document.write('<scr'+'ipt src="calendario.js?v='+Date.now()+'"></scr'+'ipt>');</script>
+<script>
+// ---- navegación ----
+function show(v){document.querySelectorAll('.view').forEach(s=>s.classList.toggle('active',s.id===v));document.querySelectorAll('.navitem').forEach(n=>n.classList.toggle('active',n.dataset.view===v));window.scrollTo(0,0);}
+document.querySelectorAll('.navitem').forEach(n=>n.addEventListener('click',()=>show(n.dataset.view)));
+document.querySelectorAll('[data-go]').forEach(b=>b.addEventListener('click',()=>show(b.dataset.go)));
+// ---- toast / comandos ----
+var t=document.getElementById('toast'),T;
+function toast(m){t.textContent=m;t.classList.add('show');clearTimeout(T);T=setTimeout(()=>t.classList.remove('show'),2600);}
+function copy(x){try{navigator.clipboard.writeText(x);}catch(e){var a=document.createElement('textarea');a.value=x;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove();}}
+document.querySelectorAll('[data-cmd]').forEach(b=>b.addEventListener('click',()=>{if(typeof sendPrompt==='function'){sendPrompt(b.dataset.cmd);}else{copy(b.dataset.cmd);toast('Orden copiada ✓ — pégala en el chat de Claude');}}));
+// ---- datos del panel (galería, rutinas, conexiones) ----
+var DATOS=(typeof window.DATOS!=='undefined')?window.DATOS:{trabajos:[],rutinas:[],conexiones:[]};
+// ---- galería de trabajos entregados ----
+(function(){
+ var g=document.getElementById('galGrid'), _raw=DATOS.trabajos||[]; var _marcas=_raw.filter(function(w){return (w.tipo||'').indexOf('Marca')>-1;}); var all=_raw.filter(function(w){return (w.tipo||'').indexOf('Marca')===-1;});
+ var BOR=JSON.parse(localStorage.getItem('buum_os_borrados')||'{}');
+ var AUT=JSON.parse(localStorage.getItem('buum_os_autoriza')||'{}');
+ function bkey(w){return w.img.split('/').slice(-1)[0].split('?')[0];}
+ function upd(){var vis=all.filter(function(w){return !BOR[bkey(w)];});
+  document.getElementById('nTrab').textContent=vis.length;
+  var kt=document.getElementById('kTrab'); if(kt)kt.textContent=vis.length;
+  document.getElementById('trabMeta').textContent=vis.length?('· '+vis.length+' trabajos'):'';
+  return vis;}
+ var tr=upd();
+ if(!tr.length){g.innerHTML='<div class="card"><p>Aún no hay trabajos (o los eliminaste todos). En cuanto la IA produzca algo, aparece aquí.</p></div>';return;}
+ g.innerHTML=tr.map(function(w){
+  var file=bkey(w);
+  var isVid=/\.mp4$/i.test(w.img);
+  var media=isVid?('<video src="'+w.img+'" muted loop playsinline onmouseover="this.play()" onmouseout="this.pause()"></video>'):('<img src="'+w.img+'" alt="">');
+  var col=w.estado&&w.estado.indexOf('/')>-1?'ok':(w.estado==='Aprobado'?'ok':'low');
+  var obs=w.obs?('<div class="obsw">'+w.obs+'</div>'):'';
+  var a=AUT[file];
+  return '<div class="work" data-file="'+file+'"><div class="imgw">'+media+'</div><div class="meta"><b>'+w.titulo+'</b>'+
+   '<div class="row"><span class="tp">'+w.tipo+(w.fecha?' · '+w.fecha:'')+'</span><span class="chip '+col+'">'+w.estado+'</span></div>'+obs+
+   '<div class="wbtns"><button class="wbtn aut'+(a?' on':'')+'">'+(a?'✔ Autorizado':'✅ Autorizar')+'</button>'+
+   '<button class="wbtn edit" data-tit="'+(w.titulo||'').replace(/"/g,'')+'">✍️ Editar</button>'+
+   '<button class="wbtn del">🗑️ Eliminar</button></div></div></div>';
+ }).join('');
+ var _lg=document.getElementById('logoGrid');
+ if(_lg){_lg.innerHTML=_marcas.map(function(w){return '<div class="work"><div class="imgw"><img src="'+w.img+'" alt=""></div><div class="meta"><b>'+w.titulo+'</b><div class="row"><span class="tp">'+w.tipo+'</span><span class="chip ok">Fijo</span></div></div></div>';}).join('')||'<div class="card"><p>—</p></div>';}
+ g.addEventListener('click',function(e){
+  var b=e.target.closest('.wbtn'); if(!b)return;
+  var card=b.closest('.work'), file=card.getAttribute('data-file');
+  if(b.classList.contains('aut')){
+   AUT[file]=!AUT[file]; localStorage.setItem('buum_os_autoriza',JSON.stringify(AUT));
+   b.classList.toggle('on',AUT[file]); b.textContent=AUT[file]?'✔ Autorizado':'✅ Autorizar';
+   toast(AUT[file]?'Trabajo autorizado ✓':'Autorización quitada');
+  } else if(b.classList.contains('edit')){
+   var tit=b.getAttribute('data-tit')||file;
+   var o=prompt('¿Qué le cambio a "'+tit+'"? Escríbelo y la IA lo edita aquí mismo (ej: "que sostenga un foco LED", "marco rojo", "más colores"):');
+   if(o){
+    var img=card.querySelector('.imgw img'); b.textContent='⏳ Editando…'; b.disabled=true; if(img)img.style.opacity=.35;
+    fetch('/api/editar',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({file:file,obs:o})})
+     .then(function(r){return r.json();})
+     .then(function(res){
+       b.textContent='✍️ Editar'; b.disabled=false; if(img)img.style.opacity=1;
+       if(res.ok){ if(img)img.src=res.img+'&_t='+Date.now(); toast('¡Editado! ✓ Ya ves el cambio'); }
+       else { alert('No se pudo editar: '+(res.error||'error')); }
+     })
+     .catch(function(e){ b.textContent='✍️ Editar'; b.disabled=false; if(img)img.style.opacity=1;
+       alert('No hay conexión con el editor. Recarga el panel (Ctrl+F5) e inténtalo de nuevo.'); });
+   }
+  } else if(b.classList.contains('del')){
+   BOR[file]=true; localStorage.setItem('buum_os_borrados',JSON.stringify(BOR));
+   card.remove(); upd(); toast('Trabajo eliminado ✓');
+  }
+ });
+})();
+// ---- rutinas ----
+(function(){
+ var r=document.getElementById('rutGrid'), rt=DATOS.rutinas||[];
+ var ic={"Activa":"🟢","Por desplegar":"🟡","En pausa":"⏸️"};
+ r.innerHTML=rt.map(function(x){
+  var e=x.estado||"", em=e.indexOf('Activa')>-1?'🟢':(e.indexOf('desplegar')>-1?'🟡':'⏸️');
+  return '<div class="rut"><div class="ri">🔁</div><div style="flex:1"><b>'+x.nombre+'</b><p>'+x.hace+'</p><div class="rmeta"><span class="tag2">🕒 '+x.cuando+'</span><span class="tag2">'+em+' '+x.estado+'</span><span class="tag2">📤 '+x.salida+'</span></div></div></div>';
+ }).join('');
+})();
+// ---- conexiones ----
+var CONN=(DATOS.conexiones&&DATOS.conexiones.length)?DATOS.conexiones:[
+ ["Shopify","🛍️","#95BF47","pend","Tienda","Borrador","tema listo, sin publicar"],
+ ["Facebook","👍","#1877F2","on","Publicaciones","Conectado","listo"],
+ ["Instagram","📸","#d62976","on","Publicaciones","Conectado","listo"],
+];
+var cg=document.getElementById('connGrid');
+CONN.forEach(function(c){
+ var stcls=c[3]==='on'?'on':(c[3]==='pend'?'pend':'offl'); var sttx=c[3]==='on'?'● Conectado':(c[3]==='pend'?'● Pendiente':'○ Por conectar');
+ var d=document.createElement('div');d.className='card';
+ d.innerHTML='<div class="conn"><div class="lg" style="background:'+c[2]+'">'+c[1]+'</div><div><div class="nm">'+c[0]+'</div><div class="st '+stcls+'">'+sttx+'</div></div><div class="stat"><b>'+c[5]+'</b><span>'+c[6]+'</span></div></div>';
+ cg.appendChild(d);
+});
+// ---- calendario + resultados del filtro (lee semana.js si existe) ----
+var SEM=(typeof window.SEMANA!=='undefined')?window.SEMANA:null;
+// ---- calendario de contenido por MES (lee calendario.js; clic en día -> modal) ----
+(function(){
+ var CC=(typeof window.CAL_CONTENIDO!=='undefined')?window.CAL_CONTENIDO:null;
+ var MESN=["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"];
+ var DIAN=["Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado"];
+ var TIPO={historia:'⭕',carrusel:'🖼️',video:'🎬',post:'📷'};
+ var TIPON={historia:'Historia',carrusel:'Carrusel',video:'Video',post:'Post'};
+ var REDN={ig:'Instagram',fb:'Facebook',tt:'TikTok'};
+ var AKEY="buum_cal_auth", AUTH=JSON.parse(localStorage.getItem(AKEY)||"{}");
+ var DKEY="buum_cal_del", DEL=JSON.parse(localStorage.getItem(DKEY)||"{}"); function saveDel(){localStorage.setItem(DKEY,JSON.stringify(DEL));}
+ function logFB(kind,it){try{var K="buum_feedback";var a=JSON.parse(localStorage.getItem(K)||"[]");a.push({kind:kind,estilo:(it&&it.estilo)||"",tipo:(it&&it.tipo)||"",titulo:(it&&it.titulo)||"",id:(it&&it.id)||""});localStorage.setItem(K,JSON.stringify(a));}catch(e){}}
+ function saveAuth(){localStorage.setItem(AKEY,JSON.stringify(AUTH));}
+ function estadoDe(it){return AUTH[it.id]?'autorizado':(it.estado||'por_autorizar');}
+ var ESTN={por_autorizar:'Por autorizar',autorizado:'Autorizado ✓',planeado:'Planeado',idea:'Idea'};
+ function p2(n){return (n<10?'0':'')+n;}
+ function iso(d){return d.getFullYear()+'-'+p2(d.getMonth()+1)+'-'+p2(d.getDate());}
+ function esc(s){return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+ function dayItems(k){var a=(CC&&CC.dias&&CC.dias[k])?CC.dias[k].filter(function(it){return !DEL[it.id];}):[];a.sort(function(x,y){return (x.hora||'').localeCompare(y.hora||'');});return a;}
+ function say(msg){if(typeof sendPrompt==='function'){sendPrompt(msg);}else if(typeof copy==='function'){copy(msg);if(typeof toast==='function')toast('Te copié la orden ✓ — pégala en el chat');}else{alert(msg);}}
+ var today=new Date(), cur=new Date(today.getFullYear(),today.getMonth(),1);
+ var grid=document.getElementById('calGrid'), mes=document.getElementById('calMes');
+ var curK=null, curDate=null;
+ // ---- banner de revisión + nota de rutina ----
+ (function(){
+  var rv=document.getElementById('calRev');
+  if(rv&&CC&&CC.revision){var r=CC.revision;
+   rv.innerHTML='<div class="ic">✅</div><div><b>Aprobado por el equipo — '+esc(r.encargado)+' + '+esc(r.ceo)+'</b><p>'+esc(r.nota)+(r.filtros?'<br><span style="color:#67e3b1">🔒 Filtros aplicados: '+esc(r.filtros)+'</span>':'')+'</p></div><div class="ok">'+(r.piezas||'')+' piezas ✓</div>';}
+  var rt=document.getElementById('calRut');
+  if(rt&&CC&&CC.rutina){rt.innerHTML='<b>🔁 Cómo será automático:</b> '+esc(CC.rutina);}
+ })();
+ function render(){
+  if(!grid)return; grid.innerHTML=''; mes.textContent=MESN[cur.getMonth()]+' '+cur.getFullYear();
+  var y=cur.getFullYear(), m=cur.getMonth();
+  var start=(new Date(y,m,1).getDay()+6)%7, ndays=new Date(y,m+1,0).getDate();
+  for(var b=0;b<start;b++){var e=document.createElement('div');e.className='mday empty';grid.appendChild(e);}
+  for(var dd=1;dd<=ndays;dd++){
+   var date=new Date(y,m,dd), k=iso(date), items=dayItems(k), isT=(iso(today)===k);
+   var cell=document.createElement('div'); cell.className='mday'+(isT?' today':'')+(items.length?' has':'');
+   var badges=items.slice(0,3).map(function(it){return '<span class="dbadge tp-'+it.tipo+'">'+(TIPO[it.tipo]||'•')+' '+(it.hora||'')+(AUTH[it.id]?' ✓':'')+'</span>';}).join('');
+   var more=items.length>3?'<span class="dmore">+'+(items.length-3)+' más</span>':'';
+   cell.innerHTML='<div class="dnum">'+dd+(isT?'<span class="dtoday">hoy</span>':'')+'</div>'+(items.length?'<div class="dbadges">'+badges+more+'</div>':'');
+   if(items.length)cell.addEventListener('click',(function(kk,dt){return function(){openDay(kk,dt);};})(k,date));
+   grid.appendChild(cell);
+  }
+ }
+ function media(it){
+  if(it.video)return '<video class="tvid" src="'+it.video+'" controls preload="metadata"></video>';
+  if(it.imgs&&it.imgs.length)return '<div class="tcar">'+it.imgs.map(function(s){return '<img src="'+s+'">';}).join('')+'</div>';
+  if(it.img)return '<img class="tim" src="'+it.img+'">';
+  if(it.link)return '<a class="tlink" href="'+it.link+'" target="_blank" rel="noopener">▶ Abrir contenido</a>';
+  return '';
+ }
+ var FLAB={'Jefe de Marketing BUUM':'F1·Marketing','Director Creativo / CIO':'F2·Creativo','Crítico marca mundial':'F3·Mundial'};
+ function filtersStrip(it){
+  if(!it.filtros||!it.filtros.length) return '';
+  var chips=it.filtros.map(function(f){
+    var lab=FLAB[f.rol]||f.rol; var c=(f.ok===true?'ok':(f.ok===false?'bad':''));
+    var mark=(f.ok===true?'✅':(f.ok===false?'❌':'⚠️'));
+    return '<span class="ffchip '+c+'" title="'+esc(f.motivo||'')+'">'+lab+' '+mark+(f.puntaje!=null?' '+f.puntaje:'')+'</span>';
+  }).join('');
+  var e=estadoDe(it); var you='<span class="ffchip you">F4·Tú '+(e==='autorizado'?'✅':'⏳')+'</span>';
+  var avg=(it.promedio!=null)?'<span class="ffavg">'+it.promedio+'/10</span>':'';
+  return '<div class="tfilters"><span class="fflabel">🔒 Filtros:</span>'+chips+you+avg+'</div>';
+ }
+ function renderModal(){
+  var items=dayItems(curK);
+  document.getElementById('calModalTitle').textContent=DIAN[curDate.getDay()]+' '+curDate.getDate();
+  document.getElementById('calModalSub').textContent=MESN[curDate.getMonth()]+' '+curDate.getFullYear()+' · '+items.length+' publicación'+(items.length===1?'':'es');
+  var body=items.map(function(it){
+   var e=estadoDe(it), done=(e==='autorizado');
+   return '<div class="trow"><div class="thora"><b>'+(it.hora||'')+'</b><span>'+(TIPON[it.tipo]||'')+'</span></div>'+
+    '<div class="tbody"><div class="ttophead"><span class="ttype tp-'+it.tipo+'">'+(TIPO[it.tipo]||'')+' '+(TIPON[it.tipo]||'')+'</span><span class="tred '+it.red+'" style="background:'+(it.red==='ig'?'rgba(214,41,118,.18)':'rgba(24,119,242,.18)')+';color:'+(it.red==='ig'?'#ff9ecb':'#8fbcff')+'">'+(REDN[it.red]||it.red)+'</span>'+(it.estilo?'<span class="tred" style="background:rgba(143,176,255,.15);color:#a9c6ff">🎨 '+esc(it.estilo)+'</span>':'')+'<span class="testado est-'+e+'">'+(ESTN[e]||e)+'</span></div>'+
+    '<div class="ttit">'+esc(it.titulo)+'</div>'+filtersStrip(it)+media(it)+(it.texto?'<div class="ttexto">'+esc(it.texto)+'</div>':'')+(it.objetivo?'<div class="ttexto" style="color:#67e3b1"><b>🎯 Objetivo:</b> '+esc(it.objetivo)+'</div>':'')+
+    '<div class="tacts"><button class="tbtn aut'+(done?' done':'')+'" data-aut="'+it.id+'">'+(done?'Autorizado ✓':'✓ Autorizar')+'</button><button class="tbtn regen" data-regen="'+it.id+'">✨ Generar mejor</button><button class="tbtn edit" data-edit="'+it.id+'">✎ Editar</button><button class="tbtn del" data-del="'+it.id+'">🗑 Eliminar</button></div>'+
+    '<div class="editbox" id="eb_'+it.id+'"><textarea placeholder="¿Qué le cambio? Ej: ponle el fondo más azul, cambia el texto a…"></textarea><button class="go" data-go="'+it.id+'">Cambiar → regenerar</button></div>'+
+    '</div></div>';
+  }).join('');
+  document.getElementById('calModalBody').innerHTML=items.length?('<div class="tline">'+body+'</div>'):'<div class="calempty">Sin contenido este día.</div>';
+  document.getElementById('calFoot').style.display=items.length?'flex':'none';
+  // handlers
+  document.querySelectorAll('#calModalBody [data-aut]').forEach(function(b){b.addEventListener('click',function(){var id=b.getAttribute('data-aut');AUTH[id]=true;saveAuth();var _it=((CC&&CC.dias&&CC.dias[curK])||[]).filter(function(x){return x.id===id;})[0];logFB('gusto',_it);renderModal();render();});});
+  document.querySelectorAll('#calModalBody [data-edit]').forEach(function(b){b.addEventListener('click',function(){var eb=document.getElementById('eb_'+b.getAttribute('data-edit'));if(eb)eb.classList.toggle('open');});});
+  document.querySelectorAll('#calModalBody [data-del]').forEach(function(b){b.addEventListener('click',function(){var id=b.getAttribute('data-del');var it=((CC&&CC.dias&&CC.dias[curK])||[]).filter(function(x){return x.id===id;})[0];logFB('nogusto',it);DEL[id]=true;saveDel();renderModal();render();if(typeof toast==='function')toast('Eliminada ✓');});});
+  document.querySelectorAll('#calModalBody [data-regen]').forEach(function(b){b.addEventListener('click',function(){var id=b.getAttribute('data-regen');var it=items.filter(function(x){return x.id===id;})[0]||{};say('Equipo de marketing (BUUM OS): genera OTRA versión MEJOR y distinta de la pieza "'+(it.titulo||id)+'" del '+curK+' (puntaje actual '+(it.promedio!=null?it.promedio:'?')+'/10). Usa Replicate flux-kontext (mantiene el foco), varía la estructura, sube a 9+ arreglando lo malo (luz blanca, sin texto basura), pásala por los 3 críticos + auditor y actualiza el calendario. Coherente con la vibra BUUM. Es prueba, no publicar.');});});
+  document.querySelectorAll('#calModalBody [data-go]').forEach(function(b){b.addEventListener('click',function(){var id=b.getAttribute('data-go');var eb=document.getElementById('eb_'+id);var t=eb?eb.querySelector('textarea').value.trim():'';var it=items.filter(function(x){return x.id===id;})[0]||{};say('Equipo de marketing (BUUM OS): edita la pieza "'+(it.titulo||id)+'" del '+curK+' (tipo '+(it.tipo||'')+', id '+id+'). Cambio que pide el dueño: '+(t||'(sin especificar)')+'. Regenera esa pieza con Gemini y actualiza el calendario (calendario.js). Es prueba, no publicar.');});});
+ }
+ function openDay(k,date){curK=k;curDate=date;renderModal();document.getElementById('calModal').classList.add('open');}
+ function close(){var m=document.getElementById('calModal');if(m){m.classList.remove('open');var v=m.querySelector('video');if(v)v.pause();}}
+ var pv=document.getElementById('calPrev'),nx=document.getElementById('calNext'),hy=document.getElementById('calHoy');
+ if(pv)pv.addEventListener('click',function(){cur.setMonth(cur.getMonth()-1);render();});
+ if(nx)nx.addEventListener('click',function(){cur.setMonth(cur.getMonth()+1);render();});
+ if(hy)hy.addEventListener('click',function(){cur=new Date(today.getFullYear(),today.getMonth(),1);render();});
+ var mx=document.getElementById('calModalX'),md=document.getElementById('calModal'),aa=document.getElementById('calAuthAll');
+ if(mx)mx.addEventListener('click',close);
+ if(md)md.addEventListener('click',function(e){if(e.target===md)close();});
+ if(aa)aa.addEventListener('click',function(){dayItems(curK).forEach(function(it){AUTH[it.id]=true;});saveAuth();renderModal();render();});
+ document.addEventListener('keydown',function(e){if(e.key==='Escape'){close();var _lb=document.getElementById('lightbox');if(_lb)_lb.classList.remove('open');}});
+ // lightbox: clic en imagen -> verla en GRANDE
+ (function(){
+  var lb=document.getElementById('lightbox'),lbi=document.getElementById('lbImg'),lbc=document.getElementById('lbClose');
+  if(!lb)return;
+  document.addEventListener('click',function(e){var t=e.target;if(t&&t.tagName==='IMG'&&t.closest('#calModalBody,.gal')){lbi.src=t.src;lbi.style.display='block';lb.classList.add('open');}});
+  if(lbc)lbc.addEventListener('click',function(){lb.classList.remove('open');});
+  lb.addEventListener('click',function(e){if(e.target===lb)lb.classList.remove('open');});
+ })();
+ // pedir contenido al equipo
+ var asend=document.getElementById('askSend');
+ if(asend)asend.addEventListener('click',function(){var t=document.getElementById('askTxt').value.trim();var prod=document.getElementById('askProd').value;
+   say('Equipo de marketing (BUUM OS): genera más contenido de "'+prod+'" para IG + Facebook. Indicación del dueño: '+(t||'(más contenido de este producto)')+'. Planifícalo, revísalo (Encargado + CEO) y agrégalo al calendario del OS. Es prueba, no publicar.');
+   document.getElementById('askTxt').value='';});
+ render();
+})();
+var fb=document.getElementById('filtroBox');
+if(fb&&SEM){var r=SEM.resumen;
+ var rech=(SEM.rechazados||[]).map(function(x){return '<div class="item">🚫 '+x.file+'<div class="m">'+x.motivo+'</div></div>';}).join('')||'<div class="item">—</div>';
+ var apr=(SEM.aprobados||[]).map(function(x){return '<div class="item">🏆 '+x.file+' · '+x.puntajes.join('/')+'</div>';}).join('')||'<div class="item">— nada pasó el filtro mundial esta vez —</div>';
+ fb.innerHTML='<div class="card" style="margin-bottom:14px"><div class="t"><span class="ic">🔎</span><b>Última revisión de calidad · '+SEM.generado+'</b></div><p>Tema: <b>'+SEM.tema+'</b><br>Revisados: <b>'+r.revisados+'</b> · Pasaron los 4 filtros: <b style="color:#4fe0a6">'+r.aprobados+'</b> · Rechazados: <b style="color:#ffab7a">'+r.rechazados+'</b></p></div><div class="pipe"><div class="col"><h4>🏆 Pasaron (para tu OK)</h4>'+apr+'</div><div class="col"><h4>🚫 Rechazados (motivo del crítico mundial)</h4>'+rech+'</div></div>';
+}
+// ---- tareas ----
+var TASKS=[
+ ["t1","Definir productos reales a vender (reflectores solares recargables + combos, margen 2x)","CEO"],
+ ["t2","Definir costo y precio de venta de cada uno","CEO"],
+ ["t3","Tomar fotos reales pro de esos productos","IA"],
+ ["t4","Meter productos + precios reales a la página","IA"],
+ ["t5","Conectar pagos: Mercado Pago (tarjeta/OXXO) + checkout","Juntos"],
+ ["t6","Subir la IA (Sofía/gatito) a la nube 24/7","IA"],
+ ["t7","Publicar tienda + activar producto","Juntos"],
+ ["t8","Conectar Meta / Google / Facebook / Instagram / WhatsApp","Juntos"],
+ ["t9","Reactivar rutina de contenido con los productos reales","IA"],
+ ["t10","🔮 FUTURO (v2): página 3D estilo reloj de lujo (todo se mueve al hacer scroll) — para la próxima actualización de la tienda, NO ahora","Futuro"],
+];
+var KEY="buum_os_tareas", st=JSON.parse(localStorage.getItem(KEY)||"{}"), cont=document.getElementById('tasks');
+TASKS.forEach(function(x){
+ var d=document.createElement('div');d.className="task"+(st[x[0]]?" done":"");
+ d.innerHTML='<input type="checkbox" '+(st[x[0]]?"checked":"")+'><b>'+x[1]+'</b><span class="who">'+x[2]+'</span><button class="help">🙋 Ayúdame</button>';
+ d.addEventListener('click',function(e){
+   if(e.target.closest('.help')){var orden='Ayúdame paso a paso con esta tarea del BUUM OS, explícamelo fácil y hazlo conmigo: "'+x[1]+'"';
+     if(typeof sendPrompt==='function'){sendPrompt(orden);}else{copy(orden);toast('Te copié la orden ✓ — pégala en el chat de Claude');} return;}
+   if(e.target.tagName!=='INPUT'){var c=d.querySelector('input');c.checked=!c.checked;}
+   st[x[0]]=d.querySelector('input').checked;d.classList.toggle('done',st[x[0]]);localStorage.setItem(KEY,JSON.stringify(st));calc();});
+ cont.appendChild(d);
+});
+function calc(){var done=TASKS.filter(x=>st[x[0]]).length,p=Math.round(done/TASKS.length*100);document.getElementById('bar').style.width=p+'%';}
+calc();
+// ---- reloj / saludo ----
+var ck=document.getElementById('clock');
+function tick(){var d=new Date();ck.textContent=d.toLocaleDateString('es-MX',{weekday:'short',day:'2-digit',month:'short'})+' · '+d.toLocaleTimeString('es-MX',{hour:'2-digit',minute:'2-digit'});}
+tick();setInterval(tick,30000);
+var h=new Date().getHours(),s=h<12?'Buenos días':(h<19?'Buenas tardes':'Buenas noches');
+document.getElementById('greet').textContent=s+', jefe 👋 Esto es BUUM hoy';
+</script>
+<script>/* ===== JUEGO: Camino al éxito ===== */
+(function(){
+ var LEVELS=[
+  {ic:'🏗️',nm:'Fundación',ceo:'La base ya está: marca, mascota, tienda y tu sala de control. Ahora, a lo que da dinero.',
+   ms:['Marca y logo oficial','Mascota oficial (Buumi)','Tienda diseñada','BUUM OS montado']},
+  {ic:'🎯',nm:'Primer producto ganador',ceo:'Sin un producto propio con margen 2x, no hay negocio. ESTO es lo más importante hoy.',
+   ms:['Elegir producto (reflectores solares)','Definir costo por pieza','Definir precio con margen 2x','Confirmar stock real','Tomar fotos reales del producto']},
+  {ic:'🚀',nm:'Lanzamiento',ceo:'Funcional gana a perfecto. Sube el producto, conecta el cobro y PUBLICA.',
+   ms:['Subir producto + precio a la tienda','Conectar pagos (Mercado Pago: tarjeta/OXXO)','Publicar la tienda','Revisar todo en preview']},
+  {ic:'💰',nm:'Primeras ventas',ceo:'La primera venta lo cambia todo. Vende y aprende del cliente real.',
+   ms:['Primera venta 🎉','Primeros 10 pedidos','Aprender del primer cliente','Primera reseña / testimonio']},
+  {ic:'📣',nm:'Motor de marketing',ceo:'Contenido que VENDE, no bonito y ya. Mide y haz más de lo que funciona.',
+   ms:['Aprobar la 1ª semana de contenido','Publicar diario en @buum.ia','Primer anuncio que convierte','Medir y ajustar la mezcla']},
+  {ic:'📈',nm:'Escala',ceo:'Reinvierte cada peso de utilidad y multiplica. Piensa en GRANDE.',
+   ms:['Reinvertir la primera utilidad','Agregar 2º y 3º producto con margen 2x','Llegar a 100 ventas','Primera bodega (~$50,000 MXN)']},
+  {ic:'🏭',nm:'Expansión',ceo:'Más productos, más mayoreo, resurtido regular de China, clientes fieles.',
+   ms:['Comprar un terreno','Bodega austera (capacidad media)','Catálogo de 10+ productos','Mayoreo fuerte + clientes que recompran','Pedidos regulares a China (Alibaba)']},
+  {ic:'🌎',nm:'Éxito mundial',ceo:'Bodega masiva e inteligente. BUUM operando casi solo. El objetivo real.',
+   ms:['Bodega masiva súper inteligente (robots/IA)','Distribución nacional','BUUM casi 100% autónomo']},
+ ];
+ var KEY='buum_os_juego', st=JSON.parse(localStorage.getItem(KEY)||'null');
+ if(st===null){ st={}; LEVELS[0].ms.forEach(function(_,j){st['0-'+j]=true;}); localStorage.setItem(KEY,JSON.stringify(st)); }
+ function done(i,j){return !!st[i+'-'+j];}
+ function lvlDone(i){return LEVELS[i].ms.every(function(_,j){return done(i,j);});}
+ function curLevel(){for(var i=0;i<LEVELS.length;i++){if(!lvlDone(i))return i;}return LEVELS.length-1;}
+ function totals(){var t=0,d=0;LEVELS.forEach(function(L,i){L.ms.forEach(function(_,j){t++;if(done(i,j))d++;});});return{t:t,d:d};}
+ function render(){
+   var cur=curLevel(), tt=totals(), pct=Math.round(tt.d/tt.t*100);
+   var xb=document.getElementById('xpBar'); if(!xb)return;
+   xb.style.width=pct+'%';
+   document.getElementById('xpPct').textContent=pct+'% · '+tt.d+'/'+tt.t+' misiones';
+   document.getElementById('lvlName').textContent='Nivel '+(cur+1)+': '+LEVELS[cur].nm+' '+LEVELS[cur].ic;
+   var jl=document.getElementById('jLvl'); if(jl)jl.textContent=(cur+1);
+   document.getElementById('lvlMap').innerHTML=LEVELS.map(function(L,i){
+     var cls=lvlDone(i)?'done':(i===cur?'cur':'lock'); var s=lvlDone(i)?'✓ LISTO':(i===cur?'AQUÍ':'🔒');
+     return '<div class="node '+cls+'"><div class="cir">'+L.ic+'</div><div class="nm">'+L.nm+'</div><div class="st">'+s+'</div></div>';
+   }).join('');
+   document.getElementById('ceoSays').innerHTML='🧠 <b>El CEO dice:</b> '+LEVELS[cur].ceo;
+   document.getElementById('misTitle').textContent='Misiones · Nivel '+(cur+1)+': '+LEVELS[cur].nm;
+   document.getElementById('missions').innerHTML=LEVELS[cur].ms.map(function(m,j){
+     return '<div class="mission '+(done(cur,j)?'done':'')+'" data-i="'+cur+'" data-j="'+j+'"><input type="checkbox" '+(done(cur,j)?'checked':'')+'><b>'+m+'</b><button class="mbtn">🤝 Hazla conmigo</button><span class="xp">+100 XP</span></div>';
+   }).join('');
+ }
+ document.addEventListener('click',function(e){
+   var el=e.target.closest('#missions .mission'); if(!el)return;
+   var i=+el.dataset.i, j=+el.dataset.j; var was=lvlDone(i);
+   if(e.target.closest('.mbtn')){ var mtext=el.querySelector('b').textContent;
+     var orden='Ponte en modo CEO de BUUM y ayúdame a completar ESTA misión del OS conmigo, paso a paso (no solo me expliques, hazla): "'+mtext+'". Pídeme lo que necesites (mi catálogo, fotos, números, costos) y guíame hasta terminarla.';
+     if(typeof sendPrompt==='function'){sendPrompt(orden);} else if(typeof copy==='function'){copy(orden); if(typeof toast==='function')toast('Te copié la orden ✓ — pégala en el chat de Claude');}
+     return; }
+   if(e.target.tagName!=='INPUT'){var c=el.querySelector('input');c.checked=!c.checked;}
+   st[i+'-'+j]=el.querySelector('input').checked; localStorage.setItem(KEY,JSON.stringify(st));
+   var now=lvlDone(i); render();
+   if(!was&&now&&typeof toast==='function'){ toast(curLevel()>i?('🎉 ¡NIVEL COMPLETADO! Avanzas al Nivel '+(i+2)):'🏆 ¡Terminaste el último nivel! Éxito mundial 🌎'); }
+ });
+ render();
+})();
+</script>
+</body></html>

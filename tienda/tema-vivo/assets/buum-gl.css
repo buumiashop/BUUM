@@ -1,0 +1,148 @@
+/* ===== BUUM · Glassmorphism futurista con movimiento (re-skin sobre marketplace) ===== */
+.gl-bg{position:fixed;inset:0;z-index:-2;background:#f3f0ee center/cover no-repeat;background-attachment:fixed;}
+.gl-bg::after{content:"";position:absolute;inset:0;background:rgba(248,246,244,.18);}
+.gl-streaks{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none;}
+.gl-streak{position:absolute;left:-30%;width:160%;height:90px;border-radius:50%;filter:blur(34px);opacity:.5;
+  background:linear-gradient(90deg,transparent,rgba(255,150,60,.9),rgba(255,190,120,.5),transparent);
+  animation:glmove 14s linear infinite;}
+.gl-streak:nth-child(1){top:12%;animation-delay:0s;}
+.gl-streak:nth-child(2){top:44%;animation-delay:5s;}
+.gl-streak:nth-child(3){top:74%;animation-delay:9s;background:linear-gradient(90deg,transparent,rgba(255,180,110,.7),transparent);}
+@keyframes glmove{0%{transform:translateX(-12%) rotate(-10deg)}50%{transform:translateX(12%) rotate(-10deg)}100%{transform:translateX(-12%) rotate(-10deg)}}
+@keyframes glfloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+@media (prefers-reduced-motion:reduce){.gl-streak,.mp-tile,.mp-spromo{animation:none!important;}}
+
+/* superficies de vidrio */
+.mp-header{background:rgba(255,255,255,.6)!important;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:0 4px 24px rgba(180,150,120,.12)!important;}
+.mp-search{border-color:rgba(234,80,3,.7)!important;background:rgba(255,255,255,.7)!important;border-radius:30px!important;}
+.mp-search input{background:transparent!important;}
+.mp-deps{background:rgba(255,255,255,.45)!important;backdrop-filter:blur(12px);border-top:1px solid rgba(255,255,255,.6);}
+.mp-deps a{color:#444!important;}
+.mp-deps a:hover{background:rgba(234,80,3,.12)!important;}
+.mp-deps a.hot{background:#EA5003!important;color:#fff!important;}
+.mp-deps .all{background:rgba(234,80,3,.12)!important;color:#EA5003!important;}
+
+/* fondo de la página transparente para que se vean las luces */
+.shopify-section, main, body{background:transparent!important;}
+
+/* hero grande estilo vidrio claro */
+.mp-big{background:rgba(255,255,255,.5)!important;backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.8);color:#26262b!important;box-shadow:0 12px 40px rgba(180,150,120,.18)!important;}
+.mp-big h2{color:#26262b!important;}
+.mp-big .off{background:#EA5003!important;color:#fff!important;}
+.mp-big p{opacity:.8;}
+.mp-btn{background:linear-gradient(135deg,#ff7a2b,#EA5003)!important;box-shadow:0 8px 20px rgba(234,80,3,.3);}
+.mp-spromo{backdrop-filter:blur(10px);animation:glfloat 6s ease-in-out infinite;}
+
+/* tiles de categoría: vidrio + flotando */
+.mp-tile{background:rgba(255,255,255,.55)!important;backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.8)!important;color:#444!important;animation:glfloat 6s ease-in-out infinite;}
+.mp-tiles .mp-tile:nth-child(2){animation-delay:.4s;} .mp-tiles .mp-tile:nth-child(3){animation-delay:.8s;}
+.mp-tiles .mp-tile:nth-child(4){animation-delay:1.2s;} .mp-tiles .mp-tile:nth-child(5){animation-delay:1.6s;}
+.mp-tiles .mp-tile:nth-child(6){animation-delay:2s;} .mp-tiles .mp-tile:nth-child(7){animation-delay:2.4s;}
+.mp-tile:hover{transform:translateY(-6px);border-color:rgba(234,80,3,.6)!important;}
+
+/* secciones / encabezados */
+.mp-sec h2{color:#26262b!important;}
+
+/* tarjetas de producto en vidrio */
+.mp-pcard{background:rgba(255,255,255,.55)!important;backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.85)!important;box-shadow:0 8px 26px rgba(180,150,120,.12);}
+.mp-pcard:hover{box-shadow:0 18px 40px rgba(234,80,3,.18)!important;}
+.mp-pmedia{background:rgba(255,255,255,.4)!important;}
+.mp-pname{color:#444!important;} .mp-pprice{color:#EA5003!important;}
+.mp-pbuy{background:linear-gradient(135deg,#ff7a2b,#EA5003)!important;color:#fff!important;}
+
+/* mayoreo en vidrio claro */
+.mp-mayoreo{background:rgba(255,255,255,.55)!important;backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.85);color:#26262b!important;box-shadow:0 12px 40px rgba(180,150,120,.16)!important;}
+.mp-mayoreo .ss{color:#6a6a70!important;} .mp-mayoreo svg{color:#EA5003!important;}
+
+/* confianza en vidrio */
+.mp-trust{background:rgba(255,255,255,.55)!important;backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.85)!important;}
+.mp-trust .it{color:#444!important;}
+
+/* anuncio superior claro (no naranja fuerte) */
+.announcement-bar{background:rgba(255,255,255,.55)!important;backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.6);}
+.announcement-bar *{color:#3a3a3e!important;}
+/* logo pegado BUUMIA */
+.mp-logo{gap:0!important;letter-spacing:-.5px!important;}
+/* que el fondo de luz se vea a través de las secciones */
+.gradient,[class*="color-scheme-"],[class*="color-background"]{background:transparent!important;background-image:none!important;}
+.gl-streak{opacity:.7;}
+/* tiles de categoría más visibles (vidrio) */
+.mp-tile{background:rgba(255,255,255,.62)!important;box-shadow:0 8px 24px rgba(180,150,120,.14);}
+
+/* ===== HERO glassmorphism dedicado (texto izq + render 3D der) ===== */
+.glh{position:relative;overflow:hidden;margin:16px 16px 20px;border-radius:28px;background:rgba(255,255,255,.32);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.7);box-shadow:0 18px 50px rgba(180,150,120,.14);}
+.glh-streaks{position:absolute;inset:0;z-index:0;overflow:hidden;}
+.glh-streaks .gl-streak{position:absolute;opacity:.6;}
+.glh-inner{position:relative;z-index:1;display:grid;grid-template-columns:1.05fr .95fr;gap:18px;align-items:center;padding:clamp(26px,4vw,48px);}
+.glh-left h1{font-size:clamp(28px,4.6vw,52px);font-weight:800;color:#26262b;line-height:1.04;letter-spacing:-1.5px;margin:0;}
+.glh-left p{color:#5e5e64;font-size:clamp(14px,1.6vw,17px);margin:16px 0 22px;max-width:380px;}
+.glh-btns{display:flex;gap:12px;flex-wrap:wrap;}
+.glh-b1{background:linear-gradient(135deg,#ff7a2b,#EA5003);color:#fff;font-weight:600;font-size:15px;padding:13px 26px;border-radius:28px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;box-shadow:0 10px 24px rgba(234,80,3,.3);}
+.glh-b2{background:rgba(255,255,255,.6);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.9);color:#444;font-weight:600;font-size:15px;padding:13px 24px;border-radius:28px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;}
+.glh-right{position:relative;display:flex;align-items:center;justify-content:center;}
+.glh-right img{max-width:100%;height:auto;border-radius:18px;animation:glfloat 6s ease-in-out infinite;}
+@media (max-width:749px){.glh-inner{grid-template-columns:1fr;text-align:center;}.glh-left p{margin-left:auto;margin-right:auto;}.glh-btns{justify-content:center;}}
+
+/* ===== TODO de cristal + ambiente visible ===== */
+/* transparencia fuerte para que se vea el ambiente futurista detrás de todo */
+html,body,#MainContent,main,.shopify-section,.page-width,.color-background-1,.color-background-2{background-color:transparent!important;background-image:none!important;}
+/* líneas de luz en movimiento más visibles */
+.gl-streak{opacity:.8;filter:blur(22px);}
+.gl-bg::after{background:rgba(248,246,244,.1)!important;}
+
+/* MAYOREO: de azul a cristal */
+.buum-mayoreo{background:rgba(255,255,255,.5)!important;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,.85);box-shadow:0 16px 48px rgba(180,150,120,.16)!important;color:#26262b!important;}
+.buum-mayoreo__title{color:#26262b!important;}
+.buum-mayoreo__text{color:#5e5e64!important;}
+.buum-mayoreo__ic{color:#EA5003!important;}
+
+/* paneles y tarjetas: cristal más claro y uniforme */
+.mp-pcard,.mp-trust,.mp-tile{background:rgba(255,255,255,.5)!important;border:1px solid rgba(255,255,255,.85)!important;}
+.mp-pmedia{background:rgba(255,255,255,.35)!important;}
+.mp-header{background:rgba(255,255,255,.55)!important;}
+.mp-deps{background:rgba(255,255,255,.4)!important;}
+
+/* botón secundario / "ghost" de cristal */
+.buum-btn--ghost,.mp-tile,.glh-b2{backdrop-filter:blur(10px);}
+.buum-btn--ghost{background:rgba(255,255,255,.55)!important;border:1px solid rgba(255,255,255,.9)!important;color:#444!important;}
+
+/* footer de cristal */
+.footer,.footer__content-top,.footer__content-bottom{background:rgba(255,255,255,.5)!important;backdrop-filter:blur(14px);}
+
+/* ===== v2: CATEGORÍAS TRANSPARENTES (vidrio real) + ambiente visible ===== */
+/* baño plateado + naranja para que NO se vea blanco y la transparencia se note */
+.gl-bg::after{background:linear-gradient(135deg,rgba(223,227,236,.5),rgba(255,205,160,.16) 50%,rgba(218,223,233,.5))!important;}
+/* líneas de luz claramente visibles y en movimiento */
+.gl-streak{opacity:.92!important;filter:blur(16px)!important;height:120px!important;}
+/* tiles de categoría = vidrio translúcido de verdad */
+.mp-tile{
+  background:rgba(255,255,255,.15)!important;
+  backdrop-filter:blur(11px)!important;-webkit-backdrop-filter:blur(11px)!important;
+  border:1px solid rgba(255,255,255,.6)!important;
+  box-shadow:0 10px 28px rgba(150,130,110,.15),inset 0 1px 0 rgba(255,255,255,.75)!important;
+}
+.mp-tile:hover{background:rgba(255,255,255,.28)!important;transform:translateY(-6px);}
+.mp-tile i{filter:drop-shadow(0 2px 8px rgba(234,80,3,.35));}
+/* mismo cristal translúcido para los demás paneles, para que combine */
+.mp-pcard,.mp-trust,.buum-mayoreo,.glh{background:rgba(255,255,255,.22)!important;}
+.mp-pmedia{background:rgba(255,255,255,.18)!important;}
+
+/* categorías como CUBOS DE VIDRIO con imagen */
+.mp-tile--img{background:transparent!important;border:none!important;box-shadow:none!important;padding:0!important;backdrop-filter:none!important;}
+.mp-tile--img:hover{background:transparent!important;transform:translateY(-6px);}
+.mp-tile-img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:18px;display:block;box-shadow:0 12px 30px rgba(150,130,110,.18);}
+.mp-tile-label{margin-top:9px;font-size:13px;font-weight:600;color:#3a3a3e;text-align:center;}
+
+/* ===== BOTONES DE CRISTAL (naranja translúcido) ===== */
+.mp-pbuy,.mp-btn,.glh-b1,.buum-btn--primary,.buum-card__cta{
+  background:rgba(234,80,3,.5)!important;
+  backdrop-filter:blur(9px)!important;-webkit-backdrop-filter:blur(9px)!important;
+  border:1px solid rgba(255,255,255,.55)!important;
+  color:#fff!important;
+  box-shadow:0 8px 22px rgba(234,80,3,.2),inset 0 1px 0 rgba(255,255,255,.4)!important;
+  text-shadow:0 1px 4px rgba(150,45,8,.4);
+}
+.mp-pbuy:hover,.mp-btn:hover,.glh-b1:hover,.buum-btn--primary:hover,.buum-card__cta:hover{
+  background:rgba(234,80,3,.78)!important;
+}
+.mp-pcart{background:rgba(234,80,3,.55)!important;backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.5)!important;}

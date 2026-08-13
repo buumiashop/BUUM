@@ -1,0 +1,69 @@
+{%- comment -%}
+  Tarjeta de producto BUUMIA (9:16, premium accesible)
+  Params: product (objeto), whatsapp (número), wa_message (texto base)
+{%- endcomment -%}
+{%- liquid
+  assign p = product
+  assign badge_label = ''
+  assign badge_class = ''
+  assign mf_badge = p.metafields.custom.badge.value
+  if mf_badge != blank
+    assign badge_label = mf_badge
+    assign badge_class = ''
+  elsif p.compare_at_price > p.price
+    assign badge_label = 'Oferta'
+  elsif p.tags contains 'nuevo' or p.tags contains 'Nuevo'
+    assign badge_label = 'Nuevo'
+    assign badge_class = 'buum-pill--blue'
+  elsif p.tags contains 'mas-vendido' or p.tags contains 'Más vendido'
+    assign badge_label = 'Más vendido'
+  elsif p.tags contains 'solar' or p.tags contains 'Solar'
+    assign badge_label = 'Solar'
+    assign badge_class = 'buum-pill--blue'
+  endif
+  assign wa_text = wa_message | default: 'Hola BUUMIA, me interesa este producto:'
+  assign wa_full = wa_text | append: ' ' | append: p.title | append: ' - ' | append: shop.url | append: p.url
+  assign wa_link = '#'
+  if whatsapp != blank
+    assign wa_clean = whatsapp | remove: ' ' | remove: '+' | remove: '-' | remove: '(' | remove: ')'
+    assign wa_encoded = wa_full | url_param_escape
+    assign wa_link = 'https://wa.me/' | append: wa_clean | append: '?text=' | append: wa_encoded
+  endif
+-%}
+<div class="buum-card buum-reveal">
+  <a href="{{ p.url }}" class="buum-card__media" aria-label="{{ p.title | escape }}">
+    {%- if badge_label != blank -%}
+      <span class="buum-pill {{ badge_class }}">{{ badge_label }}</span>
+    {%- endif -%}
+    {%- if p.featured_media.media_type == 'video' -%}
+      <video autoplay muted loop playsinline preload="metadata" poster="{{ p.featured_media.preview_image | image_url: width: 600 }}">
+        {%- for source in p.featured_media.sources -%}
+          {%- if source.format == 'mp4' -%}<source src="{{ source.url }}" type="video/mp4">{%- endif -%}
+        {%- endfor -%}
+      </video>
+    {%- elsif p.featured_image -%}
+      <img src="{{ p.featured_image | image_url: width: 600 }}"
+           srcset="{{ p.featured_image | image_url: width: 300 }} 300w, {{ p.featured_image | image_url: width: 600 }} 600w"
+           sizes="(min-width:750px) 230px, 45vw"
+           alt="{{ p.featured_image.alt | escape }}" loading="lazy" width="600"
+           height="{{ 600 | divided_by: p.featured_image.aspect_ratio | round }}">
+    {%- else -%}
+      <span class="buum-card__ph">💡</span>
+    {%- endif -%}
+    <span class="buum-card__info">
+      <span class="buum-card__name">{{ p.title }}</span>
+      <span style="display:block;">
+        <span class="buum-card__price">{{ p.price | money }}</span>
+        {%- if p.compare_at_price > p.price -%}<span class="buum-card__old">{{ p.compare_at_price | money }}</span>{%- endif -%}
+      </span>
+    </span>
+  </a>
+  <div class="buum-card__buy">
+    <a href="{{ p.url }}" class="buum-card__cta">Comprar</a>
+    {%- if whatsapp != blank -%}
+      <a href="{{ wa_link }}" target="_blank" rel="noopener" class="buum-card__wa" aria-label="Preguntar por WhatsApp">
+        {%- render 'buumia-wa-icon' -%}
+      </a>
+    {%- endif -%}
+  </div>
+</div>

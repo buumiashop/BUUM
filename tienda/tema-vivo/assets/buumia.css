@@ -1,0 +1,77 @@
+/* ===== BUUMIA · estilos de marca (premium accesible) ===== */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&display=swap');
+
+:root{
+  --buum-orange:#EA5003;
+  --buum-orange-dark:#962D08;
+  --buum-blue:#102AC4;
+  --buum-navy:#001866;
+  --buum-cream:#FBEFE3;
+  --buum-wa:#25D366;
+  --buum-radius:18px;
+}
+
+.buum-fred{font-family:'Fredoka',sans-serif;font-weight:600;}
+
+/* ---- animaciones al hacer scroll ---- */
+.buum-reveal{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.2,.7,.3,1),transform .7s cubic-bezier(.2,.7,.3,1);}
+.buum-reveal.buum-in{opacity:1;transform:none;}
+@media (prefers-reduced-motion:reduce){
+  .buum-reveal{opacity:1!important;transform:none!important;transition:none;}
+  .buum-glow,.buum-bulb{animation:none!important;}
+}
+
+/* ---- luces de fondo ---- */
+.buum-stage{position:relative;overflow:hidden;}
+.buum-glow{position:absolute;border-radius:50%;pointer-events:none;z-index:0;animation:buumDrift 9s ease-in-out infinite;}
+@keyframes buumDrift{0%,100%{transform:translateY(0) scale(1);opacity:.4}50%{transform:translateY(-32px) scale(1.18);opacity:.8}}
+.buum-stage > .buum-inner{position:relative;z-index:1;}
+
+/* ---- HERO ---- */
+.buum-hero{background:var(--buum-cream);padding:48px 18px 36px;text-align:center;}
+.buum-hero__bulb{font-size:48px;line-height:1;display:inline-block;animation:buumFlicker 3.5s ease-in-out infinite;}
+@keyframes buumFlicker{0%,100%{opacity:.85;filter:drop-shadow(0 0 8px rgba(255,180,90,.45))}50%{opacity:1;filter:drop-shadow(0 0 24px rgba(255,180,90,.9))}}
+.buum-hero__title{font-family:'Fredoka',sans-serif;font-weight:700;color:var(--buum-navy);font-size:clamp(30px,7vw,56px);line-height:1.05;margin:10px 0 0;}
+.buum-hero__sub{color:var(--buum-orange-dark);font-size:clamp(15px,2.4vw,20px);margin:12px auto 22px;max-width:620px;}
+.buum-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+.buum-btn{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:16px;padding:14px 30px;border-radius:40px;border:none;text-decoration:none;cursor:pointer;transition:transform .2s ease,box-shadow .2s ease;}
+.buum-btn--primary{background:var(--buum-orange);color:#fff;box-shadow:0 8px 22px rgba(234,80,3,.28);}
+.buum-btn--primary:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(234,80,3,.36);}
+.buum-btn--ghost{background:transparent;color:var(--buum-navy);border:2px solid rgba(0,24,102,.25);}
+.buum-btn--ghost:hover{border-color:var(--buum-navy);}
+.buum-btn--wa{background:var(--buum-wa);color:#fff;}
+
+/* ---- barra de confianza ---- */
+.buum-trust{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 28px;background:var(--buum-cream);padding:6px 16px 26px;}
+.buum-trust__item{display:flex;align-items:center;gap:8px;color:var(--buum-navy);font-size:14px;font-weight:500;}
+.buum-trust__item .buum-ic{color:var(--buum-orange);font-size:20px;}
+
+/* ---- FEED de productos 9:16 escalonado ---- */
+.buum-feed{background:var(--buum-cream);padding:28px 12px 40px;}
+.buum-feed__title{font-family:'Fredoka',sans-serif;font-weight:600;color:var(--buum-navy);font-size:clamp(20px,4vw,30px);margin:0 6px 16px;}
+.buum-cols{display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:760px;margin:0 auto;align-items:start;}
+.buum-col{display:flex;flex-direction:column;gap:14px;}
+.buum-col--offset{margin-top:64px;}
+.buum-card{background:#fff;border-radius:var(--buum-radius);overflow:hidden;border:1px solid rgba(0,24,102,.06);transition:transform .35s ease,box-shadow .35s ease;}
+.buum-card:hover{transform:translateY(-7px);box-shadow:0 16px 36px rgba(0,24,102,.16);}
+.buum-card__media{position:relative;aspect-ratio:9/16;background:#FDE3D2;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.buum-card__media img,.buum-card__media video{width:100%;height:100%;object-fit:cover;display:block;}
+.buum-card__ph{font-size:46px;color:var(--buum-blue);}
+.buum-pill{position:absolute;top:10px;left:10px;font-size:11px;font-weight:600;padding:4px 11px;border-radius:14px;color:#fff;background:var(--buum-orange);z-index:2;}
+.buum-pill--blue{background:var(--buum-blue);}
+.buum-card__info{position:absolute;left:0;right:0;bottom:0;background:rgba(0,5,40,.6);padding:10px 11px;color:#fff;z-index:2;}
+.buum-card__name{font-size:13px;font-weight:500;line-height:1.25;}
+.buum-card__price{font-family:'Fredoka',sans-serif;font-weight:700;font-size:20px;}
+.buum-card__old{font-size:12px;text-decoration:line-through;opacity:.7;margin-left:6px;}
+.buum-card__buy{display:flex;gap:7px;padding:9px;}
+.buum-card__cta{flex:1;text-align:center;font-weight:600;font-size:13px;padding:11px;border-radius:11px;border:none;background:var(--buum-orange);color:#fff;text-decoration:none;cursor:pointer;}
+.buum-card__cta:hover{background:var(--buum-orange-dark);}
+.buum-card__wa{width:44px;display:flex;align-items:center;justify-content:center;background:var(--buum-wa);color:#fff;border-radius:11px;font-size:18px;text-decoration:none;}
+
+/* ---- MAYOREO ---- */
+.buum-mayoreo{background:var(--buum-navy);color:#fff;border-radius:24px;max-width:880px;margin:24px auto;padding:34px 22px;text-align:center;}
+.buum-mayoreo__ic{font-size:30px;color:var(--buum-orange);}
+.buum-mayoreo__title{font-family:'Fredoka',sans-serif;font-weight:600;font-size:clamp(20px,4vw,28px);margin:8px 0 4px;}
+.buum-mayoreo__text{color:#b9c3ec;font-size:15px;margin:0 auto 18px;max-width:520px;}
+
+.buum-section-pad{padding-left:16px;padding-right:16px;}

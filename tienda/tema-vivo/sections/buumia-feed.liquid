@@ -1,0 +1,65 @@
+{{ 'buumia.css' | asset_url | stylesheet_tag }}
+{%- liquid
+  assign coll = section.settings.collection
+  assign limit = section.settings.products_to_show
+  assign wa = settings.whatsapp_number
+  assign wamsg = settings.whatsapp_message
+-%}
+<div class="buum-feed">
+  {%- if section.settings.title != blank -%}
+    <h2 class="buum-feed__title buum-reveal">{{ section.settings.title }}</h2>
+  {%- endif -%}
+
+  {%- if coll != blank and coll.products.size > 0 -%}
+    <div class="buum-cols">
+      <div class="buum-col">
+        {%- for product in coll.products limit: limit -%}
+          {%- assign m = forloop.index0 | modulo: 2 -%}
+          {%- if m == 0 -%}{%- render 'buumia-card', product: product, whatsapp: wa, wa_message: wamsg -%}{%- endif -%}
+        {%- endfor -%}
+      </div>
+      <div class="buum-col buum-col--offset">
+        {%- for product in coll.products limit: limit -%}
+          {%- assign m = forloop.index0 | modulo: 2 -%}
+          {%- if m == 1 -%}{%- render 'buumia-card', product: product, whatsapp: wa, wa_message: wamsg -%}{%- endif -%}
+        {%- endfor -%}
+      </div>
+    </div>
+  {%- else -%}
+    <div class="buum-cols">
+      {%- for i in (1..4) -%}
+        {%- assign m = forloop.index0 | modulo: 2 -%}
+        {%- if m == 0 -%}
+          <div class="buum-col">
+        {%- endif -%}
+        <div class="buum-card buum-reveal">
+          <div class="buum-card__media"><span class="buum-card__ph">💡</span>
+            <span class="buum-pill">Ejemplo</span>
+            <span class="buum-card__info"><span class="buum-card__name">Producto de ejemplo</span><span style="display:block"><span class="buum-card__price">$199</span></span></span>
+          </div>
+          <div class="buum-card__buy"><span class="buum-card__cta">Comprar</span></div>
+        </div>
+        {%- if m == 1 -%}
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+    <p style="text-align:center;color:var(--buum-orange-dark);font-size:13px;margin-top:14px">Elige una colección en el editor para mostrar tus productos reales.</p>
+  {%- endif -%}
+</div>
+
+{% schema %}
+{
+  "name": "BUUMIA · Feed",
+  "tag": "section",
+  "class": "buumia-section",
+  "settings": [
+    { "type": "text", "id": "title", "label": "Título de la sección", "default": "Lo más vendido" },
+    { "type": "collection", "id": "collection", "label": "Colección a mostrar" },
+    { "type": "range", "id": "products_to_show", "min": 2, "max": 12, "step": 2, "label": "Productos a mostrar", "default": 8 }
+  ],
+  "presets": [
+    { "name": "BUUMIA · Feed" }
+  ]
+}
+{% endschema %}

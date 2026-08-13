@@ -1,0 +1,42 @@
+{%- liquid
+  assign coll = section.settings.collection
+  assign limit = section.settings.products_to_show
+-%}
+<div class="mp-wrap" style="padding-top:0">
+  <div class="mp-sec">
+    <h2>
+      {%- if section.settings.show_flame -%}<span style="color:#E2342F">{%- render 'buumia-icon', name: 'flame' -%}</span>{%- endif -%}
+      {{ section.settings.title }}
+    </h2>
+    {%- if coll != blank -%}<a href="{{ coll.url }}" class="ver">Ver todo ›</a>{%- endif -%}
+  </div>
+
+  {%- if coll != blank and coll.products.size > 0 -%}
+    <div class="mp-pgrid">
+      {%- for product in coll.products limit: limit -%}
+        {%- render 'buum-mp-card', product: product, show_discount: section.settings.show_discount -%}
+      {%- endfor -%}
+    </div>
+  {%- else -%}
+    <div class="mp-pgrid">
+      {%- for i in (1..5) -%}
+        <div class="mp-pcard"><div class="mp-pmedia">{%- render 'buumia-icon', name: 'bulb' -%}</div><div class="mp-pbody"><div class="mp-pname">Producto de ejemplo</div><div><span class="mp-pprice">$199</span></div><span class="mp-pbuy">Comprar</span></div></div>
+      {%- endfor -%}
+    </div>
+    <p style="text-align:center;color:var(--buum-orange-dark);font-size:13px;margin-top:12px">Elige una colección en el editor para mostrar productos reales.</p>
+  {%- endif -%}
+</div>
+
+{% schema %}
+{
+  "name": "BUUM · Productos",
+  "settings": [
+    { "type": "text", "id": "title", "label": "Título", "default": "Lo más vendido" },
+    { "type": "collection", "id": "collection", "label": "Colección" },
+    { "type": "range", "id": "products_to_show", "min": 4, "max": 12, "step": 1, "label": "Productos a mostrar", "default": 5 },
+    { "type": "checkbox", "id": "show_discount", "label": "Mostrar % de descuento", "default": false },
+    { "type": "checkbox", "id": "show_flame", "label": "Mostrar ícono de oferta 🔥", "default": false }
+  ],
+  "presets": [ { "name": "BUUM · Productos" } ]
+}
+{% endschema %}

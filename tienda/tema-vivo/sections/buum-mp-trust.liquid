@@ -1,0 +1,46 @@
+<div class="mp-wrap" style="padding-top:0">
+  <div class="mp-trust">
+    {%- for block in section.blocks -%}
+      <div class="it" {{ block.shopify_attributes }}>{%- render 'buumia-icon', name: block.settings.icon -%}<span>{{ block.settings.text }}</span></div>
+    {%- endfor -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "BUUM · Confianza",
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Beneficio",
+      "settings": [
+        {
+          "type": "select", "id": "icon", "label": "Ícono", "default": "truck",
+          "options": [
+            { "value": "truck", "label": "Envío" },
+            { "value": "lock", "label": "Pago seguro" },
+            { "value": "chat", "label": "WhatsApp" },
+            { "value": "tag", "label": "Ofertas" },
+            { "value": "store", "label": "Mayoreo" },
+            { "value": "shield", "label": "Confianza" }
+          ]
+        },
+        { "type": "text", "id": "text", "label": "Texto", "default": "Envíos a todo México" }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [
+    {
+      "name": "BUUM · Confianza",
+      "blocks": [
+        { "type": "item", "settings": { "icon": "truck", "text": "Envíos a todo México" } },
+        { "type": "item", "settings": { "icon": "lock", "text": "Pago seguro" } },
+        { "type": "item", "settings": { "icon": "chat", "text": "Atención por WhatsApp" } },
+        { "type": "item", "settings": { "icon": "tag", "text": "Ofertas todos los días" } },
+        { "type": "item", "settings": { "icon": "store", "text": "Compra por mayoreo" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

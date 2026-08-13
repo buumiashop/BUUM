@@ -1,0 +1,44 @@
+{{ 'buumia.css' | asset_url | stylesheet_tag }}
+{%- liquid
+  assign wa = settings.whatsapp_number
+  assign link = '#'
+  if section.settings.use_whatsapp and wa != blank
+    assign wa_clean = wa | remove: ' ' | remove: '+' | remove: '-' | remove: '(' | remove: ')'
+    assign msg = section.settings.wa_message | default: 'Hola BUUMIA, quiero cotizar mayoreo.' | url_param_escape
+    assign link = 'https://wa.me/' | append: wa_clean | append: '?text=' | append: msg
+  elsif section.settings.button_link != blank
+    assign link = section.settings.button_link
+  endif
+-%}
+<div class="buum-section-pad">
+  <div class="buum-mayoreo buum-reveal">
+    <span class="buum-mayoreo__ic">{%- render 'buumia-icon', name: 'store' -%}</span>
+    {%- if section.settings.title != blank -%}<div class="buum-mayoreo__title">{{ section.settings.title }}</div>{%- endif -%}
+    {%- if section.settings.text != blank -%}<p class="buum-mayoreo__text">{{ section.settings.text }}</p>{%- endif -%}
+    {%- if section.settings.button_label != blank -%}
+      <a href="{{ link }}" {% if section.settings.use_whatsapp %}target="_blank" rel="noopener"{% endif %} class="buum-btn {% if section.settings.use_whatsapp %}buum-btn--wa{% else %}buum-btn--primary{% endif %}">
+        {%- if section.settings.use_whatsapp -%}{%- render 'buumia-wa-icon' -%}{%- endif -%}
+        {{ section.settings.button_label }}
+      </a>
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "BUUMIA · Mayoreo",
+  "tag": "section",
+  "class": "buumia-section",
+  "settings": [
+    { "type": "text", "id": "title", "label": "Título", "default": "¿Tienes negocio?" },
+    { "type": "textarea", "id": "text", "label": "Texto", "default": "Compra por caja con precio de mayoreo." },
+    { "type": "text", "id": "button_label", "label": "Texto del botón", "default": "Cotizar mayoreo" },
+    { "type": "checkbox", "id": "use_whatsapp", "label": "Botón abre WhatsApp", "default": true },
+    { "type": "text", "id": "wa_message", "label": "Mensaje de WhatsApp", "default": "Hola BUUMIA, quiero cotizar mayoreo." },
+    { "type": "url", "id": "button_link", "label": "O enlace personalizado (si no usas WhatsApp)" }
+  ],
+  "presets": [
+    { "name": "BUUMIA · Mayoreo" }
+  ]
+}
+{% endschema %}

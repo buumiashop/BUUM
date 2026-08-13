@@ -1,0 +1,42 @@
+{%- liquid
+  assign img_url = ''
+  if section.settings.image != blank
+    assign img_url = section.settings.image | image_url: width: 1000
+  elsif section.settings.image_asset != blank
+    assign img_url = section.settings.image_asset | asset_url
+  endif
+-%}
+<section class="glh">
+  <div class="glh-streaks" aria-hidden="true"><div class="gl-streak"></div><div class="gl-streak"></div><div class="gl-streak"></div></div>
+  <div class="glh-inner">
+    <div class="glh-left">
+      {%- if section.settings.title != blank -%}<h1>{{ section.settings.title }}</h1>{%- endif -%}
+      {%- if section.settings.subtitle != blank -%}<p>{{ section.settings.subtitle }}</p>{%- endif -%}
+      <div class="glh-btns">
+        {%- if section.settings.buy_label != blank -%}<a class="glh-b1" href="{{ section.settings.buy_link | default: '#' }}">{{ section.settings.buy_label }} →</a>{%- endif -%}
+        {%- if section.settings.more_label != blank -%}<a class="glh-b2" href="{{ section.settings.more_link | default: '#' }}">{{ section.settings.more_label }}</a>{%- endif -%}
+      </div>
+    </div>
+    <div class="glh-right">
+      {%- if img_url != blank -%}<img src="{{ img_url }}" alt="{{ section.settings.title | escape }}" width="1000" height="1000">{%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "BUUM GL · Hero",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "title", "label": "Título", "default": "Tecnología e iluminación que transforman tu vida" },
+    { "type": "textarea", "id": "subtitle", "label": "Subtítulo", "default": "Descubre productos innovadores, útiles y accesibles para tu hogar, oficina o negocio." },
+    { "type": "text", "id": "buy_label", "label": "Botón principal", "default": "Comprar ahora" },
+    { "type": "url", "id": "buy_link", "label": "Enlace principal" },
+    { "type": "text", "id": "more_label", "label": "Botón secundario", "default": "Ver ofertas" },
+    { "type": "url", "id": "more_link", "label": "Enlace secundario" },
+    { "type": "image_picker", "id": "image", "label": "Imagen 3D (sube la tuya)" },
+    { "type": "text", "id": "image_asset", "label": "O imagen del tema (archivo)", "info": "Ej: gl-hero.png" }
+  ],
+  "presets": [ { "name": "BUUM GL · Hero" } ]
+}
+{% endschema %}

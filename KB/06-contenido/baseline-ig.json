@@ -1,0 +1,73 @@
+{
+  "cuenta": "@buum.ia",
+  "ig_id": "17841450417928376",
+  "posts": [
+    {
+      "id": "18397482073087127",
+      "type": "REELS",
+      "fecha": "2026-06-26",
+      "reach": 0,
+      "saved": 0,
+      "shares": 0,
+      "comments": 0,
+      "likes": 0,
+      "resonancia": 0,
+      "tasa_resonancia_%": null,
+      "link": "https://www.instagram.com/reel/DaEDLCjAozg/"
+    },
+    {
+      "id": "17867824551688564",
+      "type": "REELS",
+      "fecha": "2026-06-20",
+      "reach": 0,
+      "saved": 0,
+      "shares": 0,
+      "comments": 0,
+      "likes": 2,
+      "resonancia": 0,
+      "tasa_resonancia_%": null,
+      "link": "https://www.instagram.com/reel/DZzMyxbAas1/"
+    },
+    {
+      "id": "18005687594876316",
+      "type": "REELS",
+      "fecha": "2026-05-14",
+      "reach": 0,
+      "saved": 0,
+      "shares": 0,
+      "comments": 1,
+      "likes": 2,
+      "resonancia": 1,
+      "tasa_resonancia_%": null,
+      "link": "https://www.instagram.com/reel/DYVMb7MJzNS/"
+    },
+    {
+      "id": "18143601382450376",
+      "type": "REELS",
+      "fecha": "2026-05-14",
+      "reach": 0,
+      "saved": 0,
+      "shares": 0,
+      "comments": 1,
+      "likes": 5,
+      "resonancia": 1,
+      "tasa_resonancia_%": null,
+      "link": "https://www.instagram.com/reel/DYT4fEaCQWJ/"
+    },
+    {
+      "id": "17936919650432827",
+      "type": "FEED",
+      "fecha": "2022-10-06",
+      "reach": 0,
+      "saved": 0,
+      "shares": 0,
+      "comments": 0,
+      "likes": 2,
+      "resonancia": 0,
+      "tasa_resonancia_%": null,
+      "link": "https://www.instagram.com/p/CjYR1GmpdgA/"
+    }
+  ],
+  "tasa_resonancia_promedio_%": null,
+  "tasa_resonancia_mejor_%": null
+}
