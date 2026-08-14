@@ -35,4 +35,4 @@
 ## Nombre
 - Propuesta: **"Buumi"** (por confirmar con el dueño). Como Sofía es la asesora, Buumi es la mascota/cara simpática de la marca.
 
-Relacionado: `buumia-brand-kit` (memoria), `logo-oficial/logo-buum-oficial.png`, `../buumia-tienda/marketing/rutina_gatitos.py`.
+Relacionado: `buumia-brand-kit` (memoria), `logo-oficial/logo-buum-oficial.png`, `marketing/archivo-foco-60w/rutina_gatitos.py` (archivado, era foco).

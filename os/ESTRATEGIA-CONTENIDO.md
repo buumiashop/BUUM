@@ -57,4 +57,4 @@ Ejemplo de semana:
 ## 7. Lo mismo, pero con PRODUCTO (después)
 Cuando entren los reflectores, se agrega el pilar **Producto/Valor** (beneficio, oferta, prueba social) y la meta cambia a **vender** — pero el motor (generar→QC→autorizar→publicar→medir→aprender) es EXACTAMENTE el mismo. Por eso practicamos ahora con el gatito.
 
-Relacionado: `PROCESO-ANUNCIOS.md`, `MANUAL-DE-OPERACIONES.md`, `../buumia-tienda/marketing/DIRECCION-CREATIVA.md`, `rutina_gatitos.py`.
+Relacionado: `PROCESO-ANUNCIOS.md`, `MANUAL-DE-OPERACIONES.md`, `../marketing/DIRECCION-CREATIVA.md`, `../marketing/archivo-foco-60w/rutina_gatitos.py` (archivado).

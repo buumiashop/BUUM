@@ -38,6 +38,10 @@
 - Panel+cable+conector = **UNA SOLA PIEZA**. NO mencionar baterías (regla). Etiqueta "50W/500W" abajo-derecha.
 - Método de precios: costo×3. Reflector cuesta $300 → 2-pack $1,299. **OJO competencia:** focos/reflectores similares a ~$300 en ML → margen difícil; por eso venta local + este 2-pack.
 
+## Mapa de fuentes de verdad
+Jerarquía y ubicación de cada tipo de información (KB, SQLite, datos, secretos,
+servidor canónico del Centro de Mando): ver `KB/02-arquitectura/FUENTES-DE-VERDAD.md`.
+
 ## Reglas de oro (no romper)
 - Respuestas cortas. Regla de 2 intentos. No mostrar pasos intermedios. Economizar créditos.
 - **Verificar SIEMPRE con captura/DOM antes de subir** (lección cara: editar a ciegas salió mal varias veces).

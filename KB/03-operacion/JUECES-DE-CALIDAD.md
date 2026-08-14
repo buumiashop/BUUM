@@ -3,7 +3,7 @@
 
 ## Los jueces (en orden)
 1. **Juez 1 — Director de Arte (consistencia visual):** ¿cumple el **Sistema Visual BUUM**? ¿Se reconocería como BUUM **sin el logo**? Color, tipografía, iluminación, garabatos, producto héroe.
-2. **Juez 2 — CEO / Estrategia:** ¿fortalece la marca? ¿es honesto? ¿el producto es el **correcto** (foco real 60W, NO filamento)? ¿aporta al negocio?
+2. **Juez 2 — CEO / Estrategia:** ¿fortalece la marca? ¿es honesto? ¿el producto es el **correcto** (el vigente según `KB/ESTADO-ACTUAL.md` — hoy el reflector solar 50W; NUNCA foco de filamento)? ¿aporta al negocio?
 3. **Juez 3 — Externo ("ojos frescos"):** *"Si la pongo junto a las últimas 100 publicaciones de BUUM, ¿pertenece? ¿o parece de otra empresa?"* Si parece de otra empresa → rechazo.
 4. **Fundador (juez final):** aprueba/publica. Solo recibe lo que pasó 1-3.
 
@@ -20,3 +20,18 @@ Generar → componer (logo/foco/texto por código cuando aplique) → **Jueces 1
 
 ## Nota
 El híbrido (escena IA + foco/logo/texto por código) hace que casi nunca se caiga en hard-fail de foco/logo/texto. Los jueces cuidan sobre todo la **identidad** (que TODO se sienta familia BUUM).
+
+## Implementación ejecutable (unificación FASE 13A)
+Este documento es la **doctrina** (autoridad conceptual). Su implementación en código
+es `marketing/filtros_calidad.py` (3 críticos IA con visión + el Fundador como 4º filtro).
+Equivalencia:
+
+| Juez (este doc) | Crítico en `filtros_calidad.py` |
+|---|---|
+| Juez 1 — Director de Arte | Crítico 2 — "Director Creativo / CIO" |
+| Juez 2 — CEO / Estrategia | Crítico 1 — "Jefe de Marketing BUUM" |
+| Juez 3 — Externo (ojos frescos) | Crítico 3 — "marca mundial" |
+| Fundador (juez final) | Carpeta `por-aprobar/` → decisión del dueño |
+
+**Regla de mantenimiento:** si cambia esta doctrina, se actualizan los prompts de
+`filtros_calidad.py` en el mismo cambio. Si el código diverge del doc, manda el doc.

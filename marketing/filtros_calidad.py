@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 """BUUM OS — PANEL DE CALIDAD (los 4 filtros).
+   FUENTE DE VERDAD CONCEPTUAL: KB/03-operacion/JUECES-DE-CALIDAD.md (si este codigo
+   diverge de ese documento, manda el documento; se actualizan juntos).
    Cada anuncio pasa por 3 críticos IA (Gemini visión) antes de llegar al dueño (el 4º filtro):
      1) Jefe de Marketing BUUM  (on-brand, engancha en 1 seg, ~95% visual, CTA, 'vale la pena')
      2) Director Creativo / CIO  (calidad técnica, composición, nada 'chafa', legible, sin defectos)

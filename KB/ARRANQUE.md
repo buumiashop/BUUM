@@ -17,12 +17,12 @@
 > **REGLA:** nunca preguntar "¿tienes la llave de X?" — están todas ahí. Solo leer el archivo.
 
 ## 2. Herramientas ya construidas (usar, no rehacer)
-Carpeta `buumia-tienda/marketing/`:
+Carpeta `marketing/`:
 - `motor_creativo.py` — genera con gpt-image-1 (t2i o edit)
 - `flux_kontext.py` — edita fotos con Replicate (barato)
-- `flux_bg.py` — fondos baratos
 - `limpiar_producto.py` — recorte fiel automático (rembg)
-- `compose_post.py` / `compose_story.py` — plantillas de marca
+- `filtros_calidad.py` — panel de jueces ejecutable (doctrina: `03-operacion/JUECES-DE-CALIDAD.md`)
+- Era foco 60W (`compose_post/story`, `flux_bg`, rutinas): archivados en `marketing/archivo-foco-60w/` (FASE 13A)
 
 ## 3. Gobierno (leer solo si aplica al tema)
 `00-gobierno/`: VISION-2030 · MODELO-DE-MADUREZ · PVOE-OBJETIVO-INMEDIATO · adr/

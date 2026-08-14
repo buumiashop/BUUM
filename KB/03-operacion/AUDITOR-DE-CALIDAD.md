@@ -5,7 +5,7 @@
 Los 2 errores típicos de la IA son: **(a) foco deformado** y **(b) texto/logo inventado**. Se **eliminan por construcción** con el método **HÍBRIDO**:
 - La IA hace SOLO la **escena/fondo** (lo que hace bien).
 - BUUM pone por **código** el **foco REAL**, el **logo oficial REAL** y el **texto/iconos** → **imposible** que salgan deformados o mal escritos.
-- Herramientas: `motor_creativo.py` (escena) + `compose_post.py` (plantilla híbrida). Ver [[roles-creatividad-chatgpt]] y `PROMPT-MAESTRO-ANUNCIO-BUUM.md`.
+- Herramientas: `motor_creativo.py` (escena) + `compose_post.py` (archivado en `marketing/archivo-foco-60w/`, era foco). Ver [[roles-creatividad-chatgpt]] y `PROMPT-MAESTRO-ANUNCIO-BUUM.md`.
 
 ## Flujo con Auditor (automático)
 1. **Generar** la escena (IA).
