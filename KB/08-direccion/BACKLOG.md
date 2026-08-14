@@ -30,12 +30,13 @@ en el Congelador hasta que el Fundador confirme su llegada como realidad.
 
 | ID | Tarea | Propósito (qué cambia en la realidad) | Clase | Estado | Fuente (realidad confirmada) |
 |---|---|---|---|---|---|
-| B1 | Preguntar al Fundador qué ediciones quiere en el tema "BUUM PRO preview" y aplicarlas | Cierra lo último antes de publicar la tienda | Crítica | aprobada | ESTADO-ACTUAL §Falta-1 |
+| B1 | Fundador revisa el preview del tema (link entregado 2026-08-14) y dicta cambios — o lo aprueba tal cual | Cierra lo último antes de publicar la tienda | Crítica | en curso | ESTADO-ACTUAL §Falta-1 (el Fundador ya no recuerda qué quería editar → re-revisión visual) |
 | B2 | Publicar el tema "BUUM PRO preview" (CLI) | La tienda real deja de ser borrador | Crítica | aprobada (tras B1) | ESTADO-ACTUAL §Falta-2 |
 | B3 | Activar el producto reflector (borrador → activo) | Se puede comprar | Crítica | aprobada (tras B2) | ESTADO-ACTUAL §Falta-3 |
 | B4 | Quitar contraseña de la tienda (Fundador, 1 clic) | Tienda abierta al público | Crítica | aprobada (decide Fundador cuándo) | ESTADO-ACTUAL §Falta-4 |
 | B5 | Anuncios del reflector (proceso oficial: ChatGPT genera, jueces filtran) → primeras ventas | Empieza la venta y la medición real | Operativa | propuesta (tras B4) | ESTADO-ACTUAL §Falta-5 |
 | B6 | FASE 13D — colectores de datos reales (Shopify/Meta, solo lectura) | La realidad entra al sistema; dirigir con datos | Operativa | aprobada (Fundador, Fase 13; se ejecuta tras 13B/13C) | Mandato Fase 13 |
+| B7 | Paquetería automática: investigar y proponer app Shopify multi-paquetería MX (Skydropx / Envia.com / Mienvío) — guía se genera e imprime sola al caer el pedido | Resuelve el envío (bloqueador real) como quiere el Fundador: automático | Crítica | aprobada (investigar y proponer; Fundador elige) | Decisión Fundador 2026-08-14 |
 
 ## 🗄️ Congelador (ideas — SIN foco operativo, no se trabajan)
 - Foco LED 60W propio desde China (~3,000 pzas, Alibaba) — idea estratégica registrada en `KB/07-estrategia/`; espera confirmación de realidad (dinero de ventas + orden del Fundador).

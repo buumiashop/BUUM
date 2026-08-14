@@ -46,7 +46,7 @@
 |---|---|
 | Reflector | **19 × 15 × 5 cm** (largo × alto × grosor) |
 | Panel solar | **30 × 17 × 1 cm** |
-| Peso | ⚠️ **PENDIENTE DE VERIFICACIÓN FÍSICA** — estimado ~2 kg/pieza · 4 kg el paquete (así está en Shopify), pero NO usar como dato oficial (ficha, envío, cotización, publicidad, docs) hasta pesar |
+| Peso | 🟡 **PROVISIONAL OPERATIVO (Fundador 2026-08-14): 2 kg por pieza · 4 kg el 2-pack** — autorizado SOLO para operación de envío/cotización; sigue pendiente la báscula antes de usarlo en ficha técnica o publicidad |
 | **Caja** (empaque de 1 pieza) | **32 × 19 × 5 cm** (panel 30×17 + ~1 cm por lado; grosor 5 cm) |
 
 ---

@@ -36,7 +36,7 @@ Si vendes a ×2, todo eso se come tu ganancia y puedes hasta perder. **×3 deja 
 | Ganancia limpia estimada | ~$220 / pieza |
 | Alternativa de entrada agresiva | $799 (~$120 limpio) |
 
-Decisión de precio: **PENDIENTE — el Fundador elige entre $799 (entrada) y $899 (meta).**
+Decisión de precio: **TOMADA (Fundador 2026-08-14): $1,299 el 2-pack** — confirmada aun sabiendo que queda bajo el piso ×2.5 (motivo: competencia ~$300 en ML). Registrada en `KB/08-direccion/DECISIONES.md`; se medirá con las ventas reales.
 
 ---
 
