@@ -1,0 +1,26 @@
+{%- comment -%} Íconos de línea BUUMIA. Param: name {%- endcomment -%}
+{%- liquid
+  assign s = '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">'
+-%}
+{%- case name -%}
+  {%- when 'truck' -%}{{ s }}<path d="M3 17V5h11v12M14 8h4l3 3v6h-7M5.5 20a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM17.5 20a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/></svg>
+  {%- when 'lock' -%}{{ s }}<rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>
+  {%- when 'chat' -%}{{ s }}<path d="M21 11.5a8.38 8.38 0 0 1-8.5 8.5 8.5 8.5 0 0 1-3.8-.9L3 21l1.9-5.7A8.5 8.5 0 1 1 21 11.5z"/></svg>
+  {%- when 'shield' -%}{{ s }}<path d="M12 3l8 3v6c0 4-3.5 7.5-8 9-4.5-1.5-8-5-8-9V6l8-3z"/></svg>
+  {%- when 'star' -%}{{ s }}<path d="M12 3l2.6 5.3 5.9.9-4.3 4.2 1 5.9-5.2-2.8-5.2 2.8 1-5.9L3.5 9.2l5.9-.9z"/></svg>
+  {%- when 'store' -%}{{ s }}<path d="M4 9l1-5h14l1 5M5 9v11h14V9M4 9h16M9 20v-6h6v6"/></svg>
+  {%- when 'bolt' -%}{{ s }}<path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg>
+  {%- when 'bulb' -%}{{ s }}<path d="M9 18h6M10 21h4M12 3a6 6 0 0 1 4 10.5c-.6.6-1 1.3-1 2.1V16H9v-.4c0-.8-.4-1.5-1-2.1A6 6 0 0 1 12 3z"/></svg>
+  {%- when 'search' -%}{{ s }}<circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+  {%- when 'user' -%}{{ s }}<circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>
+  {%- when 'cart' -%}{{ s }}<circle cx="9" cy="20" r="1.4"/><circle cx="17" cy="20" r="1.4"/><path d="M3 4h2l2.4 12h10.2l1.8-8H6.2"/></svg>
+  {%- when 'menu' -%}{{ s }}<path d="M4 7h16M4 12h16M4 17h16"/></svg>
+  {%- when 'sun' -%}{{ s }}<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5L19 19M19 5l-1.5 1.5M6.5 17.5L5 19"/></svg>
+  {%- when 'fan' -%}{{ s }}<circle cx="12" cy="12" r="2"/><path d="M12 10c0-4 1-7 3-7s2 4-1 6M14 12c4 0 7 1 7 3s-4 2-6-1M12 14c0 4-1 7-3 7s-2-4 1-6M10 12c-4 0-7-1-7-3s4-2 6 1"/></svg>
+  {%- when 'tv' -%}{{ s }}<rect x="3" y="5" width="18" height="12" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+  {%- when 'home' -%}{{ s }}<path d="M3 11l9-7 9 7M5 10v10h14V10M9 20v-6h6v6"/></svg>
+  {%- when 'plug' -%}{{ s }}<path d="M9 3v5M15 3v5M7 8h10v3a5 5 0 0 1-10 0zM12 16v5"/></svg>
+  {%- when 'flame' -%}{{ s }}<path d="M12 3c2 3 4 5 4 8a4 4 0 0 1-8 0c0-1 .5-2 1-2.5C9 11 8 12 8 14a4 4 0 0 0 8 0c0-4-2-7-4-11z"/></svg>
+  {%- when 'tag' -%}{{ s }}<path d="M3 12l8-8h8v8l-8 8z"/><circle cx="15.5" cy="8.5" r="1.3"/></svg>
+  {%- else -%}{{ s }}<circle cx="12" cy="12" r="9"/></svg>
+{%- endcase -%}

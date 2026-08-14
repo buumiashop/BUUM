@@ -1,0 +1,62 @@
+<div class="mp-wrap">
+  <div class="mp-hero">
+    <a href="{{ section.settings.big_link | default: '#' }}" class="mp-big" style="text-decoration:none;{% if section.settings.big_bg != blank %}background:{{ section.settings.big_bg }};{% endif %}">
+      {%- if section.settings.big_image != blank -%}<img src="{{ section.settings.big_image | image_url: width: 1000 }}" alt="" width="1000" height="420">
+      {%- elsif section.settings.image_asset != blank -%}<img src="{{ section.settings.image_asset | asset_url }}" alt="" width="1000" height="420" style="object-fit:contain">{%- endif -%}
+      {%- if section.settings.big_badge != blank -%}<span class="off">{{ section.settings.big_badge }}</span>{%- endif -%}
+      <h2>{{ section.settings.big_title }}</h2>
+      {%- if section.settings.big_text != blank -%}<p>{{ section.settings.big_text }}</p>{%- endif -%}
+      {%- if section.settings.big_btn != blank -%}<span class="mp-btn">{{ section.settings.big_btn }}</span>{%- endif -%}
+    </a>
+    <div class="mp-side">
+      {%- for block in section.blocks -%}
+        <a href="{{ block.settings.link | default: '#' }}" class="mp-spromo" style="background:{{ block.settings.bg | default: '#EA5003' }};color:{{ block.settings.color | default: '#ffffff' }}" {{ block.shopify_attributes }}>
+          {%- if block.settings.image != blank -%}<img src="{{ block.settings.image | image_url: width: 600 }}" alt="" width="600" height="200">{%- endif -%}
+          <span class="t">{{ block.settings.title }}</span>
+          <span class="s">{{ block.settings.text }}</span>
+        </a>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "BUUM · Hero promos",
+  "settings": [
+    { "type": "header", "content": "Banner grande" },
+    { "type": "text", "id": "big_badge", "label": "Etiqueta", "default": "HASTA 40% MENOS" },
+    { "type": "text", "id": "big_title", "label": "Título", "default": "Iluminación LED para toda tu casa" },
+    { "type": "text", "id": "big_text", "label": "Texto", "default": "Focos, lámparas y reflectores solares" },
+    { "type": "text", "id": "big_btn", "label": "Botón", "default": "Ver ofertas" },
+    { "type": "url", "id": "big_link", "label": "Enlace" },
+    { "type": "image_picker", "id": "big_image", "label": "Imagen de fondo (opcional)" },
+    { "type": "text", "id": "image_asset", "label": "O imagen del tema (archivo)", "info": "Ej: gl-hero.png" },
+    { "type": "color", "id": "big_bg", "label": "Color de fondo", "default": "#001866" }
+  ],
+  "blocks": [
+    {
+      "type": "promo",
+      "name": "Promo lateral",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Título", "default": "Lámparas solares" },
+        { "type": "text", "id": "text", "label": "Texto", "default": "desde $249" },
+        { "type": "url", "id": "link", "label": "Enlace" },
+        { "type": "image_picker", "id": "image", "label": "Imagen (opcional)" },
+        { "type": "color", "id": "bg", "label": "Color de fondo", "default": "#FFC400" },
+        { "type": "color", "id": "color", "label": "Color de texto", "default": "#5a3d00" }
+      ]
+    }
+  ],
+  "max_blocks": 3,
+  "presets": [
+    {
+      "name": "BUUM · Hero promos",
+      "blocks": [
+        { "type": "promo", "settings": { "title": "Lámparas solares", "text": "desde $249", "bg": "#FFC400", "color": "#5a3d00" } },
+        { "type": "promo", "settings": { "title": "Mayoreo", "text": "precios por caja", "bg": "#EA5003", "color": "#ffffff" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

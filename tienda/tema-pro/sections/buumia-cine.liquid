@@ -1,0 +1,444 @@
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+.bx{--orange:#EA5003;--navy:#001866;--blue:#102AC4;--green:#16a06f;--ink:#15161c;--dim:#6a6f7e;}.bx *{box-sizing:border-box;margin:0;}.bx{font-family:Poppins,sans-serif;color:var(--ink);min-height:100vh;padding:0 0 96px;
+  background:linear-gradient(rgba(255,255,255,.15),rgba(255,255,255,.15)),url({{ 'fondo-3-plata.png' | asset_url }}) center top/cover fixed,#e7ebf3;}.bx .wrap{max-width:480px;margin:0 auto;}.bx .glass{background:rgba(255,255,255,.72);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.9);box-shadow:0 8px 24px rgba(120,130,160,.14);}.bx .cover{position:relative;display:flex;align-items:center;justify-content:center;margin:8px;height:112px;border-radius:22px;overflow:hidden;text-decoration:none;background:#f4f6fb center/cover no-repeat;background-image:url({{ 'fut1.png' | asset_url }});border:1px solid rgba(255,255,255,.8);box-shadow:0 8px 22px rgba(120,130,160,.2),inset 0 1px 0 rgba(255,255,255,.9);}.bx .cover::before{content:"";position:absolute;width:250px;height:72px;border-radius:50%;background:radial-gradient(closest-side,rgba(255,255,255,.78),rgba(255,255,255,0) 74%);z-index:1;filter:blur(2px);}.bx .cover .clogo{position:relative;z-index:2;height:74px;filter:drop-shadow(0 3px 8px rgba(120,130,160,.35));animation:bob 3.6s ease-in-out infinite;}.bx .head{position:sticky;top:8px;z-index:30;display:block;margin:8px;padding:8px 6px;border-radius:20px;
+  background:rgba(255,255,255,.45);backdrop-filter:blur(20px) saturate(1.5);-webkit-backdrop-filter:blur(20px) saturate(1.5);
+  border:1px solid rgba(255,255,255,.85);box-shadow:0 12px 30px rgba(90,110,150,.22),inset 0 1px 0 rgba(255,255,255,.95);}.bx .head img{height:46px;}.bx .head .sp{flex:1;}.bx .head .ic{width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.7);border:1px solid rgba(255,255,255,.95);box-shadow:0 4px 12px rgba(120,130,160,.16),inset 0 1px 0 rgba(255,255,255,.95);display:flex;align-items:center;justify-content:center;position:relative;cursor:pointer;}.bx .head .ic svg{width:21px;height:21px;}.bx .head .ic .ct{position:absolute;top:-6px;right:-7px;background:var(--orange);color:#fff;font-size:9px;font-weight:700;width:15px;height:15px;border-radius:50%;display:flex;align-items:center;justify-content:center;}.bx .head .home{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;text-decoration:none;padding:0 9px 0 2px;border-right:1.5px solid rgba(90,110,150,.16);flex:0 0 auto;text-align:center;}.bx .head .home img{height:30px;display:block;margin:0 auto;animation:bob 3.6s ease-in-out infinite;}.bx .head .home span{font-size:9px;font-weight:800;color:var(--orange);text-align:center;transform:translateX(12px);}.bx .head .navwrap{display:flex;gap:2px;padding:3px 0 1px;}.bx .head .navi{display:flex;flex-direction:column;align-items:center;gap:2px;text-decoration:none;position:relative;flex:1;min-width:0;}.bx .head .navi img{width:44px;height:44px;object-fit:contain;padding:6px;border-radius:13px;background:#fff;box-shadow:0 6px 15px rgba(90,110,150,.22);border:1.5px solid #e6ecfb;animation:bob 3s ease-in-out infinite;transition:transform .18s;}.bx .head .navi span{font-size:8.5px;font-weight:600;color:#5a6280;white-space:nowrap;}.bx .head .navi:nth-child(1) img{animation-delay:0s}.bx .head .navi:nth-child(2) img{animation-delay:.28s}.bx .head .navi:nth-child(3) img{animation-delay:.56s}.bx .head .navi:nth-child(4) img{animation-delay:.84s}.bx .head .navi:nth-child(5) img{animation-delay:1.12s}.bx .head .navi:nth-child(6) img{animation-delay:1.4s}.bx .head .navi.glow img{animation:bob 3s ease-in-out infinite, glowp 2s ease-in-out infinite;}.bx .head .navi:hover img,.bx .head .navi:active img{animation:none;transform:scale(1.18);}.bx .head .navi .ct{position:absolute;top:-1px;left:50%;margin-left:2px;background:var(--orange);color:#fff;font-size:8px;font-weight:700;width:15px;height:15px;border-radius:50%;display:flex;align-items:center;justify-content:center;z-index:3;box-shadow:0 1px 3px rgba(0,0,0,.25);}@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}@keyframes glowp{0%,100%{filter:drop-shadow(0 0 0 rgba(234,80,3,0))}50%{filter:drop-shadow(0 0 6px rgba(234,80,3,.75))}}.bx .search{display:flex;align-items:center;gap:10px;margin:0 8px 10px;padding:12px 16px;border-radius:16px;
+  background:rgba(255,255,255,.45);backdrop-filter:blur(16px) saturate(1.4);-webkit-backdrop-filter:blur(16px) saturate(1.4);
+  border:1px solid rgba(255,255,255,.85);box-shadow:0 8px 22px rgba(90,110,150,.18),inset 0 1px 0 rgba(255,255,255,.9);}.bx .search svg{width:19px;height:19px;flex:0 0 auto;}.bx .search input{flex:1;border:none;background:transparent;outline:none;font-size:13.5px;color:var(--ink);font-family:Poppins;}.bx .search input::placeholder{color:#9aa0b0;}.bx .search .go{background:var(--navy);color:#fff;border-radius:11px;padding:8px 15px;font-weight:700;font-size:12.5px;border:none;font-family:Poppins;cursor:pointer;}.bx .search .sx{background:none;border:none;font-size:20px;color:#9aa0b0;cursor:pointer;line-height:1;padding:0 2px;}.bx .hero{margin:6px 8px 0;border-radius:22px;overflow:hidden;position:relative;padding:18px;display:flex;gap:8px;align-items:center;background:radial-gradient(70% 80% at 80% 50%,rgba(255,247,232,.95),rgba(255,255,255,.55)),#fff;border:1px solid #fff;box-shadow:0 14px 32px rgba(120,130,160,.2);}.bx .hero .txt{flex:1;}.bx .hero .eb{font-size:10.5px;font-weight:700;letter-spacing:.1em;color:var(--orange);text-transform:uppercase;}.bx .hero h1{font-family:'Baloo 2';font-size:27px;line-height:1;color:var(--navy);margin:4px 0;}.bx .hero p{font-size:12px;color:#46506e;margin-bottom:10px;}.bx .hero .b{background:var(--orange);color:#fff;font-family:'Baloo 2';font-size:14px;padding:10px 16px;border-radius:12px;text-decoration:none;}.bx .hero .price{display:inline-flex;align-items:baseline;gap:5px;background:#fff4ea;border:1px solid #ffd9b8;border-radius:11px;padding:5px 11px;margin:0 0 10px;font-size:11px;color:#7a4a23;font-weight:600;}.bx .hero .price b{font-family:'Baloo 2';font-size:17px;color:var(--orange);line-height:1;}.bx .hero .micro{margin-top:9px;font-size:10px;color:#5a6480;font-weight:600;display:flex;flex-wrap:wrap;gap:3px 9px;}.bx .hero .ph{width:120px;height:140px;display:flex;align-items:center;justify-content:center;position:relative;flex:0 0 auto;}.bx .hero .ph .halo{position:absolute;width:140px;height:140px;border-radius:50%;background:radial-gradient(closest-side,rgba(255,238,195,.95),transparent 70%);filter:blur(5px);animation:pulse 3.2s infinite;}.bx .hero .ph img{position:relative;height:135px;filter:drop-shadow(0 0 22px rgba(255,205,130,.9));animation:float 5s ease-in-out infinite;}@keyframes pulse{0%,100%{transform:scale(1);opacity:.85;}50%{transform:scale(1.1);opacity:1;}}@keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}.bx .herocar{margin:6px 8px 0;border-radius:22px;overflow:hidden;position:relative;box-shadow:0 14px 32px rgba(120,130,160,.2);border:1px solid #fff;}.bx .herotrack{display:flex;transition:transform .55s ease;}.bx .heroslide{min-width:100%;position:relative;aspect-ratio:16/9;background-size:cover;background-position:center;display:flex;align-items:center;padding:16px;overflow:hidden;}.bx .heroslide .ov{position:relative;z-index:2;max-width:64%;}.bx .heroslide .eb{font-size:9.5px;font-weight:700;letter-spacing:.06em;color:#ffe0c4;text-transform:uppercase;text-shadow:0 1px 4px rgba(0,0,0,.55);}.bx .heroslide h1{font-family:'Baloo 2';font-size:23px;line-height:1.05;color:#fff;margin:3px 0;text-shadow:0 2px 8px rgba(0,0,0,.5);}.bx .heroslide .price{display:inline-flex;align-items:baseline;gap:4px;background:rgba(255,255,255,.93);border-radius:10px;padding:4px 10px;margin:3px 0 10px;font-size:11px;color:#7a4a23;font-weight:600;}.bx .heroslide .price b{font-family:'Baloo 2';font-size:16px;color:var(--orange);}.bx .heroslide .b{display:inline-block;background:var(--orange);color:#fff;font-family:'Baloo 2';font-size:14px;padding:9px 15px;border-radius:12px;text-decoration:none;box-shadow:0 6px 16px rgba(234,80,3,.4);}.bx .heroslide .hprod{position:absolute;right:4px;bottom:0;height:96%;object-fit:contain;z-index:1;filter:drop-shadow(0 0 14px rgba(255,220,150,.55));}.bx .herodots{position:absolute;bottom:8px;left:0;right:0;z-index:3;display:flex;justify-content:center;gap:6px;}.bx .herodots i{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.55);cursor:pointer;transition:.25s;}.bx .herodots i.on{width:18px;border-radius:4px;background:#fff;}.bx .herotrust{display:flex;justify-content:center;flex-wrap:wrap;gap:3px 12px;margin:9px 14px 0;font-size:10.5px;color:#46506e;font-weight:600;}.bx .cats{display:flex;gap:13px;overflow-x:auto;padding:14px 8px 6px;scrollbar-width:none;-ms-overflow-style:none;}.bx .cats::-webkit-scrollbar{display:none;}.bx .catdots{display:flex;justify-content:center;gap:6px;margin:2px 0 0;}.bx .catdots i{width:7px;height:7px;border-radius:50%;background:#b9c0d0;transition:.25s;}.bx .catdots i.on{width:18px;border-radius:4px;background:var(--orange);}.bx .cathint{text-align:center;font-size:11.5px;color:#5a6480;font-weight:600;margin-top:6px;animation:sldx 1.6s ease-in-out infinite;}@keyframes sldx{0%,100%{transform:translateX(0)}50%{transform:translateX(5px)}}.bx .cats a{flex:0 0 auto;position:relative;width:150px;border-radius:20px;text-decoration:none;}.bx .cats a::before{content:"";position:absolute;inset:-2.5px;border-radius:22px;padding:2.5px;background:conic-gradient(from var(--a,0deg),var(--orange),var(--blue),#8b5cf6,#13b6d6,var(--orange));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:catspin 6s linear infinite;}.bx .cats a .inner{position:relative;background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 8px 20px rgba(120,130,160,.16);}.bx .cats a .img{height:96px;display:flex;align-items:center;justify-content:center;background:radial-gradient(70% 80% at 50% 35%,rgba(255,243,225,.95),#fff);}.bx .cats a .img img{height:82px;filter:drop-shadow(0 4px 12px rgba(180,150,110,.4));}.bx .cats a .nm{padding:11px 13px;font-family:'Baloo 2';font-size:16px;color:var(--navy);display:flex;align-items:center;gap:8px;}.bx .cats a .nm .d{width:9px;height:9px;border-radius:50%;background:var(--orange);box-shadow:0 0 8px var(--orange);}@keyframes catspin{to{--a:360deg;}}@property --a{syntax:'<angle>';inherits:false;initial-value:0deg;}.bx .sec{display:flex;align-items:center;gap:11px;margin:15px 14px 11px;}.bx .sec .ico{width:48px;height:48px;border-radius:14px;background:#fff;box-shadow:0 7px 18px rgba(120,130,160,.24),inset 0 1px 0 #fff;display:flex;align-items:center;justify-content:center;flex:0 0 auto;position:relative;overflow:hidden;}.bx .sec .ico::after{content:"";position:absolute;top:-60%;left:-40%;width:40%;height:220%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.8),transparent);transform:rotate(18deg);animation:shine 5s ease-in-out infinite;}.bx .sec .ico img{width:47px;height:47px;object-fit:contain;position:relative;z-index:1;}.bx .sec .tt{font-family:'Baloo 2';font-size:21px;color:var(--navy);line-height:1.05;}.bx .sec .tt small{display:block;font-family:Poppins;font-size:11px;font-weight:700;color:#4a5578;margin-top:2px;letter-spacing:.01em;}.bx .sec::after{content:"";flex:1;height:3px;border-radius:3px;background:linear-gradient(90deg,rgba(234,80,3,.4),rgba(16,42,196,.14),transparent);}.bx .sec.socbar::after{display:none;}.bx .sec .rail{flex:1;height:3px;border-radius:3px;background:linear-gradient(90deg,rgba(234,80,3,.4),rgba(16,42,196,.14),rgba(16,42,196,.05));margin:0 10px;}.bx .sec .soc{width:42px;height:42px;border-radius:13px;display:flex;align-items:center;justify-content:center;flex:0 0 auto;box-shadow:0 6px 14px rgba(90,110,150,.28);transition:transform .16s;}.bx .sec .soc+.soc{margin-left:7px;}.bx .sec .soc img{width:23px;height:23px;}.bx .sec .soc:hover{transform:translateY(-2px);}.bx .sec .soc.ig{background:linear-gradient(135deg,#feda75,#fa7e1e 25%,#d62976 55%,#962fbf 80%,#4f5bd5);}.bx .sec .soc.fb{background:#1877F2;}.bx .sec .soc.tt{background:#010101;}.bx .grid{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin:0 8px;}.bx .grid{align-items:start;}.bx .grid .card:nth-child(even){margin-top:16px;}.bx .card{background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 8px 22px rgba(120,130,160,.18);transition:transform .2s,box-shadow .2s;}.bx .card:active,.bx .card:hover{transform:translateY(-3px);box-shadow:0 16px 32px rgba(120,130,160,.28);}.bx .card .ph{height:174px;background:#eef1f7;position:relative;overflow:hidden;}.bx .card .ph img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;}.bx .card .bd{position:absolute;top:8px;left:8px;background:var(--orange);color:#fff;font-weight:800;font-size:10px;padding:3px 9px;border-radius:8px;}.bx .card .qty{position:absolute;top:8px;right:8px;background:var(--navy);color:#fff;font-family:'Baloo 2';font-size:13px;padding:3px 9px;border-radius:8px;}.bx .card .info{padding:10px 11px 12px;}.bx .card .cat{font-size:9.5px;font-weight:700;color:var(--orange);}.bx .card .ti{font-size:13px;font-weight:600;margin:1px 0 5px;line-height:1.15;}.bx .card .pr .unit{display:flex;align-items:baseline;gap:3px;}.bx .card .pr .unit b{font-family:'Baloo 2';font-size:24px;color:var(--orange);}.bx .card .pr .unit span{font-size:11px;font-weight:600;}.bx .card .pr .box{font-size:11px;color:#46506e;margin-top:2px;}.bx .card .pr .box b{font-family:'Baloo 2';color:var(--navy);}.bx .card .pr .box b sup{font-size:8px;}.bx .card .gana{display:block;color:var(--green);font-weight:700;font-size:10px;margin-top:5px;text-decoration:none;cursor:pointer;}.bx .card .btnrow{display:flex;gap:6px;margin-top:8px;}.bx .card .b{flex:1;background:var(--orange);color:#fff;text-align:center;font-family:'Baloo 2';font-size:12.5px;padding:9px 4px;border-radius:11px;text-decoration:none;}.bx .card .b2{flex:1;background:#fff;color:var(--navy);border:1.5px solid var(--navy);text-align:center;font-family:'Baloo 2';font-size:12px;padding:8px 4px;border-radius:11px;text-decoration:none;}.bx .video{margin:0 8px;border-radius:20px;position:relative;aspect-ratio:16/9;padding:3px;background:linear-gradient(135deg,#ff7a3c,#EA5003 32%,#102AC4 70%,#001866);box-shadow:0 14px 34px rgba(30,40,90,.35);overflow:hidden;}.bx .video video{width:100%;height:100%;object-fit:cover;display:block;border-radius:17px;}.bx .video::after{content:"";position:absolute;top:0;left:-45%;width:32%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.22),transparent);transform:skewX(-18deg);animation:shine2 4.8s ease-in-out infinite;pointer-events:none;z-index:2;}.bx .video img{height:150px;filter:drop-shadow(0 0 26px rgba(255,205,130,.9));}.bx .video .play{position:absolute;width:62px;height:62px;border-radius:50%;background:rgba(234,80,3,.92);color:#fff;display:flex;align-items:center;justify-content:center;font-size:26px;box-shadow:0 8px 22px rgba(234,80,3,.4);}.bx .video .lab{position:absolute;bottom:10px;left:12px;background:rgba(0,24,102,.85);color:#fff;font-size:11px;font-weight:600;padding:4px 10px;border-radius:8px;}.bx .videoV{max-width:300px;margin:2px auto 0;aspect-ratio:1216/1664;border-radius:22px;overflow:hidden;position:relative;background:#0a1030;box-shadow:0 16px 38px rgba(90,110,150,.32),inset 0 1px 0 rgba(255,255,255,.25);border:1px solid rgba(255,255,255,.55);}.bx .videoV video{width:100%;height:100%;object-fit:cover;display:block;}.bx .why{display:grid;grid-template-columns:1fr 1fr 1fr;gap:9px;margin:0 8px;}.bx .why div{background:#fff;border-radius:14px;padding:14px 8px;text-align:center;box-shadow:0 5px 14px rgba(120,130,160,.12);}.bx .why .e{font-size:26px;}.bx .why b{font-family:'Baloo 2';font-size:12.5px;color:var(--navy);display:block;margin-top:5px;}.bx .why span{font-size:10.5px;color:var(--dim);}.bx .story{margin:10px 8px 0;text-align:center;font-size:12.5px;color:#46506e;line-height:1.5;}.bx .may{position:relative;margin:18px 8px;border-radius:22px;border:2.5px solid transparent;background:linear-gradient(#fff,#fff) padding-box,linear-gradient(135deg,#ff7a3c,#EA5003 40%,#102AC4 88%) border-box;box-shadow:0 14px 34px rgba(30,40,90,.18);}.bx .mayin{padding:14px;}.bx .may .tag{display:inline-block;background:#e6eafb;color:var(--blue);font-size:11px;font-weight:700;padding:4px 11px;border-radius:20px;}.bx .may h2{font-family:'Baloo 2';font-size:26px;color:var(--navy);margin:10px 0 4px;line-height:1.08;}.bx .may h2 span{color:var(--orange);}.bx .may .s{font-size:12.5px;color:#46506e;margin-bottom:14px;}.bx .calc{background:#fff;border-radius:16px;padding:14px;box-shadow:0 5px 14px rgba(120,130,160,.12);}.bx .calc label{font-size:12px;font-weight:600;color:#46506e;}.bx .calc select{width:100%;margin:5px 0 12px;padding:11px;border:1.5px solid #dfe3ee;border-radius:12px;font-size:14px;font-weight:600;color:var(--navy);}.bx .calc .buy{font-size:13px;color:var(--dim);margin-bottom:8px;}.bx .calc .buy b{color:var(--navy);}.bx .calc .lab{font-size:12.5px;font-weight:600;color:#46506e;display:flex;justify-content:space-between;}.bx .calc .lab b{font-family:'Baloo 2';color:var(--orange);font-size:19px;}.bx .calc input[type=range]{width:100%;accent-color:var(--orange);margin:7px 0;}.bx .calc .out{text-align:center;background:#e1f5ee;border-radius:13px;padding:11px;margin-top:6px;}.bx .calc .out .g{font-family:'Baloo 2';font-size:24px;color:var(--green);}.bx .calc .out small{font-size:11.5px;color:#3a5a4a;}.bx .calc .tip{font-size:11px;color:var(--dim);text-align:center;margin-top:8px;}.bx .mcar{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:2px 2px 8px;scrollbar-width:none;-ms-overflow-style:none;}.bx .mcar::-webkit-scrollbar{display:none;}.bx .mcard{scroll-snap-align:center;flex:0 0 86%;background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 16px 32px rgba(90,110,150,.26);border:1px solid #e4e9f2;position:relative;}.bx .mcard .mtop{position:relative;height:160px;display:flex;align-items:center;justify-content:center;background:radial-gradient(80% 100% at 50% 30%,#fff7ee,#ffffff);overflow:hidden;}.bx .mcard .mtop::after{content:"";position:absolute;top:-55%;left:-40%;width:38%;height:210%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.85),transparent);transform:rotate(18deg);animation:shine 5s ease-in-out infinite;}.bx .mcard .mtop img{width:100%;height:100%;object-fit:cover;position:relative;z-index:1;}.bx .mcard.soon .mtop{background:radial-gradient(80% 100% at 50% 30%,#eef3ff,#fbfdff);}.bx .mcard.soon .mtop img{filter:grayscale(.2) drop-shadow(0 12px 22px rgba(120,130,160,.28));}.bx .mcard .mbadge{position:absolute;top:11px;right:11px;z-index:2;font-size:9.5px;font-weight:800;padding:4px 10px;border-radius:9px;background:#16a06f;color:#fff;letter-spacing:.03em;box-shadow:0 4px 12px rgba(22,160,111,.35);}.bx .mcard.soon .mbadge{background:#8a90a2;box-shadow:0 4px 12px rgba(120,130,160,.3);}.bx .mcard .mbody{padding:13px 15px 15px;}.bx .mcard .mname{font-family:'Baloo 2';font-size:19px;color:var(--navy);line-height:1.05;}.bx .mcard .mspec{font-size:11px;color:#8a90a2;font-weight:600;margin:2px 0 9px;}.bx .mcard .mbuy{font-size:12.5px;color:#46506e;}.bx .mcard .mbuy b{color:var(--navy);}.bx .mcard .mbuy i{font-style:normal;color:#9aa0b0;font-size:11px;}.bx .mcard .msell{display:flex;justify-content:space-between;align-items:baseline;margin-top:9px;font-size:12.5px;font-weight:600;color:#46506e;}.bx .mcard .msell b{font-family:'Baloo 2';font-size:23px;color:var(--orange);}.bx .mcard .mrange{width:100%;accent-color:var(--orange);margin:8px 0 10px;}.bx .mcard .mout{text-align:center;background:linear-gradient(135deg,#e1f5ee,#effff9);border-radius:14px;padding:12px;box-shadow:inset 0 0 0 1px rgba(22,160,111,.16);}.bx .mcard .mgain{font-family:'Baloo 2';font-size:26px;color:var(--green);line-height:1;}.bx .mcard .mout small{font-size:11.5px;color:#3a5a4a;display:block;margin-top:2px;}.bx .mcard .mdream{margin-top:9px;text-align:center;font-size:11.5px;color:#5a4a20;background:linear-gradient(135deg,#fff4e0,#fff9ef);border:1px solid #ffe6bf;border-radius:11px;padding:8px 10px;}.bx .mcard .mdream b{color:var(--orange);font-family:'Baloo 2';font-size:13.5px;}.bx .mtip{font-size:11px;color:var(--dim);text-align:center;margin-top:10px;}.bx .dream{margin:16px 0 0;border-radius:20px;padding:20px 18px;position:relative;overflow:hidden;text-align:center;background:linear-gradient(130deg,#001866,#102AC4 62%,#3550e0);box-shadow:0 14px 32px rgba(16,42,196,.32);}.bx .dream::after{content:"";position:absolute;top:-60%;left:-30%;width:34%;height:230%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.26),transparent);transform:rotate(18deg);animation:shine 4.6s ease-in-out infinite;}.bx .dream .dcat{width:66px;height:66px;border-radius:50%;background:radial-gradient(circle at 50% 35%,#fff,#eef1fb);padding:4px;object-fit:contain;box-shadow:0 8px 20px rgba(0,0,0,.3),0 0 0 3px rgba(234,80,3,.32);position:relative;z-index:1;margin-bottom:9px;animation:bob 3s ease-in-out infinite;}.bx .dream .deb{font-size:10px;font-weight:800;letter-spacing:.08em;color:#ffd9b8;text-transform:uppercase;}.bx .dream .dh{font-family:'Baloo 2';font-size:22px;color:#fff;margin:6px 0 5px;line-height:1.12;}.bx .dream .dh b{color:#ffcf9a;}.bx .dream .dp{font-size:12.5px;color:#dfe6ff;line-height:1.5;margin-bottom:14px;}.bx .dream .dp b{color:#fff;}.bx .dream .db{display:inline-block;background:var(--orange);color:#fff;font-family:'Baloo 2';font-size:15px;padding:12px 22px;border-radius:13px;text-decoration:none;box-shadow:0 8px 20px rgba(234,80,3,.45);position:relative;z-index:1;}.bx .shead{position:relative;display:flex;align-items:flex-end;min-height:170px;background:linear-gradient(115deg,#f0692a,#102AC4 88%);overflow:hidden;border-radius:14px;margin-bottom:8px;}.bx .shead .simg{width:162px;height:170px;object-fit:cover;object-position:50% 10%;flex:0 0 auto;-webkit-mask:linear-gradient(100deg,#000 55%,transparent);mask:linear-gradient(100deg,#000 55%,transparent);}.bx .shead .intro{flex:1;padding:0 16px 20px 2px;color:#fff;position:relative;z-index:1;}.bx .shead .intro .hi{font-family:'Baloo 2';font-size:23px;line-height:1.08;text-shadow:0 2px 8px rgba(0,0,0,.4);}.bx .shead .intro .sub{font-size:13px;opacity:.97;margin-top:5px;line-height:1.35;text-shadow:0 1px 6px rgba(0,0,0,.35);}.bx .shead .intro .on{display:inline-flex;align-items:center;gap:6px;margin-top:9px;font-size:11px;font-weight:700;color:#eafff4;background:rgba(22,160,111,.92);padding:3px 11px;border-radius:20px;box-shadow:0 3px 10px rgba(0,0,0,.18);}.bx .shead .intro .on i{width:7px;height:7px;border-radius:50%;background:#8affce;box-shadow:0 0 7px #8affce;animation:pulseon 1.6s infinite;}@keyframes pulseon{0%,100%{opacity:1}50%{opacity:.4}}.bx .schat-msgs{padding:12px 2px;display:flex;flex-direction:column;gap:9px;max-height:280px;overflow-y:auto;}.bx .smsg{display:flex;align-items:flex-end;gap:7px;max-width:90%;}.bx .smsg.bot{align-self:flex-start;}.bx .smsg.me{align-self:flex-end;flex-direction:row-reverse;}.bx .smsg .sav{width:28px;height:28px;border-radius:50%;object-fit:cover;object-position:50% 16%;flex:0 0 auto;}.bx .smsg.me .sav{display:none;}.bx .smsg .mbx{font-size:13px;line-height:1.42;padding:9px 13px;border-radius:17px;}.bx .smsg.bot .mbx{background:#eff1f6;color:#2a2f3e;border-bottom-left-radius:5px;}.bx .smsg.me .mbx{background:linear-gradient(135deg,#ff7a3c,#EA5003);color:#fff;border-bottom-right-radius:5px;box-shadow:0 4px 12px rgba(234,80,3,.25);}.bx .smsg .mbx b{color:var(--orange);}.bx .smsg.me .mbx b{color:#fff;}.bx .smsg .mbx .pcard{margin-top:8px;background:#fff8f2;border:1px solid #ffe0c6;border-radius:12px;padding:8px;display:flex;gap:8px;align-items:center;}.bx .smsg .mbx .pcard img{width:44px;height:44px;object-fit:contain;background:#fff;border-radius:8px;}.bx .smsg .mbx .pcard b{font-family:'Baloo 2';color:var(--navy);font-size:13px;}.bx .smsg .mbx .pcard .pp{color:var(--orange);font-weight:700;font-size:11.5px;}.bx .smsg .mbx .addbtn{display:inline-block;margin-top:8px;background:linear-gradient(135deg,#ff7a3c,#EA5003);color:#fff;font-family:'Baloo 2';font-size:12.5px;padding:7px 14px;border-radius:10px;border:none;cursor:pointer;box-shadow:0 4px 12px rgba(234,80,3,.28);}.bx .smsg.typing .mbx{display:flex;gap:4px;padding:12px 14px;}.bx .smsg.typing .mbx i{width:7px;height:7px;border-radius:50%;background:#b9c0d0;animation:tdot 1.2s infinite;}.bx .smsg.typing .mbx i:nth-child(2){animation-delay:.2s}.bx .smsg.typing .mbx i:nth-child(3){animation-delay:.4s}@keyframes tdot{0%,60%,100%{transform:translateY(0);opacity:.5}30%{transform:translateY(-4px);opacity:1}}.bx .schat-chips{display:flex;gap:7px;flex-wrap:wrap;margin-top:4px;}.bx .schat-chips button{background:#fff;border:1.5px solid #e2e8fb;color:var(--navy);font-size:11.5px;font-weight:700;padding:8px 11px;border-radius:12px;cursor:pointer;box-shadow:0 3px 8px rgba(90,110,150,.1);font-family:Poppins;transition:.16s;}.bx .schat-chips button:hover{border-color:var(--orange);color:var(--orange);}.bx .schat-in{display:flex;gap:8px;align-items:center;margin-top:10px;}.bx .schat-in input{flex:1;border:1.5px solid #e2e8fb;border-radius:20px;padding:11px 15px;font-size:13px;outline:none;font-family:Poppins;background:#f6f8fc;}.bx .schat-in input:focus{border-color:var(--orange);background:#fff;box-shadow:0 0 0 3px rgba(234,80,3,.12);}.bx .schat-in button{width:44px;height:42px;border-radius:50%;background:linear-gradient(135deg,#ff7a3c,#EA5003);color:#fff;border:none;font-size:15px;cursor:pointer;box-shadow:0 5px 14px rgba(234,80,3,.32);flex:0 0 auto;}.bx .ichat-in{display:flex;gap:9px;padding:12px 14px;border-top:1px solid #eef1f7;background:#fff;align-items:center;}.bx .ichat-in input{flex:1;border:1.5px solid #e2e8fb;border-radius:14px;padding:12px 15px;font-size:13px;outline:none;font-family:Poppins;background:#f8faff;transition:.16s;}.bx .ichat-in input:focus{border-color:var(--orange);background:#fff;box-shadow:0 0 0 3px rgba(234,80,3,.12);}.bx .ichat-in button{background:linear-gradient(135deg,#102AC4,#001866);color:#fff;border:none;border-radius:14px;width:48px;height:46px;font-size:17px;cursor:pointer;box-shadow:0 6px 16px rgba(16,42,196,.3);display:flex;align-items:center;justify-content:center;transition:.16s;flex:0 0 auto;}.bx .ichat-in button:hover{transform:translateY(-1px);box-shadow:0 8px 20px rgba(16,42,196,.38);}.bx .who{display:flex;flex-direction:column;gap:8px;margin:12px 0 0;}.bx .who div{background:#fff;border-radius:13px;padding:11px 13px;display:flex;gap:11px;align-items:center;box-shadow:0 4px 12px rgba(120,130,160,.1);}.bx .who .e{font-size:24px;}.bx .who b{font-family:'Baloo 2';font-size:13.5px;color:var(--navy);display:block;}.bx .who span{font-size:11.5px;color:var(--dim);}.bx .revs{margin:0 8px;display:flex;flex-direction:column;gap:10px;}.bx .rev{background:#fff;border-radius:16px;padding:14px 16px;box-shadow:0 8px 20px rgba(120,130,160,.14);}.bx .rev .st{font-size:15px;color:#FFC400;letter-spacing:2px;}.bx .rev p{font-size:12.8px;color:#2a2f3e;margin:5px 0 7px;line-height:1.45;}.bx .rev p b{color:var(--navy);}.bx .rev .who{font-size:11px;color:#8a90a2;font-weight:700;}.bx .rev .who b{color:var(--navy);}.bx .steps{display:flex;gap:10px;margin:0 8px;}.bx .steps .step{flex:1;background:#fff;border-radius:18px;padding:16px 8px;text-align:center;box-shadow:0 10px 24px rgba(90,110,150,.18);position:relative;}.bx .steps .step .n{position:absolute;top:11px;left:11px;width:27px;height:27px;border-radius:50%;background:linear-gradient(135deg,#ff7a3c,#EA5003);color:#fff;font-family:'Baloo 2';font-size:14px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 10px rgba(234,80,3,.32);}.bx .steps .step img{width:80px;height:80px;object-fit:contain;margin:2px auto 8px;display:block;}.bx .steps .step b{font-family:'Baloo 2';font-size:14px;color:var(--navy);display:block;line-height:1.12;}.bx .secure{margin:18px 8px 0;background:linear-gradient(135deg,#fff,#f4f7fd);border:1px solid #fff;border-radius:20px;padding:22px 18px;text-align:center;box-shadow:0 12px 30px rgba(120,130,160,.2);}.bx .secure .sh{font-family:'Baloo 2';font-size:20px;color:var(--navy);}.bx .secure .ss{font-size:13px;color:#5a6280;margin:5px 0 16px;}.bx .pmethods{display:flex;gap:10px;justify-content:center;}.bx .pmethods .pm{flex:1;background:#fff;border:1.5px solid #e2e8fb;border-radius:16px;padding:16px 6px 13px;box-shadow:0 8px 20px rgba(90,110,150,.16);}.bx .pmethods .logos{height:70px;display:flex;align-items:center;justify-content:center;gap:6px;}.bx .pmethods .logos img{height:32px;width:auto;display:block;}.bx .pmethods .oxxo .logos img{height:56px;}.bx .pmethods .mpchip{width:68px;height:68px;border-radius:17px;background:linear-gradient(135deg,#00bcff,#009ee3);display:flex;align-items:center;justify-content:center;box-shadow:0 7px 18px rgba(0,158,227,.42);}.bx .pmethods .mpchip img{height:44px;width:44px;}.bx .pmethods .lbl{font-size:13px;font-weight:800;color:var(--navy);margin-top:10px;}.bx .secure .sfoot{margin-top:18px;display:inline-flex;align-items:center;gap:9px;background:linear-gradient(135deg,#e1f5ee,#effff9);border:1.5px solid #bfe6cf;border-radius:15px;padding:12px 20px;font-size:14.5px;font-weight:800;color:var(--green);}.bx .secure .sfoot b{color:var(--navy);}.bx .faq{margin:0 8px;display:flex;flex-direction:column;gap:10px;}.bx .faq .q{background:#fff;border-radius:14px;padding:14px 16px;box-shadow:0 6px 16px rgba(120,130,160,.12);}.bx .faq .q b{font-weight:700;color:var(--navy);font-size:13px;display:block;margin-bottom:4px;}.bx .faq .q span{font-size:12px;color:#5a6280;line-height:1.5;}.bx .foot{margin:22px 8px 0;background:linear-gradient(135deg,#001866,#102AC4);border-radius:20px;padding:22px 18px;text-align:center;color:#fff;position:relative;overflow:hidden;}.bx .foot::after{content:"";position:absolute;top:-60%;left:-30%;width:34%;height:230%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.16),transparent);transform:rotate(18deg);animation:shine 5s ease-in-out infinite;}.bx .foot .fh{font-family:'Baloo 2';font-size:18px;position:relative;z-index:1;}.bx .foot .fsocial{display:flex;justify-content:center;flex-wrap:wrap;gap:14px;margin:16px 0 6px;position:relative;z-index:1;}.bx .foot .fsoc{width:62px;height:62px;border-radius:18px;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 20px rgba(0,0,0,.32);transition:transform .16s;}.bx .foot .fsoc img{width:34px;height:34px;}.bx .foot .fsoc:hover{transform:translateY(-3px);}.bx .foot .fsoc.ig{background:linear-gradient(135deg,#feda75,#fa7e1e 25%,#d62976 55%,#962fbf 80%,#4f5bd5);}.bx .foot .fsoc.fb{background:#1877F2;}.bx .foot .fsoc.tt{background:#010101;}.bx .foot .fsoc.wa{background:#25D366;}.bx .foot .fnote{font-size:12px;color:#dfe6ff;position:relative;z-index:1;}.bx .foot .fcopy{font-size:10.5px;color:#aeb9ee;margin-top:14px;position:relative;z-index:1;}.bx .catlauncher{position:fixed;right:14px;bottom:88px;z-index:44;display:flex;align-items:center;gap:8px;}.bx .catbubble{background:#fff;color:var(--navy);font-size:12px;font-weight:600;padding:9px 13px;border-radius:14px 14px 4px 14px;box-shadow:0 8px 20px rgba(0,0,0,.2);max-width:158px;animation:cbob 2.4s ease-in-out infinite;}.bx .catbubble b{color:var(--orange);}@keyframes cbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}.bx .catbtn{width:62px;height:62px;border-radius:50%;border:none;background:radial-gradient(circle at 50% 35%,#fff,#eef1fb);box-shadow:0 10px 26px rgba(0,0,0,.28),0 0 0 3px rgba(234,80,3,.28);cursor:pointer;padding:0;overflow:hidden;display:flex;align-items:center;justify-content:center;flex:0 0 auto;}.bx .catbtn img{width:56px;height:56px;object-fit:contain;}.bx .chat{position:fixed;right:10px;bottom:14px;z-index:45;width:min(92%,360px);height:min(74vh,470px);background:#fff;border-radius:20px;box-shadow:0 20px 50px rgba(0,0,0,.42);display:none;flex-direction:column;overflow:hidden;}.bx .chat.open{display:flex;}.bx .chat-h{display:flex;align-items:center;gap:9px;padding:11px 13px;background:linear-gradient(120deg,var(--navy),var(--blue));color:#fff;}.bx .chat-h img{width:36px;height:36px;border-radius:50%;background:#fff;padding:2px;}.bx .chat-h b{font-family:'Baloo 2';font-size:15px;display:block;}.bx .chat-h span{font-size:10.5px;opacity:.85;}.bx .chat-x{margin-left:auto;background:none;border:none;color:#fff;font-size:22px;cursor:pointer;line-height:1;}.bx .chat-msgs{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:9px;background:#f7f8fc;}.bx .msg{max-width:84%;padding:9px 12px;border-radius:14px;font-size:12.5px;line-height:1.42;}.bx .msg.bot{background:#fff;color:#2a2f3e;border:1px solid #eceff5;align-self:flex-start;border-bottom-left-radius:4px;box-shadow:0 3px 8px rgba(120,130,160,.08);}.bx .msg.me{background:var(--orange);color:#fff;align-self:flex-end;border-bottom-right-radius:4px;}.bx .msg .pcard{margin-top:8px;background:#fff8f2;border:1px solid #ffe0c6;border-radius:12px;padding:8px;display:flex;gap:8px;align-items:center;}.bx .msg .pcard img{width:44px;height:44px;object-fit:contain;}.bx .msg .pcard b{font-family:'Baloo 2';color:var(--navy);font-size:13px;}.bx .msg .pcard .pp{color:var(--orange);font-weight:700;font-size:11.5px;}.bx .msg .addbtn{display:inline-block;margin-top:8px;background:var(--orange);color:#fff;font-weight:700;font-size:11.5px;padding:6px 12px;border-radius:9px;border:none;cursor:pointer;}.bx .chat-chips{display:flex;gap:6px;flex-wrap:wrap;padding:8px 12px 4px;background:#f7f8fc;}.bx .chat-chips button{background:#fff;border:1px solid #e2e6f0;color:var(--navy);font-size:11px;font-weight:600;padding:6px 10px;border-radius:11px;cursor:pointer;}.bx .chat-chips .wa{background:#e8f7ee;border:1px solid #bfe6cf;color:#128a4f;font-size:11px;font-weight:700;padding:6px 10px;border-radius:11px;text-decoration:none;}.bx .chat-in{display:flex;gap:7px;padding:10px 12px;border-top:1px solid #eceff5;background:#fff;}.bx .chat-in input{flex:1;border:1.5px solid #e2e6f0;border-radius:12px;padding:9px 12px;font-size:12.5px;outline:none;font-family:Poppins;}.bx .chat-in button{background:var(--navy);color:#fff;border:none;border-radius:12px;width:42px;font-size:15px;cursor:pointer;}.bx .bnav{position:fixed;bottom:10px;left:50%;transform:translateX(-50%);z-index:40;display:flex;justify-content:space-around;width:min(94%,460px);padding:9px 0;border-radius:22px;}.bx .bnav div{display:flex;flex-direction:column;align-items:center;gap:2px;font-size:10px;color:#9a9aa2;font-weight:600;}.bx .bnav div.on{color:var(--orange);}.bx .bnav .e{font-size:18px;}.bx .superbuy{position:fixed;left:50%;transform:translateX(-50%);bottom:14px;z-index:41;width:min(95%,462px);display:flex;align-items:center;gap:7px;padding:6px;border-radius:18px;background:rgba(255,255,255,.97);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.95);box-shadow:0 -7px 26px rgba(90,110,150,.3);}.bx .superbuy.flash{animation:sbflash .42s;}@keyframes sbflash{0%{transform:translateX(-50%) scale(.985);}55%{transform:translateX(-50%) scale(1.012);}100%{transform:translateX(-50%) scale(1);}}.bx .superbuy .navchip{flex:0 0 auto;display:flex;flex-direction:column;align-items:center;gap:5px;}.bx .superbuy .rot{width:26px;height:44px;border:2px solid var(--orange);background:#fff;border-radius:11px;color:var(--navy);font-size:18px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;line-height:1;}.bx .superbuy .rot:active{background:#fff2e9;}.bx .superbuy .dots{display:flex;gap:5px;}.bx .superbuy .dots i{width:7px;height:7px;border-radius:50%;background:#cdd2de;}.bx .superbuy .dots i.on{background:var(--orange);}.bx .superbuy .pic{flex:0 0 40%;height:60px;border-radius:12px;background:var(--orange);position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;}.bx .superbuy .pic img{height:52px;object-fit:contain;}.bx .superbuy .pic .pop{position:absolute;top:5px;left:6px;background:#fff;color:var(--navy);font-size:8.5px;font-weight:800;padding:2px 7px;border-radius:7px;}.bx .superbuy .info{flex:1;min-width:0;line-height:1.1;}.bx .superbuy .info .nm{font-family:'Baloo 2';font-size:15px;color:var(--navy);}.bx .superbuy .info .p1{font-size:11px;color:#46506e;white-space:nowrap;margin-top:2px;}.bx .superbuy .info .p1 b{color:var(--orange);font-family:'Baloo 2';font-size:12.5px;}.bx .superbuy .info .p2{display:flex;align-items:center;gap:6px;white-space:nowrap;margin-top:3px;}.bx .superbuy .info .p2 .u{font-size:10px;color:#6a6f7e;font-weight:600;}.bx .superbuy .info .sv{background:#e0f6ee;color:#16a06f;font-size:9px;font-weight:700;padding:1px 6px;border-radius:6px;}.bx .superbuy .cta{flex:0 0 auto;background:var(--orange);color:#fff;font-family:'Baloo 2';font-size:13px;padding:12px 12px;border-radius:12px;text-decoration:none;white-space:nowrap;box-shadow:0 6px 16px rgba(234,80,3,.36);}.bx .card .pr .unit .was{font-size:13px;color:#9aa0b0;text-decoration:line-through;font-weight:600;align-self:center;}.bx .card .pr .save{display:inline-block;background:#e1f5ee;color:var(--green);font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:8px;margin-top:5px;}.bx .annbar{display:flex;align-items:center;justify-content:center;gap:8px;padding:8px 12px;font-size:11.5px;font-weight:600;color:#fff;background:linear-gradient(90deg,#001866,#102AC4);letter-spacing:.01em;}.bx .annbar span{transition:opacity .35s;}.bx .proto{text-align:center;font-size:11px;color:#888;padding:8px;}.bx .cats a .img{position:relative;}.bx .soonrib{position:absolute;top:6px;right:6px;background:var(--navy);color:#fff;font-size:8.5px;font-weight:800;padding:2px 7px;border-radius:7px;letter-spacing:.02em;z-index:3;box-shadow:0 2px 6px rgba(0,0,0,.22);}.bx .cats a.soon .inner{filter:grayscale(.32);opacity:.9;}.bx .cats a.soon::before{opacity:.45;}.bx .card .ph{overflow:hidden;}.bx .card .ph::after{content:"";position:absolute;top:-60%;left:-45%;width:42%;height:220%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.9),transparent);transform:rotate(18deg);animation:shine 4.8s ease-in-out infinite;pointer-events:none;z-index:2;}.bx .card:nth-child(even) .ph::after{animation-delay:2.4s;}@keyframes shine{0%,58%{left:-45%;}78%,100%{left:135%;}}.bx .card .b{position:relative;overflow:hidden;}.bx .card .b::after{content:"";position:absolute;top:0;left:-70%;width:38%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.6),transparent);transform:skewX(-18deg);animation:shine2 3.8s ease-in-out infinite;pointer-events:none;}@keyframes shine2{0%,55%{left:-70%;}76%,100%{left:140%;}}.bx .superbuy .cta{position:relative;overflow:hidden;}.bx .superbuy .cta::after{content:"";position:absolute;top:0;left:-70%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-18deg);animation:shine2 3.2s ease-in-out infinite;pointer-events:none;}.bx .catbtn{animation:catglow 2.8s ease-in-out infinite;}@keyframes catglow{0%,100%{box-shadow:0 10px 26px rgba(0,0,0,.28),0 0 0 3px rgba(234,80,3,.28);}50%{box-shadow:0 10px 30px rgba(0,0,0,.3),0 0 0 5px rgba(234,80,3,.42),0 0 18px rgba(234,80,3,.4);}}.bx .paysafe{display:flex;justify-content:center;flex-wrap:wrap;gap:4px 14px;margin:13px 14px 2px;font-size:11px;color:#46506e;font-weight:600;}.bx .paysafe b{color:var(--navy);}
+#MainContent,.content-for-layout{padding:0!important;margin:0!important;max-width:none!important;}body{margin:0;}
+</style>
+<div class="bx">
+<div class="annbar"><span class="hspacer"></span><span id="annmsg">Envío gratis en productos seleccionados</span><button class="hambtn" id="hambBtn" aria-label="Menú" aria-expanded="false"><span></span><span></span><span></span></button><nav class="hmenu" id="hMenu"><a href="#productos" class="hmrow"><img src="{{ 'ico-prod.png' | asset_url }}">Productos</a>{%- comment -%} MAYOREO OFF — reactivar quitando este comment: <a href="#mayoreo" class="hmrow"><img src="{{ 'ico-may.png' | asset_url }}">Mayoreo</a> {%- endcomment -%}<a href="#" id="hmBuscar" class="hmrow"><img src="{{ 'ico-bus.png' | asset_url }}">Buscar</a><a href="#productos" class="hmrow"><img src="{{ 'ico-com.png' | asset_url }}">Comprar</a><a href="https://wa.me/526563143071" target="_blank" rel="noopener" class="hmrow"><img src="{{ 'ico-wa.png' | asset_url }}">WhatsApp</a><a href="/cart" class="hmrow"><img src="{{ 'ico-cart.png' | asset_url }}">Carrito</a><a href="#" class="hmrow"><img src="{{ 'ico-usr.png' | asset_url }}">Usuario</a><div class="hmsoc"><a class="hs wa" href="https://wa.me/526563143071" target="_blank" rel="noopener" aria-label="WhatsApp"><img src="{{ 'wa.svg' | asset_url }}" alt=""></a><a class="hs ig" href="https://www.instagram.com/buum.ia/" target="_blank" rel="noopener" aria-label="Instagram"><img src="{{ 'ig.svg' | asset_url }}" alt=""></a><a class="hs fb" href="https://www.facebook.com/107250698460072" target="_blank" rel="noopener" aria-label="Facebook"><img src="{{ 'fb.svg' | asset_url }}" alt=""></a></div></nav></div>
+<div class="wrap">
+  <a class="cover" id="top" href="#top">
+    <img class="clogo" src="{{ 'logo-buumia-original.png' | asset_url }}" alt="BUUM · Inicio">
+  </a>
+  <div class="head">
+    <div class="navwrap">
+      <a class="navi glow" href="#productos"><img src="{{ 'ico-prod.png' | asset_url }}" alt="" loading="lazy"><span>Productos</span></a>
+
+      <a class="navi glow" id="hSearch"><img src="{{ 'ico-bus.png' | asset_url }}" alt="" loading="lazy"><span>Buscar</span></a>
+      <a class="navi glow" href="#productos"><img src="{{ 'ico-com.png' | asset_url }}" alt="" loading="lazy"><span>Comprar</span></a>
+      <a class="navi glow" href="https://wa.me/526563143071" target="_blank" rel="noopener"><img src="{{ 'ico-wa.png' | asset_url }}" alt="" loading="lazy"><span>WhatsApp</span></a>
+      <a class="navi glow" href="/cart"><img src="{{ 'ico-cart.png' | asset_url }}" alt="" loading="lazy"><span class="ct" id="cartCount">0</span><span>Carrito</span></a>
+    </div>
+  </div>
+  <div class="search" id="searchBar" style="display:none">
+    <svg viewBox="0 0 24 24" fill="none" stroke="#7a8195" stroke-width="1.9" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.5" y2="16.5"/></svg>
+    <input placeholder="Buscar reflectores, luz solar…"><button class="go">Buscar</button><button class="sx" id="searchClose" aria-label="Cerrar">&times;</button>
+  </div>
+
+  <div class="herocar">
+    <div class="herotrack" id="heroTrack">
+      <div class="heroslide" style="background-image:url({{ 'refl-hero1.png' | asset_url }})">
+        <div class="ov"><div class="eb">Iluminación solar</div><h1>Luz donde no llega el cable</h1><div class="price">2 por&nbsp;<b>$1,299</b>&nbsp;· envío gratis</div><br><a class="b" href="/products/reflector-solar-led-50w-con-control-remoto-equivale-a-500w">Comprar ahora →</a></div>
+      </div>
+      <div class="heroslide" style="background-image:url({{ 'refl-armado.png' | asset_url }});background-color:#0d1330;background-size:contain;background-repeat:no-repeat">
+        <div class="ov"><div class="eb">50W = ilumina como 500W</div><h1>Sin cable, sin recibo</h1><div class="price">Panel solar&nbsp;<b>+ control</b></div><br><a class="b" href="/products/reflector-solar-led-50w-con-control-remoto-equivale-a-500w">Ver reflector →</a></div>
+      </div>
+      <div class="heroslide" style="background-image:url({{ 'refl-front.png' | asset_url }});background-color:#0d1330;background-size:contain;background-repeat:no-repeat;background-position:right center">
+        <div class="ov"><div class="eb">Para casa o negocio</div><h1>Aguanta la intemperie</h1><div class="price">Hasta&nbsp;<b>12 h</b>&nbsp;de luz</div><br><a class="b" href="/products/reflector-solar-led-50w-con-control-remoto-equivale-a-500w">Comprar →</a></div>
+      </div>
+    </div>
+    <div class="herodots" id="heroDots"></div>
+  </div>
+
+  <div class="cats">
+    <a href="#productos"><div class="inner"><div class="img"><img src="{{ 'reflector.png' | asset_url }}"></div><div class="nm"><span class="d"></span>Reflectores</div></div></a>
+    <a class="soon"><div class="inner"><div class="img" style="background:radial-gradient(70% 80% at 50% 35%,#dbe7ff,#fff)"><span class="soonrib">Pronto</span></div><div class="nm"><span class="d" style="background:#13b6d6;box-shadow:0 0 8px #13b6d6"></span>Galería</div></div></a>
+    <a class="soon"><div class="inner"><div class="img" style="background:radial-gradient(70% 80% at 50% 35%,#fff0c2,#fff)"><span class="soonrib">Pronto</span></div><div class="nm"><span class="d" style="background:#d99a00;box-shadow:0 0 8px #d99a00"></span>Solares</div></div></a>
+    <a class="soon"><div class="inner"><div class="img" style="background:radial-gradient(70% 80% at 50% 35%,#ece3ff,#fff)"><span class="soonrib">Pronto</span></div><div class="nm"><span class="d" style="background:#8b5cf6;box-shadow:0 0 8px #8b5cf6"></span>Ventiladores</div></div></a>
+  </div>
+  <div class="catdots" id="catDots"><i class="on"></i><i></i><i></i><i></i></div>
+  <div class="cathint">desliza para ver más &rarr;</div>
+
+  <div class="trustbar"><div class="ti"><span class="tiico gcheck"><svg viewBox="0 0 24 24"><path d="M12 2 4 5v6c0 5 3.4 8.5 8 10 4.6-1.5 8-5 8-10V5l-8-3zm-1.2 13.4-3.2-3.2 1.4-1.4 1.8 1.8 4-4 1.4 1.4-5.4 5.4z"/></svg></span><span class="titx"><b>Compra segura</b><small>Protección al comprador</small></span></div><div class="ti"><span class="tiico gcard"><svg viewBox="0 0 24 24"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm1 3v2h16V8H4zm0 5v4h8v-4H4z"/></svg></span><span class="titx"><b>Pago protegido</b><small>Con Mercado Pago</small></span></div><div class="ti"><span class="tiico gtruck"><svg viewBox="0 0 24 24"><path d="M3 4h11a1 1 0 0 1 1 1v3h3l3 4v4h-2a3 3 0 0 1-6 0H9a3 3 0 0 1-6 0H2V5a1 1 0 0 1 1-1zm12 6h4l-1.5-2H15v2zM6 16.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm12 0a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"/></svg></span><span class="titx"><b>Envío asegurado</b><small>A todo México</small></span></div><div class="ti"><span class="tiico gbox"><svg viewBox="0 0 24 24"><path d="M12 2 3 6.5V17l9 4.5 9-4.5V6.5L12 2zm-1 13.5-3-3 1.4-1.4L11 12.7l3.6-3.6L16 10.5l-5 5z"/></svg></span><span class="titx"><b>Producto real</b><small>Cambio por defecto</small></span></div></div><div class="sec socbar" id="productos"><span class="ico"><img src="{{ 'ico-prod.png' | asset_url }}" alt=""></span><span class="tt">El Reflector Solar<small>50W · ilumina como 500W</small></span><div class="socgrid"><a class="soc wa" href="https://wa.me/526563143071" target="_blank" rel="noopener" aria-label="WhatsApp"><img src="{{ 'wa.svg' | asset_url }}" alt=""></a><a class="soc ig" href="https://www.instagram.com/buum.ia/" target="_blank" rel="noopener" aria-label="Instagram"><img src="{{ 'ig.svg' | asset_url }}" alt=""></a><a class="soc fb" href="https://www.facebook.com/107250698460072" target="_blank" rel="noopener" aria-label="Facebook"><img src="{{ 'fb.svg' | asset_url }}" alt=""></a></div></div>
+  <div class="reflcard"><div class="reflimg"><img src="{{ 'refl-armado.png' | asset_url }}" alt="Reflector Solar LED 50W"><span class="reflbadge">2 x $1,299</span></div><div class="reflbody"><div class="reflcat">REFLECTOR SOLAR 50W</div><div class="reflti">Paquete de 2 · ilumina como 500W</div><div class="reflben"><span>Carga solar automática</span><span>Hasta 12 h de luz</span><span>Control remoto incluido</span><span>Envío gratis</span></div><div class="reflpr"><b>$1,299</b><span>los 2 · $650 c/u</span></div><a class="reflbuy" href="/products/reflector-solar-led-50w-con-control-remoto-equivale-a-500w">Comprar ahora</a></div></div><div class="grid">
+    <div class="card"><div class="ph"><img src="{{ 'refl-armado.png' | asset_url }}" loading="lazy" style="object-fit:contain;background:#fff;padding:8px"><span class="bd">PAQUETE</span><span class="qty">×2</span></div>
+      <div class="info"><div class="cat">REFLECTOR SOLAR 50W</div><div class="ti">Paquete de 2 reflectores</div>
+        <div class="pr"><div class="unit"><b>$1,299</b><span>los 2</span></div><div class="box">Sale a <b>$650 c/u</b></div><span class="save">Envío gratis incluido</span></div>
+        <div class="btnrow"><a class="b" href="/products/reflector-solar-led-50w-con-control-remoto-equivale-a-500w">Comprar</a><a class="b2" href="/products/reflector-solar-led-50w-con-control-remoto-equivale-a-500w">Ver detalles</a></div></div></div>
+    <div class="card"><div class="ph" style="display:flex;gap:6px;overflow-x:auto;align-items:center;background:#fff;padding:8px;scrollbar-width:none">{% assign gprod = all_products['reflector-solar-led-50w-con-control-remoto-equivale-a-500w'] %}{% for gim in gprod.images limit: 6 %}<img src="{{ gim | image_url: width: 340 }}" loading="lazy" style="height:100%;width:auto;object-fit:contain;border-radius:10px;flex:0 0 auto">{% endfor %}<span class="bd">GALERÍA</span></div>
+      <div class="info"><div class="cat">REFLECTOR SOLAR 50W</div><div class="ti">Conócelo de cerca</div>
+        <div class="pr"><div class="box"><b>Fotos reales</b> del producto · desliza →</div></div>
+        <div class="btnrow"><a class="b2" href="/products/reflector-solar-led-50w-con-control-remoto-equivale-a-500w">Ver todas las fotos</a></div></div></div>
+    {%- comment -%} MAYOREO OFF — reactivar quitando este comment:
+    <div class="card"><div class="ph"><img src="{{ 'reflector.png' | asset_url }}" loading="lazy" style="object-fit:contain;padding:14px;background:#fff"><span class="bd">MAYOREO</span></div>
+      <div class="info"><div class="cat">REFLECTOR SOLAR 50W</div><div class="ti">Varias piezas para tu negocio</div>
+        <div class="pr"><div class="box">Precio especial <b>por WhatsApp</b></div></div>
+        <a class="gana" href="#mayoreo">Pregúntale a Sofía ›</a>
+        <div class="btnrow"><a class="b" href="https://wa.me/526563143071" target="_blank" rel="noopener">Cotizar</a></div></div></div>
+    {%- endcomment -%}
+  </div>
+
+  
+
+
+  <div class="may" id="mayoreo"><div class="mayin">
+    <span class="tag">SOFÍA · TU ASESORA DE COMPRA</span>
+    <h2>¿Te ayudo a <span>comprar</span>?</h2>
+    <div class="shead">
+      <img class="simg" src="{{ 'sofia_a.png' | asset_url }}" alt="Sofía">
+      <div class="intro"><div class="hi">Hola, soy Sofía</div><div class="sub">Te ayudo a elegir y resuelvo tus dudas</div><div class="on"><i></i> En línea ahora</div></div>
+    </div>
+    <div class="schat-msgs" id="iMsgs"></div>
+    <div class="schat-chips" id="iChips">
+      <button data-q="¿Cuánto cuesta el reflector?">¿Cuánto cuesta?</button>
+      <button data-q="¿El reflector aguanta la lluvia?">¿Aguanta la lluvia?</button>
+      <button data-q="¿Cómo compro el reflector?">¿Cómo compro?</button>
+      {%- comment -%} MAYOREO OFF: <button data-q="Quiero comprar varios para mi negocio">Para mi negocio</button> {%- endcomment -%}
+    </div>
+    <div class="schat-in"><input id="iInput" placeholder="Escríbele a Sofía…" aria-label="Escribe"><button id="iSend" aria-label="Enviar">&#10148;</button></div>
+    <div class="mcar" id="mCar" style="margin-top:6px"></div>
+    <div class="catdots" id="mDots"></div>
+    <div class="cathint">desliza para ver más modelos &rarr;</div>
+  </div></div>
+
+  <div class="sec"><span class="ico"><img src="{{ 'ico-cart.png' | asset_url }}" alt=""></span><span class="tt">Cómo comprar<small>En 3 pasos fáciles</small></span></div>
+  <div class="steps">
+    <div class="step"><div class="n">1</div><img src="{{ 'step1.png' | asset_url }}" alt=""><b>Agrega al carrito</b></div>
+    <div class="step"><div class="n">2</div><img src="{{ 'step2.png' | asset_url }}" alt=""><b>Paga seguro</b></div>
+    <div class="step"><div class="n">3</div><img src="{{ 'step3.png' | asset_url }}" alt=""><b>Te llega a tu casa</b></div>
+  </div>
+
+  <div class="secure">
+    <div class="sh">Compra 100% segura</div>
+    <div class="ss">Paga fácil, como más te acomode:</div>
+    <div class="pmethods">
+      <div class="pm"><div class="logos"><img src="{{ 'visa.svg' | asset_url }}" alt="Visa"><img src="{{ 'mastercard.svg' | asset_url }}" alt="Mastercard"></div><div class="lbl">Tarjeta</div></div>
+      <div class="pm oxxo"><div class="logos"><img src="{{ 'oxxo.svg' | asset_url }}" alt="OXXO"></div><div class="lbl">OXXO</div></div>
+      <div class="pm"><div class="logos"><div class="mpchip"><img src="{{ 'mp-white.svg' | asset_url }}" alt="Mercado Pago"></div></div><div class="lbl">Mercado Pago</div></div>
+    </div>
+    <div class="sfoot">Envío <b>GRATIS</b> a todo México<small class="snote">En productos seleccionados, como el Reflector Solar 50W</small></div>
+  </div>
+
+  <div class="sec"><span class="ico icoheart"><svg viewBox="0 0 24 24"><path d="M12 21s-7.6-4.7-10-9.4C.5 8 2.4 4.6 5.7 4.1 7.8 3.8 9.9 5 12 7.3c2.1-2.3 4.2-3.5 6.3-3.2 3.3.5 5.2 3.9 3.7 7.6-2.4 4.7-10 9.3-10 9.3z"/></svg></span><span class="tt">Confianza<small>Compra tranquilo</small></span></div>
+  <div class="revs">
+    <div class="rev"><div class="st" style="color:#16a06f">✓ CERTIFICADO</div><p><b>Certificación NOM</b> y cuerpo de aluminio con protección <b>IP66</b>: aguanta lluvia, sol y polvo todos los días.</p><div class="who"><b>Hecho verificado</b> · etiqueta del producto</div></div>
+    <div class="rev"><div class="st" style="color:#16a06f">✓ COMPROBADO</div><p>Hasta <b>12 horas de luz</b> con la batería cargada por el sol — sin cables y sin subir tu recibo.</p><div class="who"><b>Hecho verificado</b> · manual del fabricante</div></div>
+    <div class="rev"><div class="st" style="color:#16a06f">✓ FÁCIL DE PONER</div><p>Se instala con su <b>soporte y 2 tornillos</b> (vienen en la caja): patio, cochera o negocio en minutos.</p><div class="who"><b>Hecho verificado</b> · contenido de la caja</div></div>
+    <div class="mtip" style="font-size:11px;color:#6a6f7e;text-align:center">Sé de los primeros en estrenarlo — aquí aparecerán las reseñas reales de clientes.</div>
+  </div>
+
+  <div class="sec"><span class="ico icofaq"><b>?</b></span><span class="tt">Preguntas frecuentes<small>Lo que más nos preguntan</small></span></div>
+  <div class="faq">
+    <div class="q"><b>¿Cómo pago?</b><span>Con tarjeta (Visa/Mastercard), en efectivo en OXXO o con Mercado Pago. Pago 100% protegido.</span></div>
+    <div class="q"><b>¿Cuánto cuesta el envío?</b><span>El Reflector Solar 50W incluye envío gratis a todo México. Si algún producto no lo incluye, lo verás claramente antes de pagar. Te compartimos tu número de guía en cuanto sale tu paquete.</span></div>
+    <div class="q"><b>¿Aguanta la lluvia?</b><span>Sí. Está hecho para exteriores: resiste lluvia, sol y polvo (no sumergible).</span></div>
+    <div class="q"><b>¿Tienes otra duda?</b><span>Escríbenos por WhatsApp y te respondemos rápido.</span></div>
+  </div>
+
+  <div class="foot">
+    <div class="fh">BUUM</div>
+    <div class="fnote">Síguenos en redes</div>
+    <div class="fsocial">
+      <a class="fsoc ig" href="https://www.instagram.com/buum.ia/" target="_blank" rel="noopener" aria-label="Instagram"><img src="{{ 'ig.svg' | asset_url }}" alt=""></a>
+      <a class="fsoc fb" href="https://www.facebook.com/107250698460072" target="_blank" rel="noopener" aria-label="Facebook"><img src="{{ 'fb.svg' | asset_url }}" alt=""></a>
+      <a class="fsoc wa" href="https://wa.me/526563143071" target="_blank" rel="noopener" aria-label="WhatsApp"><img src="{{ 'wa.svg' | asset_url }}" alt=""></a>
+    </div>
+    <div class="fcopy">© BUUM · Súper calidad y súper precio</div>
+  </div>
+</div>
+
+<div class="catlauncher" id="catLauncher">
+  <div class="catbubble">¿Tienes dudas? <b>Pregúntame</b></div>
+  <button class="catbtn" aria-label="Abrir asistente"><img src="{{ 'robotcat_web.png' | asset_url }}" alt=""></button>
+</div>
+<div class="chat" id="chatPanel">
+  <div class="chat-h"><img src="{{ 'robotcat_web.png' | asset_url }}" alt=""><div><b>Asistente BUUM</b><span>Te ayudo a elegir y comprar</span></div><button class="chat-x" id="chatClose">&times;</button></div>
+  <div class="chat-msgs" id="chatMsgs"></div>
+  <div class="chat-chips" id="chatChips">
+    <button data-q="Busco luz para mi patio">Para mi patio</button>
+    <button data-q="¿Cuánto cuesta el reflector?">¿Cuánto cuesta?</button>
+    <button data-q="¿El reflector aguanta la lluvia?">¿Aguanta la lluvia?</button>
+    <button data-q="¿Cómo compro el reflector?">¿Cómo compro?</button>
+  </div>
+  <div class="chat-in"><input id="chatInput" placeholder="Escríbeme qué necesitas…"><button id="chatSend" aria-label="Enviar">&#10148;</button></div>
+</div>
+<div class="superbuy" id="superbuy">
+  <div class="navchip"><button class="rot" id="sbRot" title="Ver otra oferta">‹</button><div class="dots" id="sbDots"></div></div>
+  <div class="pic"><span class="pop" id="sbPop">PAQUETE DE 2</span><img id="sbImg" src="{{ 'refl-armado.png' | asset_url }}" alt="Reflector Solar 50W"></div>
+  <div class="info"><div class="nm" id="sbNm">Reflector Solar 50W</div><div class="p1"><b id="sbPack">$1,299</b> <span id="sbLbl">los 2</span></div><div class="p2"><span class="u" id="sbUnit">$650 c/u</span><span class="sv" id="sbSv">Envío gratis</span></div></div>
+  <a class="cta" id="sbCta" href="/products/reflector-solar-led-50w-con-control-remoto-equivale-a-500w">Comprar</a>
+</div>
+<!-- barra de abajo eliminada: su menú se movió al header de arriba -->
+<script>var A="{{ 'p1.png' | asset_url | split: 'p1.png' | first }}";
+
+// MAYOREO: juego de reventa (varios modelos, desliza y ve tu ganancia)
+(function(){
+ var D=[
+  {n:'Reflector Solar 50W',s:'Ilumina como 500W · panel + control',img:A+'refl-armado.png',c:650,u:'reflector',box:2,min:700,max:1100,v:850,soon:false,bg:'DISPONIBLE'},
+  {n:'Foco LED 60W',s:'Luz blanca · rosca E27',img:A+'foco-hero.png',c:75,u:'foco',box:12,min:85,max:160,v:120,soon:true,bg:'PRONTO'},
+  {n:'Lámpara Solar',s:'Se carga con el sol',img:A+'solar.png',c:150,u:'lámpara',box:8,min:175,max:360,v:240,soon:true,bg:'PRONTO'}
+ ];
+ var wrap=document.getElementById('mCar');if(!wrap)return;
+ function money(n){return '$'+n.toLocaleString('es-MX');}
+ wrap.innerHTML=D.map(function(p,i){var g=p.v-p.c;
+  return '<div class="mcard'+(p.soon?' soon':'')+'" data-i="'+i+'">'
+   +'<div class="mtop"><img src="'+p.img+'" alt=""><span class="mbadge">'+p.bg+'</span></div>'
+   +'<div class="mbody">'
+   +'<div class="mname">'+p.n+'</div><div class="mspec">'+p.s+'</div>'
+   +'<div class="mbuy">Te cuesta <b>$'+p.c+' c/u</b>'+(p.soon?' <i>(ejemplo)</i>':'')+'</div>'
+   +'<div class="msell"><span>Tú lo vendes a:</span><b class="msv">$'+p.v+'</b></div>'
+   +'<input type="range" class="mrange" min="'+p.min+'" max="'+p.max+'" value="'+p.v+'">'
+   +'<div class="mout"><div class="mgain">Ganas $'+g+' por '+p.u+'</div><small>'+money(g*p.box)+' por caja de '+p.box+'</small></div>'
+   +'<div class="mdream">💭 Vende <b>4 cajas al mes</b> y ganas <b class="mmonth">'+money(g*p.box*4)+'</b> extra 🚀</div>'
+   +'</div></div>';
+ }).join('');
+ wrap.querySelectorAll('.mcard').forEach(function(card){var p=D[+card.dataset.i],rg=card.querySelector('.mrange'),sv=card.querySelector('.msv'),gn=card.querySelector('.mgain'),bx=card.querySelector('.mout small'),mo=card.querySelector('.mmonth');
+  rg.addEventListener('input',function(){var v=+rg.value,g=v-p.c;sv.textContent='$'+v;gn.textContent='Ganas $'+g+' por '+p.u;bx.textContent=money(g*p.box)+' por caja de '+p.box;mo.textContent=money(g*p.box*4);});});
+ var dots=document.getElementById('mDots');
+ if(dots){dots.innerHTML=D.map(function(_,i){return '<i'+(i===0?' class="on"':'')+'></i>';}).join('');
+  wrap.addEventListener('scroll',function(){var mx=wrap.scrollWidth-wrap.clientWidth,f=mx>0?wrap.scrollLeft/mx:0,idx=Math.round(f*(D.length-1));dots.querySelectorAll('i').forEach(function(x,i){x.className=(i===idx?'on':'');});});}
+})();
+// SUPER BOTON rotativo: ofertas que el cliente puede ir cambiando
+var OFFERS=[
+ {img:A+"refl-armado.png",nm:"Reflector Solar 50W",pack:"$1,299",lbl:"los 2",unit:"$650 c/u",sv:"Envío gratis",pop:"PAQUETE DE 2",href:"/products/reflector-solar-led-50w-con-control-remoto-equivale-a-500w",cta:"Comprar"}
+ {%- comment -%} MAYOREO OFF — reactivar quitando este comment:
+ ,{img:A+"reflector.png",nm:"Mayoreo para negocios",pack:"Precio especial",lbl:"",unit:"varias piezas",sv:"Por WhatsApp",pop:"MAYOREO",href:"https://wa.me/526563143071",cta:"Cotizar"}
+ {%- endcomment -%}
+];
+(function(){
+ var oi=0,sb=document.getElementById('superbuy');
+ if(!sb)return;
+ var im=document.getElementById('sbImg'),nm=document.getElementById('sbNm'),pk=document.getElementById('sbPack'),un=document.getElementById('sbUnit'),sv=document.getElementById('sbSv'),pop=document.getElementById('sbPop'),ct=document.getElementById('sbCta'),dots=document.getElementById('sbDots'),lb=document.getElementById('sbLbl');
+ dots.innerHTML=OFFERS.map(function(_,i){return '<i'+(i===0?' class="on"':'')+'></i>';}).join('');
+ if(OFFERS.length<2){var nc=sb.querySelector('.navchip');if(nc)nc.style.display='none';}
+ function render(){var o=OFFERS[oi];im.src=o.img;nm.textContent=o.nm;pk.textContent=o.pack;un.textContent=o.unit;sv.textContent=o.sv;pop.textContent=o.pop;ct.href=o.href;if(lb)lb.textContent=o.lbl||'';ct.textContent=o.cta||'Comprar';
+  dots.querySelectorAll('i').forEach(function(x,i){x.className=(i===oi?'on':'');});
+  sb.classList.remove('flash');void sb.offsetWidth;sb.classList.add('flash');}
+ document.getElementById('sbRot').addEventListener('click',function(){oi=(oi+1)%OFFERS.length;render();});
+ render();
+})();
+// carrusel de anuncios (hero)
+(function(){var tr=document.getElementById('heroTrack');if(!tr)return;var n=tr.children.length,i=0,dots=document.getElementById('heroDots'),timer=null,stopped=false,car=document.querySelector('.herocar');
+ var h='';for(var k=0;k<n;k++)h+='<i'+(k===0?' class="on"':'')+'></i>';dots.innerHTML=h;
+ function go(k){i=(k%n+n)%n;tr.style.transform='translateX('+(-i*100)+'%)';var d=dots.querySelectorAll('i');for(var j=0;j<d.length;j++)d[j].className=(j===i?'on':'');}
+ function play(){if(!stopped&&!timer)timer=setInterval(function(){go(i+1);},7000);}
+ function pause(){if(timer){clearInterval(timer);timer=null;}}
+ dots.addEventListener('click',function(e){var idx=Array.prototype.indexOf.call(dots.children,e.target);if(idx>=0){go(idx);stopped=true;pause();}});
+ if(car){car.addEventListener('mouseenter',pause);car.addEventListener('mouseleave',play);car.addEventListener('touchstart',function(){stopped=true;pause();},{passive:true});}
+ play();})();
+// barra de avisos rotativa + buscar
+(function(){var m=["Envío gratis en productos seleccionados","Paga con tarjeta, OXXO o Mercado Pago","Reflector Solar 50W · ilumina como 500W","Pago protegido con Mercado Pago"],el=document.getElementById('annmsg'),i=0;
+ if(el){setInterval(function(){i=(i+1)%m.length;el.style.opacity=0;setTimeout(function(){el.textContent=m[i];el.style.opacity=1;},350);},3500);}
+ // buscador que se abre/cierra al tocar el icono
+ var hs=document.getElementById('hSearch'),sb=document.getElementById('searchBar'),sx=document.getElementById('searchClose');
+ if(hs&&sb){hs.addEventListener('click',function(e){e.preventDefault();var show=(sb.style.display==='none'||!sb.style.display);sb.style.display=show?'flex':'none';if(show){var i=sb.querySelector('input');if(i){i.focus();sb.scrollIntoView({behavior:'smooth',block:'nearest'});}}});}
+ if(sx&&sb){sx.addEventListener('click',function(){sb.style.display='none';});}
+ // puntos de categorias que avanzan al deslizar
+ var cats=document.querySelector('.cats'),cd=document.getElementById('catDots');
+ if(cats&&cd){cats.addEventListener('scroll',function(){var mx=cats.scrollWidth-cats.clientWidth,f=mx>0?cats.scrollLeft/mx:0,d=cd.querySelectorAll('i'),idx=Math.round(f*(d.length-1));d.forEach(function(x,i){x.className=(i===idx?'on':'');});});}
+})();
+// asistente gatito robot (vendedor IA - demo; el cerebro Gemini se conecta despues)
+(function(){
+ var lc=document.getElementById('catLauncher'),cp=document.getElementById('chatPanel'),cx=document.getElementById('chatClose'),ms=document.getElementById('chatMsgs'),inp=document.getElementById('chatInput'),snd=document.getElementById('chatSend'),chips=document.getElementById('chatChips');
+ if(!lc||!cp)return;
+ var FOCO=A+"refl-armado.png";var PURL='/products/reflector-solar-led-50w-con-control-remoto-equivale-a-500w';
+ function add(who,html){var d=document.createElement('div');d.className='msg '+who;d.innerHTML=html;ms.appendChild(d);ms.scrollTop=ms.scrollHeight;}
+ // catalogo + carrito real
+ var CAT={
+  refl:{n:'Reflector Solar 50W · paquete de 2',d:'Ilumina como 500W · panel solar y control remoto',p:'$1,299',img:A+'refl-armado.png'}
+ };
+ var CART=JSON.parse(localStorage.getItem('buum_cart')||'[]');
+ function updateCartBadge(){var n=CART.reduce(function(a,x){return a+x.qty;},0);var el=document.getElementById('cartCount');if(el){el.textContent=n;el.style.display=n>0?'flex':'none';}}
+ updateCartBadge();
+ function showCard(code){var p=CAT[code];if(!p)return;var d=document.createElement('div');d.className='msg bot';
+  d.innerHTML='<div class="pcard"><img src="'+p.img+'"><div><b>'+p.n+'</b><div style="font-size:10.5px;color:#6a6f7e;margin:2px 0">'+p.d+'</div><div class="pp">'+p.p+'</div></div></div><a class="addbtn" href="'+PURL+'">Ver y comprar</a>';
+  ms.appendChild(d);ms.scrollTop=ms.scrollHeight;}
+ function addToCart(code){var p=CAT[code];if(!p)return;var f=CART.filter(function(x){return x.code===code;})[0];if(f){f.qty++;}else{CART.push({code:code,qty:1});}localStorage.setItem('buum_cart',JSON.stringify(CART));updateCartBadge();
+  add('bot','✅ ¡Listo! Agregué <b>'+p.n+'</b> ('+p.p+') a tu carrito 🛒. Dale al carrito de arriba cuando quieras pagar. ¿Te muestro algo más?');}
+ function handleReply(text){var tags=[];text=(text||'').replace(/\[\[(PROD|ADD):([a-z0-9]+)\]\]/gi,function(m,t,c){tags.push([t.toUpperCase(),c.toLowerCase()]);return '';}).trim();
+  if(text){add('bot',fmt(text));}
+  tags.forEach(function(t){if(t[0]==='PROD'){showCard(t[1]);}else if(t[0]==='ADD'){addToCart(t[1]);}});}
+ ms.addEventListener('click',function(e){var b=e.target.closest('.addbtn');if(b&&b.getAttribute('data-add')){addToCart(b.getAttribute('data-add'));}});
+ // botones "Agregar" de las tarjetas de producto -> carrito + avisito
+ function toastB(m){var t=document.getElementById('buumToast');if(!t){t=document.createElement('div');t.id='buumToast';t.style.cssText='position:fixed;bottom:88px;left:50%;transform:translateX(-50%) translateY(20px);background:#001866;color:#fff;padding:10px 18px;border-radius:12px;font-size:13px;font-weight:600;z-index:60;opacity:0;transition:.3s;box-shadow:0 8px 24px rgba(0,0,0,.35);max-width:88%;text-align:center';document.body.appendChild(t);}t.textContent=m;requestAnimationFrame(function(){t.style.opacity='1';t.style.transform='translateX(-50%) translateY(0)';});clearTimeout(t._h);t._h=setTimeout(function(){t.style.opacity='0';t.style.transform='translateX(-50%) translateY(20px)';},2200);}
+ function cartAddSilent(code){var p=CAT[code];if(!p)return;var f=CART.filter(function(x){return x.code===code;})[0];if(f){f.qty++;}else{CART.push({code:code,qty:1});}localStorage.setItem('buum_cart',JSON.stringify(CART));updateCartBadge();toastB('✓ '+p.n+' agregado al carrito 🛒');}
+ document.addEventListener('click',function(e){var b=e.target.closest('[data-addcart]');if(b){e.preventDefault();cartAddSilent(b.getAttribute('data-addcart'));}});
+ function reply(q){q=(q||'').toLowerCase();var r;
+  var PC='<div class="pcard"><img src="'+FOCO+'"><div><b>Reflector Solar 50W</b><div class="pp">2 x $1,299 · ilumina como 500W</div></div></div><a class="addbtn" href="'+PURL+'">Ver y comprar</a>';
+  if(/lluvia|agua|moja|intemperie|clima/.test(q)){
+   r='Sí. Está hecho para exteriores: resiste <b>lluvia, sol y polvo</b> (no sumergible). Lo instalas afuera sin problema.'+PC;
+  }else if(/cuánto|cuanto|precio|cuesta|vale/.test(q)){
+   r='El paquete de <b>2 reflectores</b> cuesta <b>$1,299</b> (sale a $650 cada uno) con <b>envío gratis</b> a todo México.'+PC;
+  }else if(/mayoreo|revend|varios|invertir|vender/.test(q)){
+   r='Por ahora manejamos el <b>paquete de 2 reflectores</b> ($1,299 con envío gratis). Si necesitas varias piezas, escríbenos por <a href="https://wa.me/526563143071" target="_blank" rel="noopener"><b>WhatsApp</b></a> y lo revisamos contigo.';
+  }else if(/patio|jard|exterior|afuera|calle|cochera|entrada|solar|luz|casa|negocio/.test(q)){
+   r='El <b>Reflector Solar 50W</b> es ideal para eso: se carga solo con el sol, da luz blanca potente (ilumina como 500W) y trae <b>control remoto</b>. No necesita cables ni sube tu recibo de luz.'+PC;
+  }else if(/compro|comprar|pago|pagar|carrito|pedido/.test(q)){
+   r='Muy fácil: toca <b>Comprar ahora</b>, elige tu forma de pago (tarjeta, OXXO o Mercado Pago) y te lo enviamos <b>gratis</b> a tu casa.'+PC;
+  }else{r='Cuéntame dónde lo quieres poner (patio, cochera, entrada, negocio…) y te digo si te sirve. También puedes escribirnos por <a href="https://wa.me/526563143071" target="_blank" rel="noopener"><b>WhatsApp</b></a>.';}
+  return r;
+ }
+ function open(){cp.classList.add('open');lc.style.display='none';if(!ms.children.length){add('bot','¡Hola! Soy el asistente de <b>BUUM</b>. Este es nuestro <b>Reflector Solar 50W</b> 👇');showCard('refl');add('bot','¿Dónde lo quieres poner? Te digo si te sirve.');}}
+ function close(){cp.classList.remove('open');lc.style.display='flex';}
+ lc.addEventListener('click',open);cx.addEventListener('click',close);
+ // botones de la página que abren al gatito con una pregunta (ej. "Quiero empezar a ganar")
+ document.addEventListener('click',function(e){var b=e.target.closest('[data-openia]');if(b){e.preventDefault();open();var q=b.getAttribute('data-openia');setTimeout(function(){send(q);},400);}});
+ var hist=[];
+ function fmt(t){t=(t||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');return t.replace(/\*\*(.+?)\*\*/g,'<b>$1</b>').replace(/\n/g,'<br>');}
+ function send(q){if(!q)return;add('me',fmt(q));hist.push({role:'user',text:q});inp.value='';
+  var w=document.createElement('div');w.className='msg bot';w.textContent='escribiendo…';ms.appendChild(w);ms.scrollTop=ms.scrollHeight;
+  fetch('http://localhost:8787/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({messages:hist})})
+   .then(function(r){return r.json();}).then(function(d){w.remove();hist.push({role:'model',text:d.reply});handleReply(d.reply);})
+   .catch(function(){w.remove();add('bot',reply(q));});}
+ snd.addEventListener('click',function(){send(inp.value.trim());});
+ inp.addEventListener('keydown',function(e){if(e.key==='Enter')send(inp.value.trim());});
+ chips.addEventListener('click',function(e){var b=e.target.closest('button');if(b&&b.dataset.q)send(b.dataset.q);});
+ // ===== SOFÍA — chat real estilo DM (mismo cerebro) =====
+ var iMsgs=document.getElementById('iMsgs'),iInput=document.getElementById('iInput'),iChips=document.getElementById('iChips'),iSnd=document.getElementById('iSend');
+ if(iMsgs){
+  function iBot(html){var d=document.createElement('div');d.className='smsg bot';d.innerHTML='<div class="mbx">'+html+'</div>';iMsgs.appendChild(d);iMsgs.scrollTop=iMsgs.scrollHeight;}
+  function iMe(t){var d=document.createElement('div');d.className='smsg me';d.innerHTML='<div class="mbx">'+fmt(t)+'</div>';iMsgs.appendChild(d);iMsgs.scrollTop=iMsgs.scrollHeight;}
+  function iSend(q){if(!q)return;iMe(q);if(iInput)iInput.value='';var t=document.createElement('div');t.className='smsg bot typing';t.innerHTML='<div class="mbx"><i></i><i></i><i></i></div>';iMsgs.appendChild(t);iMsgs.scrollTop=iMsgs.scrollHeight;setTimeout(function(){t.remove();iBot(reply(q));},1100);}
+  if(iSnd&&iInput){iSnd.addEventListener('click',function(){iSend(iInput.value.trim());});iInput.addEventListener('keydown',function(e){if(e.key==='Enter')iSend(iInput.value.trim());});}
+  if(iChips)iChips.addEventListener('click',function(e){var b=e.target.closest('button');if(b&&b.dataset.q)iSend(b.dataset.q);});
+  iMsgs.addEventListener('click',function(e){var b=e.target.closest('.addbtn');if(b&&b.getAttribute('data-add')){cartAddSilent(b.getAttribute('data-add'));iBot('✅ ¡Listo! Lo agregué a tu carrito 🛒');}});
+  iBot('¡Hola! Soy <b>Sofía</b>. Te ayudo a elegir tu reflector y resuelvo tus dudas. Escríbeme o toca una opción 👇');
+ }
+})();
+</script>
+</div>
+
+
+{%- comment -%} BUUM-UI-FIX v5 {%- endcomment -%}
+<style>
+.bx .catbubble{position:relative !important;padding-right:24px !important;}
+.bx .catbubble .cbx{position:absolute;top:2px;right:6px;font-size:14px;line-height:1;color:#9aa1b4;cursor:pointer;font-weight:700;}
+/* etiquetas de la barra mas grandes */
+.bx .head .navi span{font-size:11px !important;font-weight:700 !important;color:#001866 !important;letter-spacing:0 !important;max-width:100%;overflow:hidden;}
+/* barra de confianza/pago seguro */
+.bx .paysafe{background:#fff !important;border:1px solid #e6ecfb !important;border-radius:16px !important;padding:12px 14px !important;margin:14px !important;box-shadow:0 6px 16px rgba(90,110,150,.14) !important;font-size:11.5px !important;}
+.bx .paysafe span{display:inline-flex !important;align-items:center !important;gap:5px !important;}
+/* barra de confianza PRO */
+.bx .trustbar{display:grid;grid-template-columns:1fr 1fr;gap:11px 12px;background:#fff;border:1px solid #eceff7;border-radius:18px;padding:15px 14px;margin:14px;box-shadow:0 8px 22px rgba(90,110,150,.13);}
+.bx .trustbar .ti{display:flex;align-items:center;gap:10px;min-width:0;}
+.bx .trustbar .tiico{flex:0 0 auto;width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 11px rgba(20,30,60,.18);}
+.bx .trustbar .tiico svg{width:22px;height:22px;fill:#fff;}
+.bx .trustbar .gcheck{background:linear-gradient(135deg,#37d885,#12a150);}
+.bx .trustbar .gcard{background:linear-gradient(135deg,#4a63e0,#102AC4);}
+.bx .trustbar .gtruck{background:linear-gradient(135deg,#ff8a3d,#EA5003);}
+.bx .trustbar .gbox{background:linear-gradient(135deg,#41528f,#001866);}
+.bx .trustbar .titx{display:flex;flex-direction:column;line-height:1.18;min-width:0;}
+.bx .trustbar .titx b{font-size:12.5px;color:#001866;font-weight:800;}
+.bx .trustbar .titx small{font-size:10px;color:#6a7290;font-weight:600;}
+/* icono de la seccion Productos: con aire y fondo suave (no recortado) */
+.bx .sec .ico{background:radial-gradient(circle at 50% 38%,#ffffff,#fff2e8) !important;padding:9px !important;}
+.bx .sec .ico img{width:32px !important;height:32px !important;}
+/* === REFLECTOR: solo se ocultan las tarjetas de reventa sin datos === */
+.bx .mcar,.bx #mDots,.bx .may .cathint{display:none !important;}
+.bx .reflcard{margin:6px 14px 4px;background:#fff;border:1px solid #eceff7;border-radius:22px;overflow:hidden;box-shadow:0 12px 30px rgba(90,110,150,.16);}
+.bx .reflimg{position:relative;background:#fff;display:flex;align-items:center;justify-content:center;padding:14px 14px 4px;}
+.bx .reflimg img{width:78%;max-height:230px;object-fit:contain;filter:drop-shadow(0 10px 20px rgba(90,110,150,.28));}
+.bx .reflbadge{position:absolute;top:12px;right:12px;background:linear-gradient(135deg,#ff8a3d,#EA5003);color:#fff;font-family:'Baloo 2';font-size:15px;padding:6px 13px;border-radius:14px;box-shadow:0 6px 15px rgba(234,80,3,.4);}
+.bx .reflbody{padding:4px 16px 16px;}
+.bx .reflcat{color:#EA5003;font-size:11px;font-weight:800;letter-spacing:.05em;}
+.bx .reflti{font-family:'Baloo 2';font-size:20px;color:#001866;margin:2px 0 10px;}
+.bx .reflben{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-bottom:12px;}
+.bx .reflben span{font-size:12px;color:#46506e;font-weight:600;}
+.bx .reflben span::before{content:"✓";color:#16a06f;font-weight:800;margin-right:6px;}
+.bx .reflpr{display:flex;align-items:baseline;gap:8px;margin-bottom:12px;}
+.bx .reflpr b{font-family:'Baloo 2';font-size:30px;color:#EA5003;}
+.bx .reflpr span{font-size:12px;color:#6a7290;font-weight:600;}
+.bx .reflbuy{display:block;text-align:center;background:linear-gradient(135deg,#ff7a2f,#EA5003);color:#fff;font-family:'Baloo 2';font-size:18px;padding:14px;border-radius:15px;text-decoration:none;box-shadow:0 8px 20px rgba(234,80,3,.4);}
+.bx .reflbuy:active{transform:translateY(1px);}
+/* redes sociales mas grandes y con brillo */
+.bx .soc{width:44px !important;height:44px !important;border-radius:13px !important;flex:0 0 auto !important;}
+.bx .soc img{width:24px !important;height:24px !important;}
+.bx .soc+.soc{margin-left:6px !important;}
+.bx .soc.ig{box-shadow:0 9px 22px rgba(214,41,118,.45) !important;}
+.bx .soc.fb{box-shadow:0 9px 22px rgba(24,119,242,.45) !important;}
+.bx .soc.tt{box-shadow:0 9px 22px rgba(0,0,0,.42) !important;}
+.bx .soc:hover{transform:translateY(-3px) scale(1.06) !important;}
+.bx .socbar .tt{flex:1 1 auto !important;min-width:0 !important;white-space:normal !important;font-size:19px !important;}
+.bx .socgrid{display:flex;flex-wrap:wrap;width:96px;gap:8px;justify-content:center;flex:0 0 auto;}
+.bx .socgrid .soc:first-child{margin:0 26px !important;}
+.bx .secure .sfoot{display:inline-block !important;white-space:nowrap !important;}
+.bx .secure .sfoot .snote{display:block;font-size:10px;font-weight:600;color:#4a7a62;margin-top:3px;white-space:normal;letter-spacing:0;}
+.bx .grid .card:only-child{grid-column:1/-1;}
+.bx .grid .card:only-child .ph{height:210px;background:#fff;}
+.bx .grid .card:only-child .ph img{object-fit:contain;padding:10px;}
+.bx .sec .soc.tk{background:#010101;box-shadow:0 9px 22px rgba(0,0,0,.42) !important;}
+.bx .sec .soc.wa{background:#25D366;box-shadow:0 9px 22px rgba(37,211,102,.45) !important;}
+.bx .socgrid .soc+.soc{margin-left:0 !important;}
+/* scrollbar fina y discreta */
+html{scrollbar-width:thin;scrollbar-color:rgba(90,110,150,.45) transparent;}
+::-webkit-scrollbar{width:6px;height:6px;}
+::-webkit-scrollbar-track{background:transparent;}
+::-webkit-scrollbar-thumb{background:rgba(90,110,150,.4);border-radius:8px;}
+::-webkit-scrollbar-thumb:hover{background:rgba(90,110,150,.6);}
+/* pagos simetricos */
+.bx .pmethods{align-items:stretch !important;}
+.bx .pmethods .pm{display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:14px 6px 12px !important;}
+.bx .pmethods .logos{height:56px !important;}
+.bx .pmethods .logos img{height:24px !important;}
+.bx .pmethods .oxxo .logos img{height:40px !important;}
+.bx .pmethods .mpchip{width:52px !important;height:52px !important;border-radius:14px !important;}
+.bx .pmethods .mpchip img{height:34px !important;width:34px !important;}
+.bx .pmethods .lbl{font-size:12px !important;margin-top:8px !important;white-space:nowrap;}
+/* iconos de seccion dibujados (no imagen pegada) */
+.bx .sec .ico svg{width:24px;height:24px;fill:#fff;position:relative;z-index:1;}
+.bx .sec .ico.icoheart{background:linear-gradient(135deg,#ff8a3d,#EA5003) !important;}
+.bx .sec .ico.icofaq{background:linear-gradient(135deg,#4a63e0,#102AC4) !important;}
+.bx .sec .ico.icofaq b{font-family:'Baloo 2';font-size:30px;color:#fff;position:relative;z-index:1;line-height:1;}
+/* menu hamburguesa: redes al final */
+.bx .hmenu .hmsoc{display:flex;gap:9px;justify-content:center;padding:10px 6px 4px;border-top:1px solid #eef0f6;margin-top:7px;}
+.bx .hmenu .hmsoc .hs{width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;box-shadow:0 5px 12px rgba(90,110,150,.25);}
+.bx .hmenu .hmsoc .hs img{width:22px;height:22px;}
+.bx .hmenu .hmsoc .wa{background:#25D366;}
+.bx .hmenu .hmsoc .ig{background:linear-gradient(135deg,#feda75,#fa7e1e 25%,#d62976 55%,#962fbf 80%,#4f5bd5);}
+.bx .hmenu .hmsoc .fb{background:#1877F2;}
+.bx .hmenu .hmsoc .tk{background:#010101;}
+@media (max-width:520px){
+  .bx .superbuy{gap:5px;padding:6px 7px;}
+  .bx .superbuy .pic{flex:0 0 30%;height:54px;}
+  .bx .superbuy .info{flex:1 1 auto;min-width:0;}
+  .bx .superbuy .info .p1,.bx .superbuy .info .p2{white-space:normal;}
+  .bx .superbuy .info .p2{flex-wrap:wrap;gap:4px;margin-top:2px;}
+  .bx .superbuy .cta{font-size:12px;padding:10px 11px;}
+}
+/* que los 5 iconos quepan en movil */
+@media (max-width:440px){
+  .bx .head .navi img{width:40px;height:40px;padding:5px;}
+  .bx .head .navwrap{gap:1px;}
+  .bx .head .navi span{font-size:8px;}
+}
+/* hamburguesa: metodo robusto con flex (no absoluto) */
+.bx .annbar{position:relative;justify-content:space-between !important;}
+.bx .annbar .hspacer{flex:0 0 38px;}
+.bx .annbar #annmsg{flex:1 1 auto;text-align:center;}
+.bx .hambtn{flex:0 0 38px;width:38px;height:30px;margin:0;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.45);border-radius:10px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:4px;cursor:pointer;padding:0;}
+.bx .hambtn span{display:block;height:2.4px;width:18px;background:#fff;border-radius:3px;transition:.25s;}
+.bx .hambtn[aria-expanded="true"] span:nth-child(1){transform:translateY(6.4px) rotate(45deg);}
+.bx .hambtn[aria-expanded="true"] span:nth-child(2){opacity:0;}
+.bx .hambtn[aria-expanded="true"] span:nth-child(3){transform:translateY(-6.4px) rotate(-45deg);}
+.bx .hmenu{display:none;position:absolute;top:100%;right:6px;margin-top:7px;z-index:60;background:#fff;border-radius:16px;box-shadow:0 16px 40px rgba(20,30,60,.28);padding:8px;min-width:200px;border:1px solid #eef0f6;}
+.bx .hmenu.open{display:block;animation:hmpop .16s ease;}
+@keyframes hmpop{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+.bx .hmenu .hmrow{display:flex;align-items:center;gap:12px;padding:7px 9px;color:#001866;text-decoration:none;font-weight:700;font-size:14.5px;border-radius:12px;}
+.bx .hmenu .hmrow:hover{background:#f4f6fb;}
+.bx .hmenu .hmrow img{width:34px;height:34px;object-fit:contain;padding:4px;border-radius:10px;background:#fff;border:1.5px solid #e6ecfb;box-shadow:0 3px 8px rgba(90,110,150,.16);}
+</style>
+<script>
+(function(){
+  function ready(fn){if(document.readyState!='loading'){fn();}else{document.addEventListener('DOMContentLoaded',fn);}}
+  ready(function(){
+    var l=document.getElementById('catLauncher');
+    if(l){var b=l.querySelector('.catbubble');
+      if(b){ if(!b.querySelector('.cbx')){var x=document.createElement('span');x.className='cbx';x.setAttribute('role','button');x.setAttribute('aria-label','Cerrar');x.innerHTML='&times;';x.addEventListener('click',function(e){e.stopPropagation();b.style.display='none';});b.appendChild(x);}
+        setTimeout(function(){b.style.display='none';},5000);}}
+    var hb=document.getElementById('hambBtn'),hm=document.getElementById('hMenu');
+    if(hb&&hm){
+      hb.addEventListener('click',function(e){e.stopPropagation();hm.classList.toggle('open');hb.setAttribute('aria-expanded',hm.classList.contains('open'));});
+      document.addEventListener('click',function(e){if(!hm.contains(e.target)&&!hb.contains(e.target)){hm.classList.remove('open');hb.setAttribute('aria-expanded','false');}});
+      hm.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){hm.classList.remove('open');});});
+      var hmB=document.getElementById('hmBuscar');
+      if(hmB){hmB.addEventListener('click',function(e){e.preventDefault();var s=document.getElementById('hSearch');if(s){s.click();}});}
+    }
+  });
+})();
+</script>
+
+{% schema %}{"name":"BUUM Tienda","settings":[]}{% endschema %}

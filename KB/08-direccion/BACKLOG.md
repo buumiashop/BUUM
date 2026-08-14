@@ -30,7 +30,7 @@ en el Congelador hasta que el Fundador confirme su llegada como realidad.
 
 | ID | Tarea | Propósito (qué cambia en la realidad) | Clase | Estado | Fuente (realidad confirmada) |
 |---|---|---|---|---|---|
-| B1 | Fundador revisa el preview del tema (link entregado 2026-08-14) y dicta cambios — o lo aprueba tal cual | Cierra lo último antes de publicar la tienda | Crítica | en curso | ESTADO-ACTUAL §Falta-1 (el Fundador ya no recuerda qué quería editar → re-revisión visual) |
+| B1 | Contenido de la página al 100% (proceso híbrido: BUUM especifica imágenes → Fundador genera en ChatGPT → BUUM las monta). Tema APROBADO por el Fundador; Tanda 1 (reseñas honestas, galería real, datos reflector) ya subida al preview. SIN video por ahora (decisión Fundador) | Cierra lo último antes de publicar la tienda | Crítica | en curso | Veredicto Fundador 2026-08-14 |
 | B2 | Publicar el tema "BUUM PRO preview" (CLI) | La tienda real deja de ser borrador | Crítica | aprobada (tras B1) | ESTADO-ACTUAL §Falta-2 |
 | B3 | Activar el producto reflector (borrador → activo) | Se puede comprar | Crítica | aprobada (tras B2) | ESTADO-ACTUAL §Falta-3 |
 | B4 | Quitar contraseña de la tienda (Fundador, 1 clic) | Tienda abierta al público | Crítica | aprobada (decide Fundador cuándo) | ESTADO-ACTUAL §Falta-4 |
