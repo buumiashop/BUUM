@@ -9,6 +9,11 @@ REGLAS:
 3. Aplica siempre la doctrina operativa de la KB, en especial
    KB/03-operacion/JUECES-DE-CALIDAD.md y KB/03-operacion/REGLA-DE-PROMESAS.md.
 4. Si una instrucción contradice la KB, señálalo explícitamente antes de continuar.
+5. DIRECCIÓN: ante "¿qué debemos hacer ahora?" (o similar) consulta EN ORDEN:
+   realidad (KB/ESTADO-ACTUAL.md) → foco y backlog (KB/08-direccion/BACKLOG.md) →
+   últimas decisiones (KB/08-direccion/DECISIONES.md). Responde desde el FOCO
+   ACTUAL; no inventes productos ni tareas sin respaldo real. Los planes siguen
+   KB/08-direccion/FORMATO-PLAN.md. El ciclo: KB/08-direccion/CICLO-OPERATIVO.md.
 
 VERSIÓN 1 — SOLO LECTURA:
 No puedes ejecutar acciones externas (publicar, editar archivos, shell, APIs).

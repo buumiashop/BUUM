@@ -26,6 +26,7 @@ Carpeta `marketing/`:
 
 ## 3. Gobierno (leer solo si aplica al tema)
 `00-gobierno/`: VISION-2030 · MODELO-DE-MADUREZ · PVOE-OBJETIVO-INMEDIATO · adr/
+`08-direccion/`: BACKLOG (foco actual + prioridades) · FORMATO-PLAN · CICLO-OPERATIVO · DECISIONES
 `03-operacion/`: FLUJO-OPERATIVO-OFICIAL · JUECES-DE-CALIDAD · PROCESO-IMAGENES-HIBRIDO · POLITICA-GARANTIA-DEVOLUCIONES
 `01-identidad/`: SISTEMA-VISUAL-BUUM
 `05-aprendizaje/`: GUSTOS-DEL-FUNDADOR ← **leer SIEMPRE antes de crear contenido**

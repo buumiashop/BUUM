@@ -7,7 +7,7 @@
 ---
 
 ## 🟢 LO QUE YA ESTÁ LISTO
-- **Producto reflector** en Shopify: paquete de 2, **$1,299**, inventario **10**, peso **4 kg**, caja **32×19×5 cm**, SKU R54W50, 13 fotos, descripción + ficha técnica. Handle: `reflector-solar-led-50w-con-control-remoto-equivale-a-500w`. ⚠️ Está en **BORRADOR** (falta activarlo).
+- **Producto reflector** en Shopify: paquete de 2, **$1,299**, inventario **10**, peso **4 kg (⚠️ NO verificado físicamente — pendiente pesar)**, caja **32×19×5 cm**, SKU R54W50, 13 fotos, descripción + ficha técnica. Handle: `reflector-solar-led-50w-con-control-remoto-equivale-a-500w`. ⚠️ Está en **BORRADOR** (falta activarlo).
 - **Pagos**: Mercado Pago Checkout Pro activo (tarjeta, OXXO, meses). El dinero cae en la cuenta MP del Fundador.
 - **Legal**: políticas (privacidad auto, reembolsos, términos, envíos, contacto) + **banner de cookies** activado.
 - **Página/tema NUEVO** (preview): tema **"BUUM PRO preview" id `191665471810`** (SIN publicar). Ya convertido a **puro reflector**:
@@ -34,9 +34,12 @@
 - Iconos: se generan con Replicate flux (claves en `aurora-cafe/claves.local.txt`), se les quita fondo con `rembg`, se aclaran con PIL. Assets del reflector en `tema-vivo/assets/` (ico-*.png, refl-*.png).
 
 ## 📦 Datos del producto (reflector)
-- Reflector 19×15×5 cm · Panel 30×17×1 cm · Caja 32×19×5 cm · ~2 kg c/u (4 kg el 2-pack).
+- Reflector 19×15×5 cm · Panel 30×17×1 cm · Caja 32×19×5 cm · ~2 kg c/u (4 kg el 2-pack) — **⚠️ estimado, NO verificado**: pesar físicamente antes de usarlo como dato oficial (ficha técnica, Shopify, envío, cotización, publicidad, documentación).
 - Panel+cable+conector = **UNA SOLA PIEZA**. NO mencionar baterías (regla). Etiqueta "50W/500W" abajo-derecha.
 - Método de precios: costo×3. Reflector cuesta $300 → 2-pack $1,299. **OJO competencia:** focos/reflectores similares a ~$300 en ML → margen difícil; por eso venta local + este 2-pack.
+
+## Prioridades vivas
+Foco actual y backlog de dirección: ver `KB/08-direccion/BACKLOG.md`.
 
 ## Mapa de fuentes de verdad
 Jerarquía y ubicación de cada tipo de información (KB, SQLite, datos, secretos,

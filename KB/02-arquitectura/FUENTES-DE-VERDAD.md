@@ -11,6 +11,7 @@
 | Memoria de conversación del agente | **SQLite** (no modifica la KB) | `/var/lib/buum/db/agente.db` (servidor) |
 | Estado operativo y métricas | archivos de datos (cuando existan colectores, FASE 13D) | `datos/` (repo) y `/var/lib/buum/data/` (servidor) |
 | Aprendizaje | `KB/05-aprendizaje/` — entra SOLO por commit aprobado por el Fundador | `KB/05-aprendizaje/` |
+| Dirección (foco actual, backlog, veredictos del Fundador) | `KB/08-direccion/` (BACKLOG, DECISIONES; formales → `adr/`) | `KB/08-direccion/` |
 | Secretos | archivos env del servidor (nunca en git, nunca en KB) | `/etc/buum/` (admin: `buum.env` · agente: `agent.env`) |
 | Código | **git** (GitHub privado `buumiashop/BUUM`) | `C:\Users\playg\BUUM` (trabajo) ↔ `/opt/buum` (producción) |
 
