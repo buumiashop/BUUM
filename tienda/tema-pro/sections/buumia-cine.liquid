@@ -173,36 +173,41 @@
   <div class="galhead"><b>✦ Galería · Reflector Solar 50W</b><button id="galClose" aria-label="Cerrar">&times;</button></div>
   <div class="galsub">Toca cualquier foto para verla en grande</div>
   <div class="galgrid">
+    {% assign galp = all_products['reflector-solar-led-50w-con-control-remoto-equivale-a-500w'] %}
+    {% for gim in galp.images limit: 2 %}<img src="{{ gim | image_url: width: 800 }}" loading="lazy" alt="{{ galp.title | escape }}">{% endfor %}
     <img src="{{ 'gal-01.jpg' | asset_url }}" loading="lazy" alt="Carne asada iluminada por el reflector">
-    <img src="{{ 'gal-09.jpg' | asset_url }}" loading="lazy" alt="Detalle del panel LED">
-    <img src="{{ 'gal-02.jpg' | asset_url }}" loading="lazy" alt="Ferretería iluminada de noche">
+    <img src="{{ 'gal-10.jpg' | asset_url }}" loading="lazy" alt="Panel solar al atardecer">
     <img src="{{ 'gal-13.jpg' | asset_url }}" loading="lazy" alt="El reflector en buenas manos">
+    {% for gim in galp.images limit: 2 offset: 2 %}<img src="{{ gim | image_url: width: 800 }}" loading="lazy" alt="{{ galp.title | escape }}">{% endfor %}
+    <img src="{{ 'gal-02.jpg' | asset_url }}" loading="lazy" alt="Ferretería iluminada de noche">
+    <img src="{{ 'gal-09.jpg' | asset_url }}" loading="lazy" alt="Detalle del panel LED">
     <img src="{{ 'gal-03.jpg' | asset_url }}" loading="lazy" alt="Papelería de esquina">
+    {% for gim in galp.images limit: 2 offset: 4 %}<img src="{{ gim | image_url: width: 800 }}" loading="lazy" alt="{{ galp.title | escape }}">{% endfor %}
     <img src="{{ 'gal-11.jpg' | asset_url }}" loading="lazy" alt="Gotas de lluvia sobre el panel — IP66">
     <img src="{{ 'gal-05.jpg' | asset_url }}" loading="lazy" alt="Rancho iluminado sin cables">
-    <img src="{{ 'refl-taller.jpg' | asset_url }}" loading="lazy" alt="Taller mecánico de noche">
+    <img src="{{ 'refl-hero-kit.jpg' | asset_url }}" loading="lazy" alt="Kit completo">
     <img src="{{ 'gal-07.jpg' | asset_url }}" loading="lazy" alt="Puesto de tacos con luz blanca">
-    <img src="{{ 'gal-10.jpg' | asset_url }}" loading="lazy" alt="Panel solar al atardecer">
+    {% for gim in galp.images limit: 2 offset: 6 %}<img src="{{ gim | image_url: width: 800 }}" loading="lazy" alt="{{ galp.title | escape }}">{% endfor %}
     <img src="{{ 'gal-04.jpg' | asset_url }}" loading="lazy" alt="Cochera segura de noche">
-    <img src="{{ 'gal-12.jpg' | asset_url }}" loading="lazy" alt="El haz de luz en la oscuridad">
+    <img src="{{ 'refl-taller.jpg' | asset_url }}" loading="lazy" alt="Taller mecánico de noche">
     <img src="{{ 'gal-06.jpg' | asset_url }}" loading="lazy" alt="Cascarita de fútbol nocturna">
+    {% for gim in galp.images limit: 2 offset: 8 %}<img src="{{ gim | image_url: width: 800 }}" loading="lazy" alt="{{ galp.title | escape }}">{% endfor %}
+    <img src="{{ 'gal-12.jpg' | asset_url }}" loading="lazy" alt="El haz de luz en la oscuridad">
     <img src="{{ 'refl-hero-patio.jpg' | asset_url }}" loading="lazy" alt="Patio iluminado de noche">
     <img src="{{ 'gal-08.jpg' | asset_url }}" loading="lazy" alt="Bodega industrial">
-    <img src="{{ 'refl-hero-kit.jpg' | asset_url }}" loading="lazy" alt="Kit completo">
-    {% assign galp = all_products['reflector-solar-led-50w-con-control-remoto-equivale-a-500w'] %}{% for gim in galp.images limit: 6 %}<img src="{{ gim | image_url: width: 800 }}" loading="lazy" alt="{{ galp.title | escape }}">{% endfor %}
   </div>
   <div class="galcta"><a href="/products/reflector-solar-led-50w-con-control-remoto-equivale-a-500w">Comprar el paquete de 2 · $1,299 →</a></div>
 </div>
 <div class="galbig" id="galBig"><button id="galBigClose" aria-label="Cerrar">&times;</button><img id="galBigImg" alt=""></div>
 <style>
-.bx .galov{position:fixed;inset:0;z-index:70;background:#070b18;display:none;overflow-y:auto;padding:0 0 46px;}
+.bx .galov{position:fixed;inset:0;z-index:70;background:linear-gradient(rgba(255,255,255,.6),rgba(255,255,255,.6)),url({{ 'fondo-3-plata.png' | asset_url }}) center top/cover,#e7ebf3;display:none;overflow-y:auto;padding:0 0 46px;}
 .bx .galov.open{display:block;}
-.bx .galhead{position:sticky;top:0;z-index:2;display:flex;align-items:center;justify-content:space-between;padding:14px 16px;background:#070b18;}
-.bx .galhead b{font-family:'Baloo 2';font-size:17px;color:#fff;}
-.bx .galhead button{background:rgba(255,255,255,.14);border:none;color:#fff;font-size:24px;width:38px;height:38px;border-radius:50%;cursor:pointer;line-height:1;}
-.bx .galsub{text-align:center;color:#9fb0d8;font-size:11.5px;margin:2px 0 10px;}
-.bx .galgrid{columns:2;column-gap:10px;padding:0 12px;max-width:520px;margin:0 auto;}
-.bx .galgrid img{width:100%;border-radius:14px;margin-bottom:10px;display:block;box-shadow:0 10px 26px rgba(0,0,0,.55);cursor:zoom-in;background:#fff;break-inside:avoid;}
+.bx .galhead{position:sticky;top:0;z-index:2;display:flex;align-items:center;justify-content:space-between;padding:14px 16px;background:rgba(255,255,255,.65);backdrop-filter:blur(14px) saturate(1.4);-webkit-backdrop-filter:blur(14px) saturate(1.4);border-bottom:1px solid rgba(255,255,255,.9);box-shadow:0 6px 18px rgba(120,130,160,.14);}
+.bx .galhead b{font-family:'Baloo 2';font-size:17px;color:var(--navy);}
+.bx .galhead button{background:#fff;border:1.5px solid #e2e8fb;color:var(--navy);font-size:24px;width:38px;height:38px;border-radius:50%;cursor:pointer;line-height:1;box-shadow:0 4px 12px rgba(120,130,160,.2);}
+.bx .galsub{text-align:center;color:#5a6480;font-size:11.5px;font-weight:600;margin:10px 0;}
+.bx .galgrid{columns:2;column-gap:12px;padding:0 12px;max-width:520px;margin:0 auto;}
+.bx .galgrid img{width:100%;border-radius:6px;margin-bottom:12px;display:block;box-shadow:0 10px 24px rgba(120,130,160,.28);cursor:zoom-in;background:#fff;padding:8px 8px 22px;break-inside:avoid;border:1px solid #fff;}
 .bx .galcta{text-align:center;margin-top:16px;}
 .bx .galcta a{display:inline-block;background:var(--orange);color:#fff;font-family:'Baloo 2';font-size:15px;padding:12px 22px;border-radius:13px;text-decoration:none;box-shadow:0 8px 20px rgba(234,80,3,.45);}
 .bx .galbig{position:fixed;inset:0;z-index:80;background:rgba(0,0,0,.94);display:none;align-items:center;justify-content:center;padding:14px;}
