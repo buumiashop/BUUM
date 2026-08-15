@@ -45,9 +45,9 @@
   </div>
 
   <div class="cats">
-    <a href="#productos"><div class="inner"><div class="img"><img src="{{ 'reflector.png' | asset_url }}"></div><div class="nm"><span class="d"></span>Reflectores</div></div></a>
-    <a href="#" id="abrirGaleria"><div class="inner"><div class="img"><img src="{{ 'refl-taller.jpg' | asset_url }}" style="height:96px;width:100%;object-fit:cover"></div><div class="nm"><span class="d" style="background:#13b6d6;box-shadow:0 0 8px #13b6d6"></span>Galería</div></div></a>
-    <a href="#informacion"><div class="inner"><div class="img" style="background:radial-gradient(70% 80% at 50% 35%,#fff0c2,#fff)"><img src="{{ 'ico-bus.png' | asset_url }}"></div><div class="nm"><span class="d" style="background:#d99a00;box-shadow:0 0 8px #d99a00"></span>Información</div></div></a>
+    <a href="#productos"><div class="inner"><div class="img"><img src="{{ 'cat-reflectores.jpg' | asset_url }}" style="height:96px;width:100%;object-fit:cover"></div><div class="nm"><span class="d"></span>Reflectores</div></div></a>
+    <a href="#" id="abrirGaleria"><div class="inner"><div class="img"><img src="{{ 'cat-galeria.jpg' | asset_url }}" style="height:96px;width:100%;object-fit:cover"></div><div class="nm"><span class="d" style="background:#13b6d6;box-shadow:0 0 8px #13b6d6"></span>Galería</div></div></a>
+    <a href="#informacion"><div class="inner"><div class="img"><img src="{{ 'cat-info.jpg' | asset_url }}" style="height:96px;width:100%;object-fit:cover"></div><div class="nm"><span class="d" style="background:#d99a00;box-shadow:0 0 8px #d99a00"></span>Información</div></div></a>
     {%- comment -%} CATEGORIAS FUTURAS OFF (solo 1 producto) — reactivar cuando haya más productos:
     <a class="soon"><div class="inner"><div class="img" style="background:radial-gradient(70% 80% at 50% 35%,#fff0c2,#fff)"><span class="soonrib">Pronto</span></div><div class="nm"><span class="d" style="background:#d99a00;box-shadow:0 0 8px #d99a00"></span>Solares</div></div></a>
     <a class="soon"><div class="inner"><div class="img" style="background:radial-gradient(70% 80% at 50% 35%,#ece3ff,#fff)"><span class="soonrib">Pronto</span></div><div class="nm"><span class="d" style="background:#8b5cf6;box-shadow:0 0 8px #8b5cf6"></span>Ventiladores</div></div></a>
@@ -163,7 +163,7 @@
 </div>
 <div class="superbuy" id="superbuy">
   <div class="navchip"><button class="rot" id="sbRot" title="Ver otra oferta">‹</button><div class="dots" id="sbDots"></div></div>
-  <div class="pic"><span class="pop" id="sbPop">PAQUETE DE 2</span><img id="sbImg" src="{{ 'refl-armado-tight.png' | asset_url }}" alt="Reflector Solar 50W" style="height:58px;border-radius:8px"></div>
+  <div class="pic"><span class="pop" id="sbPop">PAQUETE DE 2</span><img id="sbImg" src="{{ 'sb-kit-naranja.jpg' | asset_url }}" alt="Reflector Solar 50W" style="height:100%;width:100%;object-fit:cover;border-radius:10px"></div>
   <div class="info"><div class="nm" id="sbNm">Reflector Solar 50W</div><div class="p1"><b id="sbPack">$1,299</b> <span id="sbLbl">los 2</span></div><div class="p2"><span class="u" id="sbUnit">$650 c/u</span><span class="sv" id="sbSv">Envío gratis</span></div></div>
   <a class="cta" id="sbCta" href="/products/reflector-solar-led-50w-con-control-remoto-equivale-a-500w">Comprar</a>
 </div>
@@ -173,10 +173,23 @@
   <div class="galhead"><b>✦ Galería · Reflector Solar 50W</b><button id="galClose" aria-label="Cerrar">&times;</button></div>
   <div class="galsub">Toca cualquier foto para verla en grande</div>
   <div class="galgrid">
-    <img src="{{ 'refl-hero-patio.jpg' | asset_url }}" loading="lazy" alt="Reflector iluminando un patio de noche">
-    {% assign galp = all_products['reflector-solar-led-50w-con-control-remoto-equivale-a-500w'] %}{% for gim in galp.images %}<img src="{{ gim | image_url: width: 800 }}" loading="lazy" alt="{{ galp.title | escape }}">{% endfor %}
-    <img src="{{ 'refl-taller.jpg' | asset_url }}" loading="lazy" alt="Reflector en la entrada de un negocio">
-    <img src="{{ 'refl-hero-kit.jpg' | asset_url }}" loading="lazy" alt="Kit completo: reflector, panel solar y control">
+    <img src="{{ 'gal-01.jpg' | asset_url }}" loading="lazy" alt="Carne asada iluminada por el reflector">
+    <img src="{{ 'gal-09.jpg' | asset_url }}" loading="lazy" alt="Detalle del panel LED">
+    <img src="{{ 'gal-02.jpg' | asset_url }}" loading="lazy" alt="Ferretería iluminada de noche">
+    <img src="{{ 'gal-13.jpg' | asset_url }}" loading="lazy" alt="El reflector en buenas manos">
+    <img src="{{ 'gal-03.jpg' | asset_url }}" loading="lazy" alt="Papelería de esquina">
+    <img src="{{ 'gal-11.jpg' | asset_url }}" loading="lazy" alt="Gotas de lluvia sobre el panel — IP66">
+    <img src="{{ 'gal-05.jpg' | asset_url }}" loading="lazy" alt="Rancho iluminado sin cables">
+    <img src="{{ 'refl-taller.jpg' | asset_url }}" loading="lazy" alt="Taller mecánico de noche">
+    <img src="{{ 'gal-07.jpg' | asset_url }}" loading="lazy" alt="Puesto de tacos con luz blanca">
+    <img src="{{ 'gal-10.jpg' | asset_url }}" loading="lazy" alt="Panel solar al atardecer">
+    <img src="{{ 'gal-04.jpg' | asset_url }}" loading="lazy" alt="Cochera segura de noche">
+    <img src="{{ 'gal-12.jpg' | asset_url }}" loading="lazy" alt="El haz de luz en la oscuridad">
+    <img src="{{ 'gal-06.jpg' | asset_url }}" loading="lazy" alt="Cascarita de fútbol nocturna">
+    <img src="{{ 'refl-hero-patio.jpg' | asset_url }}" loading="lazy" alt="Patio iluminado de noche">
+    <img src="{{ 'gal-08.jpg' | asset_url }}" loading="lazy" alt="Bodega industrial">
+    <img src="{{ 'refl-hero-kit.jpg' | asset_url }}" loading="lazy" alt="Kit completo">
+    {% assign galp = all_products['reflector-solar-led-50w-con-control-remoto-equivale-a-500w'] %}{% for gim in galp.images limit: 6 %}<img src="{{ gim | image_url: width: 800 }}" loading="lazy" alt="{{ galp.title | escape }}">{% endfor %}
   </div>
   <div class="galcta"><a href="/products/reflector-solar-led-50w-con-control-remoto-equivale-a-500w">Comprar el paquete de 2 · $1,299 →</a></div>
 </div>
@@ -245,7 +258,7 @@
 })();
 // SUPER BOTON rotativo: ofertas que el cliente puede ir cambiando
 var OFFERS=[
- {img:A+"refl-armado-tight.png",nm:"Reflector Solar 50W",pack:"$1,299",lbl:"los 2",unit:"$650 c/u",sv:"Envío gratis",pop:"PAQUETE DE 2",href:"/products/reflector-solar-led-50w-con-control-remoto-equivale-a-500w",cta:"Comprar"}
+ {img:A+"sb-kit-naranja.jpg",nm:"Reflector Solar 50W",pack:"$1,299",lbl:"los 2",unit:"$650 c/u",sv:"Envío gratis",pop:"PAQUETE DE 2",href:"/products/reflector-solar-led-50w-con-control-remoto-equivale-a-500w",cta:"Comprar"}
  {%- comment -%} MAYOREO OFF — reactivar quitando este comment:
  ,{img:A+"reflector.png",nm:"Mayoreo para negocios",pack:"Precio especial",lbl:"",unit:"varias piezas",sv:"Por WhatsApp",pop:"MAYOREO",href:"https://wa.me/526563143071",cta:"Cotizar"}
  {%- endcomment -%}
