@@ -65,7 +65,13 @@
         <div class="pr"><div class="unit"><b>$1,299</b><span>los 2</span></div><div class="box">Sale a <b>$650 c/u</b></div><span class="save">Envío gratis incluido</span></div>
         <div class="btnrow"><a class="b" href="/products/reflector-solar-led-50w-con-control-remoto-equivale-a-500w">Comprar</a><a class="b2" href="/products/reflector-solar-led-50w-con-control-remoto-equivale-a-500w">Ver detalles</a></div></div></div>
     {%- endcomment -%}
-    <div class="card" style="grid-column:1/-1;margin-top:0"><div class="ph" style="display:flex;gap:6px;overflow-x:auto;align-items:center;background:#fff;padding:8px;scrollbar-width:none"><img src="{{ 'prod-01.jpg' | asset_url }}" loading="lazy" style="height:100%;width:auto;object-fit:contain;border-radius:10px;flex:0 0 auto"><img src="{{ 'prod-02.jpg' | asset_url }}" loading="lazy" style="height:100%;width:auto;object-fit:contain;border-radius:10px;flex:0 0 auto"><img src="{{ 'prod-03.jpg' | asset_url }}" loading="lazy" style="height:100%;width:auto;object-fit:contain;border-radius:10px;flex:0 0 auto"><img src="{{ 'prod-04.jpg' | asset_url }}" loading="lazy" style="height:100%;width:auto;object-fit:contain;border-radius:10px;flex:0 0 auto"><img src="{{ 'prod-05.jpg' | asset_url }}" loading="lazy" style="height:100%;width:auto;object-fit:contain;border-radius:10px;flex:0 0 auto"><img src="{{ 'prod-06.jpg' | asset_url }}" loading="lazy" style="height:100%;width:auto;object-fit:contain;border-radius:10px;flex:0 0 auto"><span class="bd">GALERÍA</span></div>
+    <div class="card" style="grid-column:1/-1;margin-top:0"><div class="ph galteaser">
+      <img src="{{ 'gal-14.jpg' | asset_url }}" alt="">
+      <img src="{{ 'gal-05.jpg' | asset_url }}" alt="">
+      <img src="{{ 'gal-11.jpg' | asset_url }}" alt="">
+      <img src="{{ 'gal-18.jpg' | asset_url }}" alt="">
+      <span class="galtag">✦ 20+ piezas</span>
+    <span class="bd">GALERÍA</span></div>
       <div class="info"><div class="cat">REFLECTOR SOLAR 50W</div><div class="ti">Conócelo de cerca</div>
         <div class="pr"><div class="box"><b>Fotos reales</b> del producto · desliza →</div></div>
         <div class="btnrow"><a class="b2" href="#" id="abrirGaleria2">Ver la galería completa</a></div></div></div>
@@ -174,18 +180,18 @@
   <div class="galhead"><b>✦ Galería · Reflector Solar 50W</b><button id="galClose" aria-label="Cerrar">&times;</button></div>
   <div class="galsub">Toca cualquier foto para verla en grande</div>
   <div class="galgrid">
-        <img src="{{ 'prod-01.jpg' | asset_url }}" loading="lazy" alt="Reflector Solar 50W — foto real"><img src="{{ 'prod-02.jpg' | asset_url }}" loading="lazy" alt="Reflector Solar 50W — foto real">
+        
     <img src="{{ 'gal-01.jpg' | asset_url }}" loading="lazy" alt="Carne asada iluminada por el reflector">
     <img src="{{ 'gal-14.jpg' | asset_url }}" loading="lazy" alt="Panel cargando al sol entre buganvilias">
     <img src="{{ 'gal-10.jpg' | asset_url }}" loading="lazy" alt="Panel solar al atardecer">
     <img src="{{ 'gal-13.jpg' | asset_url }}" loading="lazy" alt="El reflector en buenas manos">
-    <img src="{{ 'prod-03.jpg' | asset_url }}" loading="lazy" alt="Reflector Solar 50W — foto real"><img src="{{ 'prod-04.jpg' | asset_url }}" loading="lazy" alt="Reflector Solar 50W — foto real">
+    
     <img src="{{ 'gal-02.jpg' | asset_url }}" loading="lazy" alt="Ferretería iluminada de noche">
     <img src="{{ 'gal-09.jpg' | asset_url }}" loading="lazy" alt="Detalle del panel LED">
     <img src="{{ 'gal-15.jpg' | asset_url }}" loading="lazy" alt="El kit completo a la luz del día">
     <img src="{{ 'gal-03.jpg' | asset_url }}" loading="lazy" alt="Papelería de esquina">
     <img src="{{ 'gal-16.jpg' | asset_url }}" loading="lazy" alt="Instalación fácil con dos tornillos">
-    <img src="{{ 'prod-05.jpg' | asset_url }}" loading="lazy" alt="Reflector Solar 50W — foto real"><img src="{{ 'prod-06.jpg' | asset_url }}" loading="lazy" alt="Reflector Solar 50W — foto real">
+    
     <img src="{{ 'gal-11.jpg' | asset_url }}" loading="lazy" alt="Gotas de lluvia sobre el panel — IP66">
     <img src="{{ 'gal-05.jpg' | asset_url }}" loading="lazy" alt="Rancho iluminado sin cables">
     <img src="{{ 'gal-17.jpg' | asset_url }}" loading="lazy" alt="Amanecer: la luz que trabajó toda la noche">
@@ -205,6 +211,22 @@
 </div>
 <div class="galbig" id="galBig"><button id="galBigClose" aria-label="Cerrar">&times;</button><img id="galBigImg" alt=""></div>
 <style>
+
+.bx .galteaser{position:relative;height:210px;overflow:hidden;background:#0d142e;padding:0!important;display:block!important;}
+.bx .galteaser img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;animation:galcycle 20s ease-in-out infinite;}
+.bx .galteaser img:nth-of-type(1){animation-delay:0s;}
+.bx .galteaser img:nth-of-type(2){animation-delay:5s;}
+.bx .galteaser img:nth-of-type(3){animation-delay:10s;}
+.bx .galteaser img:nth-of-type(4){animation-delay:15s;}
+@keyframes galcycle{0%{opacity:0;transform:scale(1.12);}5%{opacity:1;}25%{opacity:1;transform:scale(1);}32%{opacity:0;transform:scale(1);}100%{opacity:0;}}
+.bx .galteaser .galtag{position:absolute;right:10px;bottom:10px;z-index:3;background:rgba(255,255,255,.85);backdrop-filter:blur(6px);color:var(--navy);font-size:10.5px;font-weight:800;padding:4px 10px;border-radius:9px;box-shadow:0 3px 10px rgba(0,0,0,.18);}
+.bx .galov.open .galgrid img{animation:galin .55s cubic-bezier(.2,.7,.3,1) both;}
+.bx .galov.open .galgrid img:nth-child(1){animation-delay:.05s;}.bx .galov.open .galgrid img:nth-child(2){animation-delay:.1s;}
+.bx .galov.open .galgrid img:nth-child(3){animation-delay:.15s;}.bx .galov.open .galgrid img:nth-child(4){animation-delay:.2s;}
+.bx .galov.open .galgrid img:nth-child(5){animation-delay:.25s;}.bx .galov.open .galgrid img:nth-child(6){animation-delay:.3s;}
+.bx .galov.open .galgrid img:nth-child(7){animation-delay:.35s;}.bx .galov.open .galgrid img:nth-child(8){animation-delay:.4s;}
+@keyframes galin{from{opacity:0;transform:translateY(16px) scale(.97);}to{opacity:1;transform:none;}}
+
 .bx .galov{position:fixed;inset:0;z-index:70;background:linear-gradient(rgba(255,255,255,.6),rgba(255,255,255,.6)),url({{ 'fondo-3-plata.png' | asset_url }}) center top/cover,#e7ebf3;display:none;overflow-y:auto;padding:0 0 46px;}
 .bx .galov.open{display:block;}
 .bx .galhead{position:sticky;top:0;z-index:2;display:flex;align-items:center;justify-content:space-between;padding:14px 16px;background:rgba(255,255,255,.65);backdrop-filter:blur(14px) saturate(1.4);-webkit-backdrop-filter:blur(14px) saturate(1.4);border-bottom:1px solid rgba(255,255,255,.9);box-shadow:0 6px 18px rgba(120,130,160,.14);}
