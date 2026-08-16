@@ -36,7 +36,7 @@ en el Congelador hasta que el Fundador confirme su llegada como realidad.
 | B4 | Quitar contraseña de la tienda (Fundador, 1 clic) | Tienda abierta al público | Crítica | aprobada (decide Fundador cuándo) | ESTADO-ACTUAL §Falta-4 |
 | B5 | Anuncios del reflector (proceso oficial: ChatGPT genera, jueces filtran) → primeras ventas | Empieza la venta y la medición real | Operativa | propuesta (tras B4) | ESTADO-ACTUAL §Falta-5 |
 | B6 | FASE 13D — colectores de datos reales (Shopify/Meta, solo lectura) | La realidad entra al sistema; dirigir con datos | Operativa | aprobada (Fundador, Fase 13; se ejecuta tras 13B/13C) | Mandato Fase 13 |
-| B7 | Paquetería automática: investigar y proponer app Shopify multi-paquetería MX (Skydropx / Envia.com / Mienvío) — guía se genera e imprime sola al caer el pedido | Resuelve el envío (bloqueador real) como quiere el Fundador: automático | Crítica | aprobada (investigar y proponer; Fundador elige) | Decisión Fundador 2026-08-14 |
+| B7 | Paquetería automática: BUUM investigó y recomendó **Envia.com** (4.4★/458 reseñas, guía+tracking automáticos, pago por guía; Skydropx descartada por quejas de recargos de peso). Falta: Fundador instala app + cuenta + saldo; BUUM configura reglas. ⚠️ Pesar paquete en báscula antes del 1er envío | Resuelve el envío (bloqueador real) como quiere el Fundador: automático | Crítica | en curso (recomendación entregada 2026-08-16) | Decisión Fundador 2026-08-14 |
 
 ## 🗄️ Congelador (ideas — SIN foco operativo, no se trabajan)
 - Foco LED 60W propio desde China (~3,000 pzas, Alibaba) — idea estratégica registrada en `KB/07-estrategia/`; espera confirmación de realidad (dinero de ventas + orden del Fundador).
