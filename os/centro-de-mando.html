@@ -7,6 +7,7 @@
 *{box-sizing:border-box;margin:0;}
 body{background:radial-gradient(1200px 600px at 80% -10%,rgba(16,42,196,.25),transparent),var(--bg);color:var(--ink);font-family:Poppins,sans-serif;}
 .app{display:flex;min-height:100vh;}
+.dbadge{font-style:normal;font-size:8px;font-weight:800;padding:1px 5px;border-radius:6px;background:rgba(22,160,111,.18);color:#4fe0a6;vertical-align:middle;}.dbadge.calc{background:rgba(0,188,255,.15);color:#7fdcff;}
 /* sidebar */
 .side{width:230px;background:linear-gradient(180deg,#0c1428,#0a1122);border-right:1px solid var(--line);padding:16px 12px;position:sticky;top:0;height:100vh;flex:0 0 auto;overflow-y:auto;}
 .side .logo{display:flex;align-items:center;gap:9px;margin-bottom:2px;}
@@ -351,11 +352,12 @@ h2{font-family:'Baloo 2';font-size:23px;color:#fff;margin-bottom:2px;}
       <div class="lead">Métete cuando quieras (un lunes en la mañana o un domingo en la noche) y mira cómo va toda la empresa de un vistazo.</div>
       <div class="hero"><span class="pill">PARA EL CEO</span><h3 id="greet">Buenas, jefe 👋 Esto es BUUM hoy</h3><p>Estás en <b>Fase 1 (pre-lanzamiento)</b>: marca, arsenal de contenido y tienda casi listos. Lo que falta para empezar a facturar está abajo en "Necesita tu atención". Tú decides; la IA ejecuta.</p></div>
       <div class="tiles" style="margin-top:14px">
-        <div class="tile"><span class="k">💰</span><b>$0</b><span>Ventas (aún no lanzas)</span></div>
-        <div class="tile"><span class="k">📦</span><b>0</b><span>Pedidos</span></div>
-        <div class="tile"><span class="k">🖼️</span><b id="kTrab">0</b><span>Trabajos entregados</span></div>
-        <div class="tile"><span class="k">🔌</span><b>4/6</b><span>Conectado (Gemini·Replicate·FB·IG)</span></div>
+        <div class="tile"><span class="k">💰</span><b id="dVentas">—</b><span>Ventas brutas <i class="dbadge" id="bVentas"></i></span></div>
+        <div class="tile"><span class="k">📦</span><b id="dPedidos">—</b><span>Pedidos <i class="dbadge" id="bPedidos"></i></span></div>
+        <div class="tile"><span class="k">🔦</span><b id="dInv">—</b><span>Inventario reflector <i class="dbadge" id="bInv"></i></span></div>
+        <div class="tile"><span class="k">🧾</span><b id="dUnid">—</b><span>Unidades vendidas <i class="dbadge" id="bUnid"></i></span></div>
       </div>
+      <div id="dFuente" style="font-size:10.5px;color:var(--dim);margin-top:6px">📡 Conectando con la realidad…</div>
       <div class="section">⚠️ Necesita tu atención (decisiones del dueño)</div>
       <div class="att"><span class="em">🛒</span><div><b>Definir los productos reales a vender</b><div class="s">Idea: reflectores solares recargables (en stock) + combos, con margen 2x. Sin esto no se lanza.</div></div><button class="btn o" data-go="ops">Ver operaciones →</button></div>
       <div class="att"><span class="em">💳</span><div><b>Conectar pagos (Mercado Pago: tarjeta y OXXO)</b><div class="s">El carrito hoy es visual. Sin checkout real, no se cobra.</div></div><button class="btn g" data-go="conex">Conexiones →</button></div>
@@ -940,6 +942,23 @@ document.getElementById('greet').textContent=s+', jefe 👋 Esto es BUUM hoy';
  $('chatTxt').addEventListener('keydown',function(e){if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();enviar();}});
  $('chatNueva').addEventListener('click',nueva);
  document.querySelectorAll('.navitem[data-view="chatb"]').forEach(function(n){n.addEventListener('click',function(){cargarConvs(true);});});
+})();
+</script>
+<script>/* ===== FASE 13D: datos reales desde snapshots ===== */
+(function(){
+ function pinta(id,bid,m,fmt){var el=document.getElementById(id),b=document.getElementById(bid);if(!el)return;
+  if(!m){el.textContent='—';return;}
+  el.textContent=(m.valor===null||m.valor===undefined)?'N/D':(fmt?fmt(m.valor):m.valor);
+  if(b){b.textContent=(m.tipo==='REAL')?'REAL':((m.tipo==='CALCULADO')?'CALC':'N/D');b.className='dbadge'+((m.tipo!=='REAL')?' calc':'');}}
+ fetch('/api/datos').then(function(r){return r.json();}).then(function(d){
+  var s=d.shopify;if(!s||!s.metricas)throw 0;var M=s.metricas;
+  pinta('dVentas','bVentas',M.ventas_brutas,function(v){return '$'+Number(v).toLocaleString('es-MX');});
+  pinta('dPedidos','bPedidos',M.pedidos_totales_historicos);
+  pinta('dInv','bInv',M.inventario_reflector);
+  pinta('dUnid','bUnid',M.unidades_vendidas);
+  var f=document.getElementById('dFuente');
+  if(f){var t=new Date(s.extraido_en);f.innerHTML='📡 <b style="color:#4fe0a6">DATOS REALES</b> · Fuente: Shopify · Actualizado: '+t.toLocaleString('es-MX')+(d.meta&&d.meta.metricas?' · Meta ✓':'');}
+ }).catch(function(){var f=document.getElementById('dFuente');if(f)f.textContent='⚠️ Sin conexión con los snapshots (abre por el túnel del servidor). Los números de arriba son maqueta.';});
 })();
 </script>
 <script>/* ===== JUEGO: Camino al éxito ===== */

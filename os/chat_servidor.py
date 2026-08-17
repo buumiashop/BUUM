@@ -35,6 +35,26 @@ logging.basicConfig(filename="/var/log/buum/chat.log", level=logging.INFO,
                     format="%(asctime)s %(levelname)s %(message)s")
 log = logging.getLogger("buum.chat")
 
+
+
+def datos_reales():
+    """FASE 13D: ultimo snapshot por fuente (solo lectura de datos/snapshots)."""
+    base = os.path.join(RAIZ, "datos", "snapshots")
+    out = {}
+    for fuente in ("shopify", "meta"):
+        d = os.path.join(base, fuente)
+        if os.path.isdir(d):
+            dias = sorted(x for x in os.listdir(d) if os.path.isdir(os.path.join(d, x)))
+            if dias:
+                try:
+                    with open(os.path.join(d, dias[-1], "snapshot.json"), encoding="utf-8") as f:
+                        sn = json.load(f)
+                    out[fuente] = {"dia": dias[-1], "extraido_en": sn.get("extraido_en"),
+                                   "estado": sn.get("estado"), "metricas": sn.get("metricas")}
+                except Exception:
+                    out[fuente] = {"dia": dias[-1], "estado": "ERROR_LECTURA"}
+    return out
+
 AGENTE = Agente()
 CANDADO = threading.Lock()  # una llamada al agente a la vez (512MB RAM)
 
@@ -70,6 +90,8 @@ class Peticion(BaseHTTPRequestHandler):
     def do_GET(self):
         ruta = self.path.split("?", 1)[0]
         try:
+            if ruta == "/api/datos":
+                return self._json(datos_reales())
             if ruta == "/api/chat/conversaciones":
                 return self._json({"conversaciones": DB().listar_conversaciones()})
             if ruta == "/api/chat/mensajes":
