@@ -38,6 +38,11 @@
 - Panel+cable+conector = **UNA SOLA PIEZA**. NO mencionar baterías (regla). Etiqueta "50W/500W" abajo-derecha.
 - Método de precios: costo×3. Reflector cuesta $300 → 2-pack $1,299. **OJO competencia:** focos/reflectores similares a ~$300 en ML → margen difícil; por eso venta local + este 2-pack.
 
+## Datos reales (FASE 13D)
+Colectores solo-lectura en `scripts/colectores/` (Shopify + Meta) -> snapshots en
+`datos/snapshots/` (servidor; gitignored) -> `/api/datos` -> Centro de Mando (tiles
+REAL/CALC) y agente. Correr a mano: `python3 scripts/colectores/observar_shopify.py` (como buum).
+
 ## Prioridades vivas
 Foco actual y backlog de dirección: ver `KB/08-direccion/BACKLOG.md`.
 

@@ -35,7 +35,7 @@ en el Congelador hasta que el Fundador confirme su llegada como realidad.
 | B3 | Activar el producto reflector (borrador → activo) | Se puede comprar | Crítica | HECHA 2026-08-17 (validar en prueba) | ESTADO-ACTUAL §Falta-3 |
 | B4 | Quitar contraseña de la tienda (Fundador, 1 clic) | Tienda abierta al público | Crítica | aprobada (decide Fundador cuándo) | ESTADO-ACTUAL §Falta-4 |
 | B5 | Anuncios del reflector (proceso oficial: ChatGPT genera, jueces filtran) → primeras ventas | Empieza la venta y la medición real | Operativa | propuesta (tras B4) | ESTADO-ACTUAL §Falta-5 |
-| B6 | FASE 13D — colectores de datos reales (Shopify/Meta, solo lectura) | La realidad entra al sistema; dirigir con datos | Operativa | aprobada (Fundador, Fase 13; se ejecuta tras 13B/13C) | Mandato Fase 13 |
+| B6 | FASE 13D — colectores de datos reales (Shopify/Meta, solo lectura) | La realidad entra al sistema; dirigir con datos | Operativa | HECHA 2026-08-17 (colectores Shopify+Meta, snapshots, Centro de Mando real, 2 pruebas verticales) | Mandato Fase 13 |
 | B7 | Paquetería automática: BUUM investigó y recomendó **Envia.com** (4.4★/458 reseñas, guía+tracking automáticos, pago por guía; Skydropx descartada por quejas de recargos de peso). Falta: Fundador instala app + cuenta + saldo; BUUM configura reglas. ⚠️ Pesar paquete en báscula antes del 1er envío | Resuelve el envío (bloqueador real) como quiere el Fundador: automático | Crítica | en curso (recomendación entregada 2026-08-16) | Decisión Fundador 2026-08-14 |
 
 ## 🗄️ Congelador (ideas — SIN foco operativo, no se trabajan)
