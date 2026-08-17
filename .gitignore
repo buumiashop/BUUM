@@ -47,3 +47,6 @@ marketing/por-autorizar/
 *.db-wal
 *.db-shm
 __pycache__/
+
+# Snapshots de realidad (dato operativo, no institucional)
+datos/snapshots/
