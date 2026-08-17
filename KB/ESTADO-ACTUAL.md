@@ -1,5 +1,5 @@
 # 📍 ESTADO ACTUAL — dónde vamos exactamente
-> Actualizado: **2026-08-04** (cambio de chat → continúa con Fable 5). Se reescribe cada "cambia de chat".
+> Actualizado: **2026-08-17** (tema PUBLICADO + producto ACTIVO; tienda cerrada con contraseña para pruebas). Se reescribe cada "cambia de chat".
 
 ## Objetivo inmediato
 **Lanzar la tienda con UN solo producto: el Reflector Solar 50W** (paquete de 2). Empezar a vender, practicar publicidad y correr el ciclo completo. Después integrar más productos.
@@ -7,10 +7,10 @@
 ---
 
 ## 🟢 LO QUE YA ESTÁ LISTO
-- **Producto reflector** en Shopify: paquete de 2, **$1,299**, inventario **10**, peso **4 kg (⚠️ NO verificado físicamente — pendiente pesar)**, caja **32×19×5 cm**, SKU R54W50, 13 fotos, descripción + ficha técnica. Handle: `reflector-solar-led-50w-con-control-remoto-equivale-a-500w`. ⚠️ Está en **BORRADOR** (falta activarlo).
+- **Producto reflector** en Shopify: paquete de 2, **$1,299**, inventario **10**, peso **4 kg (⚠️ NO verificado físicamente — pendiente pesar)**, caja **32×19×5 cm**, SKU R54W50, 13 fotos, descripción + ficha técnica. Handle: `reflector-solar-led-50w-con-control-remoto-equivale-a-500w`. ✅ **ACTIVO** (2026-08-17).
 - **Pagos**: Mercado Pago Checkout Pro activo (tarjeta, OXXO, meses). El dinero cae en la cuenta MP del Fundador.
 - **Legal**: políticas (privacidad auto, reembolsos, términos, envíos, contacto) + **banner de cookies** activado.
-- **Página/tema NUEVO** (preview): tema **"BUUM PRO preview" id `191665471810`** (SIN publicar). Ya convertido a **puro reflector**:
+- **Tema "BUUM PRO preview" id `191665471810`: PUBLICADO (tema en vivo, 2026-08-17)**. Contenido 100%: hero 3 escenas, galería de arte día/noche con efectos, portadas claras, paquetería conectada (Envia automática + Skydropx comparador). Ya convertido a **puro reflector**:
   - Iconos 3D claros de marca (bolsa, lupa, rayo, WhatsApp, carrito) + menú hamburguesa con iconos + Mayoreo/Usuario.
   - Logo/gatito más grande. WhatsApp verde en la barra (656 314 3071). Redes sociales 44px.
   - Barra de confianza PRO (compra segura, pago protegido MP, envío asegurado, producto real).
