@@ -1,5 +1,5 @@
 # 📍 ESTADO ACTUAL — dónde vamos exactamente
-> Actualizado: **2026-08-17** (tema PUBLICADO + producto ACTIVO; tienda cerrada con contraseña para pruebas). Se reescribe cada "cambia de chat".
+> Actualizado: **2026-08-17** (🟢 TIENDA ABIERTA AL PUBLICO desde 2026-08-17: tema publicado, producto activo, SIN contraseña — verificado desde el exterior). Se reescribe cada "cambia de chat".
 
 ## Objetivo inmediato
 **Lanzar la tienda con UN solo producto: el Reflector Solar 50W** (paquete de 2). Empezar a vender, practicar publicidad y correr el ciclo completo. Después integrar más productos.
