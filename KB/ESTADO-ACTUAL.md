@@ -38,6 +38,13 @@
 - Panel+cable+conector = **UNA SOLA PIEZA**. NO mencionar baterías (regla). Etiqueta "50W/500W" abajo-derecha.
 - Método de precios: costo×3. Reflector cuesta $300 → 2-pack $1,299. **OJO competencia:** focos/reflectores similares a ~$300 en ML → margen difícil; por eso venta local + este 2-pack.
 
+## Siempre despierto (F4 — 2026-08-18)
+- Bandeja + Centro de Mando: servicio systemd `buum-bandeja` (usuario buum-agent,
+  auto-arranque y auto-reinicio; sobrevive reinicios del droplet). Acceso: tunel SSH 8131.
+- Colectores AUTOMATICOS diarios: cron de `buum` a las 13:00 UTC (7am Chihuahua) ->
+  snapshots frescos cada manana, log en /var/log/buum/colectores.log.
+- Consejo de Direccion: MANUAL a peticion (doctrina 13F); con datos siempre frescos.
+
 ## Datos reales (FASE 13D)
 Colectores solo-lectura en `scripts/colectores/` (Shopify + Meta) -> snapshots en
 `datos/snapshots/` (servidor; gitignored) -> `/api/datos` -> Centro de Mando (tiles
