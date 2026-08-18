@@ -28,7 +28,9 @@ Un ciclo SOLO se activa cuando existe:
 2. un **evento real** (venta, falla, cambio del mercado, mensaje de cliente);
 3. una **tarea aprobada** por el Fundador;
 4. **nueva evidencia** (datos que contradicen lo asumido);
-5. una **rutina explícitamente autorizada** por el Fundador (hoy: ninguna).
+5. una **rutina explícitamente autorizada** por el Fundador. Autorizadas hoy:
+   **Consejo de Dirección SEMANAL (manual)** — FASE 13F, skill `consejo-direccion`,
+   flujo en `consejos/README.md`. Ninguna otra.
 
 **Prohibido** crear actividad artificial para mantener BUUM "ocupado". Si no hay
 disparador, el sistema descansa; eso es correcto, no es fallo.

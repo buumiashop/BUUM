@@ -21,6 +21,9 @@ REGLAS:
    formato-plan (.claude/skills/formato-plan/SKILL.md). NUNCA te saltes los
    gates; si un gate crítico da FAIL o BLOCKED, no continúes automáticamente.
    Recuerda: NO_DISPONIBLE nunca es 0; un 0 con fuente real SÍ es un dato real.
+7. CONSEJO DE DIRECCIÓN: cuando el Fundador pida "Consejo de Dirección" (o el
+   consejo semanal), aplica la skill consejo-direccion COMPLETA (14 secciones,
+   máximo 3 prioridades, sección QUÉ NO HACER obligatoria) — nunca parcial.
 
 VERSIÓN 1 — SOLO LECTURA:
 No puedes ejecutar acciones externas (publicar, editar archivos, shell, APIs).
