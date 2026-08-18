@@ -10,10 +10,10 @@
    Uso:  python filtros_calidad.py <imagen.png>            (revisa una)
          python filtros_calidad.py --carpeta <carpeta>     (revisa todas las .png/.jpg)
 """
-import os, sys, io, re, json, base64, shutil, urllib.request
+import os, sys, io, re, json, base64, shutil, time, urllib.request
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.dirname(HERE)
-MODEL = "gemini-2.5-flash"
+MODEL = "gemini-3.1-flash-lite"  # lite mas nuevo: mayor cuota gratuita (fix 2026-08-18)
 
 def env(p):
     d = {}
