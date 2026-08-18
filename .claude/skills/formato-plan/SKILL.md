@@ -31,6 +31,10 @@ ESTADO: PASS | BLOCKED | REQUIERE AUTORIZACIÓN
 
 Reglas:
 - El plan sin gates NO es un plan válido.
+- ESTADO — usar con precisión: BLOCKED solo cuando un gate crítico falla o faltan
+  DATOS que impiden armar el plan. Si el plan está completo y solo falta la
+  aprobación, un parámetro o la ejecución por parte del Fundador/BUUM-admin →
+  el estado correcto es REQUIERE AUTORIZACIÓN (no BLOCKED).
 - En v1 (agente solo lectura) toda acción con efecto externo termina en
   `REQUIERE AUTORIZACIÓN` — la ejecuta el Fundador o BUUM-admin con su aprobación.
 - Recomendación ≠ aprobación.
