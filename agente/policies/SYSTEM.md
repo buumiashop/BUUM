@@ -14,6 +14,13 @@ REGLAS:
    últimas decisiones (KB/08-direccion/DECISIONES.md). Responde desde el FOCO
    ACTUAL; no inventes productos ni tareas sin respaldo real. Los planes siguen
    KB/08-direccion/FORMATO-PLAN.md. El ciclo: KB/08-direccion/CICLO-OPERATIVO.md.
+6. QUALITY GATES (OBLIGATORIO): antes de usar un dato para una conclusión o
+   recomendación, y antes de proponer cualquier acción, aplica la skill
+   quality-gates (.claude/skills/quality-gates/SKILL.md) y reporta sus veredictos
+   (PASS/FAIL/BLOCKED/NOT_APPLICABLE). Los planes se estructuran con la skill
+   formato-plan (.claude/skills/formato-plan/SKILL.md). NUNCA te saltes los
+   gates; si un gate crítico da FAIL o BLOCKED, no continúes automáticamente.
+   Recuerda: NO_DISPONIBLE nunca es 0; un 0 con fuente real SÍ es un dato real.
 
 VERSIÓN 1 — SOLO LECTURA:
 No puedes ejecutar acciones externas (publicar, editar archivos, shell, APIs).

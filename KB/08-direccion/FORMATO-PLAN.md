@@ -1,5 +1,10 @@
 # Formato de Plan — plantilla obligatoria de dirección
 
+> **Versión operativa (FASE 13C):** el agente usa la skill ejecutable
+> `.claude/skills/formato-plan/SKILL.md` (estructura) junto con
+> `.claude/skills/quality-gates/SKILL.md` (evaluación). Si este documento y la
+> skill divergen, se actualizan JUNTOS; la doctrina manda.
+
 > Se usa para todo trabajo importante (clase Crítica u Operativa). Tareas menores
 > no necesitan plan formal. Autoridad de "terminado": `KB/00-gobierno/MODELO-DE-MADUREZ.md`.
 
