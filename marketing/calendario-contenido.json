@@ -1,0 +1,4 @@
+{
+  "nota": "Calendario del Departamento de Contenido. Solo se publican piezas con estado 'aprobado' (aprobacion del Fundador). cuando_utc en UTC (Chihuahua = UTC-6: las 20:30 MX = 02:30 UTC del dia siguiente). imagen_url debe ser URL publica (CDN de la tienda).",
+  "piezas": []
+}
